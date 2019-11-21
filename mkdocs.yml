@@ -1,6 +1,6 @@
 site_name: swoole document
 site_url: https://swooleo.github.io/docs/
 nav:
-- About: index.md
-- Getting Started: getting-started.md
+- 介绍: 介绍.md
+- 快速开始: 快速开始.md
 theme: readthedocs
