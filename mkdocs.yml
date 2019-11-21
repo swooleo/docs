@@ -1,0 +1,6 @@
+site_name: swoole document
+site_url: https://swooleo.github.io/docs/
+nav:
+- About: index.md
+- Getting Started: getting-started.md
+theme: readthedocs
