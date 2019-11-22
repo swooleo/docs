@@ -84,6 +84,75 @@ swoole
 PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 19
 ```
 
+## hook_flags
+
+可以在运行时动态将基于`php_stream`实现的扩展、`PHP`网络客户端代码一键协程化。`Swoole`创建协程的时候，默认是不会`hook`的。
+
+可以`hook`的`flag`有：
+
+```php
+SWOOLE_HOOK_TCP
+SWOOLE_HOOK_UDP
+SWOOLE_HOOK_UNIX
+SWOOLE_HOOK_UDG
+SWOOLE_HOOK_SSL
+SWOOLE_HOOK_TLS
+SWOOLE_HOOK_STREAM_FUNCTION
+SWOOLE_HOOK_FILE
+SWOOLE_HOOK_SLEEP
+SWOOLE_HOOK_PROC
+SWOOLE_HOOK_BLOCKING_FUNCTION
+SWOOLE_HOOK_CURL
+```
+
+例子：
+
+没有`hook`的`sleep`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+```
+
+```shell
+1
+2
+```
+
+`hook`的`sleep`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_SLEEP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+```
+
+```shell
+2
+1
+```
+
 ## c_stack_size
 
 设置单个协程初始栈的内存尺寸，单位是`B`，默认为`2 * 1024 * 1024B`，即`2MB`。范围：`256 * 1024B ～ 16 * 1024 * 1024`。
