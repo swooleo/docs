@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/set/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/scheduler/set/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Set - swoole document</title>
+        <title>Scheduler::Set - swoole document</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#set" tabindex="1" class="md-skip">
+      <a href="#coroutineset" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Set
+                Scheduler::Set
               
             </span>
           
@@ -218,6 +218,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Coroutine
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Coroutine
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -225,10 +246,100 @@
       
     
     
-    <a href="./" title="Set" class="md-nav__link md-nav__link--active">
-      Set
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Scheduler::Set
+      </label>
+    
+    <a href="./" title="Scheduler::Set" class="md-nav__link md-nav__link--active">
+      Scheduler::Set
     </a>
     
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#max_coroutine" class="md-nav__link">
+    max_coroutine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c_stack_size" class="md-nav__link">
+    c_stack_size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log_level" class="md-nav__link">
+    log_level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace_flags" class="md-nav__link">
+    trace_flags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_connect_timeout" class="md-nav__link">
+    socket_connect_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_timeout" class="md-nav__link">
+    socket_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns_cache_expire" class="md-nav__link">
+    dns_cache_expire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns_cache_capacity" class="md-nav__link">
+    dns_cache_capacity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_preemptive_scheduler" class="md-nav__link">
+    enable_preemptive_scheduler
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -254,6 +365,78 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#max_coroutine" class="md-nav__link">
+    max_coroutine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c_stack_size" class="md-nav__link">
+    c_stack_size
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log_level" class="md-nav__link">
+    log_level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace_flags" class="md-nav__link">
+    trace_flags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_connect_timeout" class="md-nav__link">
+    socket_connect_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_timeout" class="md-nav__link">
+    socket_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns_cache_expire" class="md-nav__link">
+    dns_cache_expire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns_cache_capacity" class="md-nav__link">
+    dns_cache_capacity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_preemptive_scheduler" class="md-nav__link">
+    enable_preemptive_scheduler
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -265,7 +448,101 @@
               
                 
                 
-                <h1 id="set">set</h1>
+                <h1 id="coroutineset">Coroutine::Set</h1>
+<p><code>Coroutine::set</code>用来设置协程相关选项。</p>
+<pre><code class="php">Swoole\Coroutine::set
+
+&lt;?php
+public static function set($options) { }
+@param array $options
+
+@return mixed
+</code></pre>
+
+<h2 id="max_coroutine">max_coroutine</h2>
+<p>设置最大协程数，超过限制后底层将无法创建新的协程。</p>
+<blockquote>
+<p>注意，这个最大协程数指的是这个线程目前存活的协程数，而不是创建的协程个数。因为死亡的协程是不记录在协程个数里面的。</p>
+</blockquote>
+<p>例子：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'max_coroutine' =&gt; 5,
+]);
+
+for ($i=0; $i &lt; 6; $i++) {
+    go(function() {
+        echo 'swoole' . PHP_EOL;
+    });
+}
+</code></pre>
+
+<pre><code class="shell">swoole
+swoole
+swoole
+swoole
+swoole
+swoole
+</code></pre>
+
+<p>依然可以创建出<code>6</code>个协程。因为协程创建完之后，执行<code>echo</code>就会立马死亡，接着创建下一个协程。</p>
+<p>但是，下面这个例子是会失败的：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'max_coroutine' =&gt; 5,
+]);
+
+go(function() {
+    echo 'swoole' . PHP_EOL;
+    go(function() {
+        echo 'swoole' . PHP_EOL;
+        go(function() {
+            echo 'swoole' . PHP_EOL;
+            go(function() {
+                echo 'swoole' . PHP_EOL;
+                go(function() {
+                    echo 'swoole' . PHP_EOL;
+                    go(function() {
+                        echo 'swoole' . PHP_EOL;
+                    });
+                });
+            });
+        });
+    });
+});
+</code></pre>
+
+<pre><code class="shell">php set.php
+swoole
+swoole
+swoole
+swoole
+swoole
+PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 19
+</code></pre>
+
+<h2 id="c_stack_size">c_stack_size</h2>
+<p>设置单个协程初始栈的内存尺寸，单位是<code>B</code>，默认为<code>2 * 1024 * 1024B</code>，即<code>2MB</code>。范围：<code>256 * 1024B ～ 16 * 1024 * 1024</code>。</p>
+<blockquote>
+<p>注意，这里设置的是协程初始C栈的大小，而不是协程初始PHP栈的大小。
+协程初始PHP栈的大小目前是固定的8 * 1024B。</p>
+</blockquote>
+<h2 id="log_level">log_level</h2>
+<p>日志等级。</p>
+<h2 id="trace_flags">trace_flags</h2>
+<p>跟踪标签。</p>
+<h2 id="socket_connect_timeout">socket_connect_timeout</h2>
+<p>建立<code>socket</code>连接超时时间, 默认为<code>1s</code>。</p>
+<h2 id="socket_timeout">socket_timeout</h2>
+<p><code>socket</code>读写操作超时时间, 默认为<code>-1</code>, 即永不超时。</p>
+<h2 id="dns_cache_expire">dns_cache_expire</h2>
+<p>设置<code>swoole</code> <code>dns</code>缓存失效时间，单位<code>s</code>，默认<code>60s</code>。</p>
+<h2 id="dns_cache_capacity">dns_cache_capacity</h2>
+<p>设置<code>swoole</code> <code>dns</code>缓存容量，默认<code>1000</code>。</p>
+<h2 id="enable_preemptive_scheduler">enable_preemptive_scheduler</h2>
+<p>设置打开写成抢占式调度，协程最大执行时间为<code>10ms</code>。</p>
                 
                   
                 
