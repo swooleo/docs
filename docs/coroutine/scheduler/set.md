@@ -90,20 +90,82 @@ PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/sw
 
 可以`hook`的`flag`有：
 
+### SWOOLE_HOOK_TCP
+
+例子：
+
+没有`hook`的`tcp`：
+
 ```php
-SWOOLE_HOOK_TCP
-SWOOLE_HOOK_UDP
-SWOOLE_HOOK_UNIX
-SWOOLE_HOOK_UDG
-SWOOLE_HOOK_SSL
-SWOOLE_HOOK_TLS
-SWOOLE_HOOK_STREAM_FUNCTION
-SWOOLE_HOOK_FILE
-SWOOLE_HOOK_SLEEP
-SWOOLE_HOOK_PROC
-SWOOLE_HOOK_BLOCKING_FUNCTION
-SWOOLE_HOOK_CURL
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' => ['so_reuseaddr' => true, 'backlog' => 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
 ```
+
+此时不会打印出`here`字符串。
+
+`hook`的`tcp`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_TCP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' => ['so_reuseaddr' => true, 'backlog' => 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+### SWOOLE_HOOK_UDP
+
+### SWOOLE_HOOK_UNIX
+
+### SWOOLE_HOOK_UDG
+
+### SWOOLE_HOOK_SSL
+
+### SWOOLE_HOOK_TLS
+
+### SWOOLE_HOOK_STREAM_FUNCTION
+
+### SWOOLE_HOOK_FILE
+
+### SWOOLE_HOOK_SLEEP
 
 例子：
 
@@ -152,6 +214,12 @@ Swoole\Coroutine\run(function () {
 2
 1
 ```
+
+### SWOOLE_HOOK_PROC
+
+### SWOOLE_HOOK_BLOCKING_FUNCTION
+
+### SWOOLE_HOOK_CURL
 
 ## c_stack_size
 
