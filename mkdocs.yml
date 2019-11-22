@@ -1,6 +1,6 @@
 site_name: swoole document
-site_url: https://swooleo.github.io/docs/
+site_url: https://swooleo.github.io/docs/介绍
 nav:
-- 介绍: index.md
+- 介绍: 介绍.md
 - 快速开始: 快速开始.md
 theme: readthedocs
