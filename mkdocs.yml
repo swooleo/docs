@@ -1,6 +1,11 @@
 site_name: swoole document
-site_url: https://swooleo.github.io/docs/介绍
+site_url: https://swooleo.github.io/docs/
 nav:
-- 介绍: 介绍.md
+- 介绍: index.md
 - 快速开始: 快速开始.md
-theme: readthedocs
+- Coroutine:
+  - Coroutine:
+    - Coroutine Set: coroutine/coroutine/set.md
+
+theme:
+  name: 'material'
