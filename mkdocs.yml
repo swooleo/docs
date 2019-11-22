@@ -5,7 +5,7 @@ nav:
 - 快速开始: 快速开始.md
 - Coroutine:
   - Coroutine:
-    - Coroutine Set: coroutine/coroutine/set.md
+    - Scheduler::Set: coroutine/scheduler/set.md
 
 theme:
   name: 'material'
