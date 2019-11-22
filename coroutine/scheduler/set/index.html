@@ -272,6 +272,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hook_flags" class="md-nav__link">
+    hook_flags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#c_stack_size" class="md-nav__link">
     c_stack_size
   </a>
@@ -371,6 +378,13 @@
         <li class="md-nav__item">
   <a href="#max_coroutine" class="md-nav__link">
     max_coroutine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook_flags" class="md-nav__link">
+    hook_flags
   </a>
   
 </li>
@@ -521,6 +535,64 @@ swoole
 swoole
 swoole
 PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 19
+</code></pre>
+
+<h2 id="hook_flags">hook_flags</h2>
+<p>可以在运行时动态将基于<code>php_stream</code>实现的扩展、<code>PHP</code>网络客户端代码一键协程化。<code>Swoole</code>创建协程的时候，默认是不会<code>hook</code>的。</p>
+<p>可以<code>hook</code>的<code>flag</code>有：</p>
+<pre><code class="php">SWOOLE_HOOK_TCP
+SWOOLE_HOOK_UDP
+SWOOLE_HOOK_UNIX
+SWOOLE_HOOK_UDG
+SWOOLE_HOOK_SSL
+SWOOLE_HOOK_TLS
+SWOOLE_HOOK_STREAM_FUNCTION
+SWOOLE_HOOK_FILE
+SWOOLE_HOOK_SLEEP
+SWOOLE_HOOK_PROC
+SWOOLE_HOOK_BLOCKING_FUNCTION
+SWOOLE_HOOK_CURL
+</code></pre>
+
+<p>例子：</p>
+<p>没有<code>hook</code>的<code>sleep</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+</code></pre>
+
+<pre><code class="shell">1
+2
+</code></pre>
+
+<p><code>hook</code>的<code>sleep</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_SLEEP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+</code></pre>
+
+<pre><code class="shell">2
+1
 </code></pre>
 
 <h2 id="c_stack_size">c_stack_size</h2>
