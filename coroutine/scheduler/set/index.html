@@ -276,6 +276,96 @@
     hook_flags
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_tcp" class="md-nav__link">
+    SWOOLE_HOOK_TCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_udp" class="md-nav__link">
+    SWOOLE_HOOK_UDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_unix" class="md-nav__link">
+    SWOOLE_HOOK_UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_udg" class="md-nav__link">
+    SWOOLE_HOOK_UDG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_ssl" class="md-nav__link">
+    SWOOLE_HOOK_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_tls" class="md-nav__link">
+    SWOOLE_HOOK_TLS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_stream_function" class="md-nav__link">
+    SWOOLE_HOOK_STREAM_FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_file" class="md-nav__link">
+    SWOOLE_HOOK_FILE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_sleep" class="md-nav__link">
+    SWOOLE_HOOK_SLEEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_proc" class="md-nav__link">
+    SWOOLE_HOOK_PROC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_blocking_function" class="md-nav__link">
+    SWOOLE_HOOK_BLOCKING_FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_curl" class="md-nav__link">
+    SWOOLE_HOOK_CURL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -386,6 +476,96 @@
   <a href="#hook_flags" class="md-nav__link">
     hook_flags
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_tcp" class="md-nav__link">
+    SWOOLE_HOOK_TCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_udp" class="md-nav__link">
+    SWOOLE_HOOK_UDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_unix" class="md-nav__link">
+    SWOOLE_HOOK_UNIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_udg" class="md-nav__link">
+    SWOOLE_HOOK_UDG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_ssl" class="md-nav__link">
+    SWOOLE_HOOK_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_tls" class="md-nav__link">
+    SWOOLE_HOOK_TLS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_stream_function" class="md-nav__link">
+    SWOOLE_HOOK_STREAM_FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_file" class="md-nav__link">
+    SWOOLE_HOOK_FILE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_sleep" class="md-nav__link">
+    SWOOLE_HOOK_SLEEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_proc" class="md-nav__link">
+    SWOOLE_HOOK_PROC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_blocking_function" class="md-nav__link">
+    SWOOLE_HOOK_BLOCKING_FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swoole_hook_curl" class="md-nav__link">
+    SWOOLE_HOOK_CURL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -540,20 +720,67 @@ PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/sw
 <h2 id="hook_flags">hook_flags</h2>
 <p>可以在运行时动态将基于<code>php_stream</code>实现的扩展、<code>PHP</code>网络客户端代码一键协程化。<code>Swoole</code>创建协程的时候，默认是不会<code>hook</code>的。</p>
 <p>可以<code>hook</code>的<code>flag</code>有：</p>
-<pre><code class="php">SWOOLE_HOOK_TCP
-SWOOLE_HOOK_UDP
-SWOOLE_HOOK_UNIX
-SWOOLE_HOOK_UDG
-SWOOLE_HOOK_SSL
-SWOOLE_HOOK_TLS
-SWOOLE_HOOK_STREAM_FUNCTION
-SWOOLE_HOOK_FILE
-SWOOLE_HOOK_SLEEP
-SWOOLE_HOOK_PROC
-SWOOLE_HOOK_BLOCKING_FUNCTION
-SWOOLE_HOOK_CURL
+<h3 id="swoole_hook_tcp">SWOOLE_HOOK_TCP</h3>
+<p>例子：</p>
+<p>没有<code>hook</code>的<code>tcp</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
 </code></pre>
 
+<p>此时不会打印出<code>here</code>字符串。</p>
+<p><code>hook</code>的<code>tcp</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_TCP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">here
+
+</code></pre>
+
+<h3 id="swoole_hook_udp">SWOOLE_HOOK_UDP</h3>
+<h3 id="swoole_hook_unix">SWOOLE_HOOK_UNIX</h3>
+<h3 id="swoole_hook_udg">SWOOLE_HOOK_UDG</h3>
+<h3 id="swoole_hook_ssl">SWOOLE_HOOK_SSL</h3>
+<h3 id="swoole_hook_tls">SWOOLE_HOOK_TLS</h3>
+<h3 id="swoole_hook_stream_function">SWOOLE_HOOK_STREAM_FUNCTION</h3>
+<h3 id="swoole_hook_file">SWOOLE_HOOK_FILE</h3>
+<h3 id="swoole_hook_sleep">SWOOLE_HOOK_SLEEP</h3>
 <p>例子：</p>
 <p>没有<code>hook</code>的<code>sleep</code>：</p>
 <pre><code class="php">&lt;?php
@@ -595,6 +822,9 @@ Swoole\Coroutine\run(function () {
 1
 </code></pre>
 
+<h3 id="swoole_hook_proc">SWOOLE_HOOK_PROC</h3>
+<h3 id="swoole_hook_blocking_function">SWOOLE_HOOK_BLOCKING_FUNCTION</h3>
+<h3 id="swoole_hook_curl">SWOOLE_HOOK_CURL</h3>
 <h2 id="c_stack_size">c_stack_size</h2>
 <p>设置单个协程初始栈的内存尺寸，单位是<code>B</code>，默认为<code>2 * 1024 * 1024B</code>，即<code>2MB</code>。范围：<code>256 * 1024B ～ 16 * 1024 * 1024</code>。</p>
 <blockquote>
