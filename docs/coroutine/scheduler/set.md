@@ -427,6 +427,84 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_PROC
 
+`hook`的`proc`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_PROC,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $descriptorspec = array(
+            0 => array("pipe", "r"),  // stdin, child process read from it
+            1 => array("pipe", "w"),  // stdout, child process write to it
+        );
+        $process = proc_open('php', $descriptorspec, $pipes);
+        if (is_resource($process)) {
+            fwrite($pipes[0], '<?php echo "I am process\n" ?>');
+            fclose($pipes[0]);
+
+            while (true) {
+                echo fread($pipes[1], 1024);
+            }
+
+            fclose($pipes[1]);
+            $return_value = proc_close($process);
+            echo "command returned $return_value" . PHP_EOL;
+        }
+    });
+
+    echo "here" . PHP_EOL;
+});
+```
+
+打印出`here`字符串：
+
+```shell
+here
+I am process
+```
+
+没有`hook`的`proc`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $descriptorspec = array(
+            0 => array("pipe", "r"),  // stdin, child process read from it
+            1 => array("pipe", "w"),  // stdout, child process write to it
+        );
+        $process = proc_open('php', $descriptorspec, $pipes);
+        if (is_resource($process)) {
+            fwrite($pipes[0], '<?php echo "I am process\n" ?>');
+            fclose($pipes[0]);
+
+            while (true) {
+                echo fread($pipes[1], 1024);
+            }
+
+            fclose($pipes[1]);
+            $return_value = proc_close($process);
+            echo "command returned $return_value" . PHP_EOL;
+        }
+    });
+
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串：
+
+```shell
+I am process
+
+```
+
 ### SWOOLE_HOOK_BLOCKING_FUNCTION
 
 ### SWOOLE_HOOK_CURL
