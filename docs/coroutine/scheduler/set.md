@@ -593,9 +593,18 @@ TODO
 
 > 注意，这里配置的不是PHP层的日志级别，而是C层的日志级别，后面会有一个例子进行说明。
 
-可配置的日志等级从低到高为：`SWOOLE_LOG_DEBUG`、`SWOOLE_LOG_TRACE`、`SWOOLE_LOG_INFO`、`SWOOLE_LOG_NOTICE`、`SWOOLE_LOG_WARNING`、`SWOOLE_LOG_ERROR`。
+可配置的日志等级从低到高为：
 
-> 如果在编译`Swoole`的时候开启了`debug`，那么`log_level`默认是`SWOOLE_LOG_DEBUG`；否则`log_level`默认是`SWOOLE_LOG_INFO`。
+```shell
+SWOOLE_LOG_DEBUG
+SWOOLE_LOG_TRACE
+SWOOLE_LOG_INFO
+SWOOLE_LOG_NOTICE
+SWOOLE_LOG_WARNING
+SWOOLE_LOG_ERROR
+```
+
+> 注意，如果在编译`Swoole`的时候开启了`debug`，那么`log_level`默认是`SWOOLE_LOG_DEBUG`；否则`log_level`默认是`SWOOLE_LOG_INFO`。
 
 没有设置`log_level`的例子：
 
