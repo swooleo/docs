@@ -1006,6 +1006,76 @@ Swoole\Coroutine\run(function () {
 </code></pre>
 
 <h3 id="swoole_hook_proc">SWOOLE_HOOK_PROC</h3>
+<p><code>hook</code>的<code>proc</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_PROC,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $descriptorspec = array(
+            0 =&gt; array(&quot;pipe&quot;, &quot;r&quot;),  // stdin, child process read from it
+            1 =&gt; array(&quot;pipe&quot;, &quot;w&quot;),  // stdout, child process write to it
+        );
+        $process = proc_open('php', $descriptorspec, $pipes);
+        if (is_resource($process)) {
+            fwrite($pipes[0], '&lt;?php echo &quot;I am process\n&quot; ?&gt;');
+            fclose($pipes[0]);
+
+            while (true) {
+                echo fread($pipes[1], 1024);
+            }
+
+            fclose($pipes[1]);
+            $return_value = proc_close($process);
+            echo &quot;command returned $return_value&quot; . PHP_EOL;
+        }
+    });
+
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>打印出<code>here</code>字符串：</p>
+<pre><code class="shell">here
+I am process
+</code></pre>
+
+<p>没有<code>hook</code>的<code>proc</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $descriptorspec = array(
+            0 =&gt; array(&quot;pipe&quot;, &quot;r&quot;),  // stdin, child process read from it
+            1 =&gt; array(&quot;pipe&quot;, &quot;w&quot;),  // stdout, child process write to it
+        );
+        $process = proc_open('php', $descriptorspec, $pipes);
+        if (is_resource($process)) {
+            fwrite($pipes[0], '&lt;?php echo &quot;I am process\n&quot; ?&gt;');
+            fclose($pipes[0]);
+
+            while (true) {
+                echo fread($pipes[1], 1024);
+            }
+
+            fclose($pipes[1]);
+            $return_value = proc_close($process);
+            echo &quot;command returned $return_value&quot; . PHP_EOL;
+        }
+    });
+
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串：</p>
+<pre><code class="shell">I am process
+
+</code></pre>
+
 <h3 id="swoole_hook_blocking_function">SWOOLE_HOOK_BLOCKING_FUNCTION</h3>
 <h3 id="swoole_hook_curl">SWOOLE_HOOK_CURL</h3>
 <h2 id="c_stack_size">c_stack_size</h2>
