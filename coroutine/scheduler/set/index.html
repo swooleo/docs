@@ -376,20 +376,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#log_level" class="md-nav__link">
-    log_level
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace_flags" class="md-nav__link">
-    trace_flags
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#socket_connect_timeout" class="md-nav__link">
     socket_connect_timeout
   </a>
@@ -399,6 +385,34 @@
         <li class="md-nav__item">
   <a href="#socket_timeout" class="md-nav__link">
     socket_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_read_timeout" class="md-nav__link">
+    socket_read_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_write_timeout" class="md-nav__link">
+    socket_write_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log_level" class="md-nav__link">
+    log_level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace_flags" class="md-nav__link">
+    trace_flags
   </a>
   
 </li>
@@ -418,8 +432,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable_preemptive_scheduler" class="md-nav__link">
-    enable_preemptive_scheduler
+  <a href="#dns_server" class="md-nav__link">
+    dns_server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display_errors" class="md-nav__link">
+    display_errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_core_worker_num" class="md-nav__link">
+    aio_core_worker_num
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_worker_num" class="md-nav__link">
+    aio_worker_num
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_max_wait_time" class="md-nav__link">
+    aio_max_wait_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_max_idle_time" class="md-nav__link">
+    aio_max_idle_time
   </a>
   
 </li>
@@ -577,20 +626,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#log_level" class="md-nav__link">
-    log_level
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trace_flags" class="md-nav__link">
-    trace_flags
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#socket_connect_timeout" class="md-nav__link">
     socket_connect_timeout
   </a>
@@ -600,6 +635,34 @@
         <li class="md-nav__item">
   <a href="#socket_timeout" class="md-nav__link">
     socket_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_read_timeout" class="md-nav__link">
+    socket_read_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket_write_timeout" class="md-nav__link">
+    socket_write_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log_level" class="md-nav__link">
+    log_level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace_flags" class="md-nav__link">
+    trace_flags
   </a>
   
 </li>
@@ -619,8 +682,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable_preemptive_scheduler" class="md-nav__link">
-    enable_preemptive_scheduler
+  <a href="#dns_server" class="md-nav__link">
+    dns_server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#display_errors" class="md-nav__link">
+    display_errors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_core_worker_num" class="md-nav__link">
+    aio_core_worker_num
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_worker_num" class="md-nav__link">
+    aio_worker_num
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_max_wait_time" class="md-nav__link">
+    aio_max_wait_time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aio_max_idle_time" class="md-nav__link">
+    aio_max_idle_time
   </a>
   
 </li>
@@ -1116,26 +1214,47 @@ Swoole\Coroutine\run(function () {
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_curl">SWOOLE_HOOK_CURL</h3>
+<p>TODO</p>
 <h2 id="c_stack_size">c_stack_size</h2>
 <p>设置单个协程初始栈的内存尺寸，单位是<code>B</code>，默认为<code>2 * 1024 * 1024B</code>，即<code>2MB</code>。范围：<code>256 * 1024B ～ 16 * 1024 * 1024</code>。</p>
 <blockquote>
 <p>注意，这里设置的是协程初始C栈的大小，而不是协程初始PHP栈的大小。
 协程初始PHP栈的大小目前是固定的8 * 1024B。</p>
 </blockquote>
+<h2 id="socket_connect_timeout">socket_connect_timeout</h2>
+<p>建立<code>socket</code>连接超时时间, 单位：<code>s</code>，默认为<code>1s</code>。设置为<code>-1</code>，表示永不超时。</p>
+<blockquote>
+<p>注意，这里不能设置为0。设置为0的话，会取默认值。</p>
+</blockquote>
+<h2 id="socket_timeout">socket_timeout</h2>
+<p>设置<code>socket</code>读和写的操作超时时间, 单位：<code>s</code>，默认为<code>-1</code>, 即永不超时。</p>
+<blockquote>
+<p>注意，这里不能设置为0。设置为0的话，会取默认值。</p>
+</blockquote>
+<h2 id="socket_read_timeout">socket_read_timeout</h2>
+<p>只设置<code>socket</code>读的操作超时时间，单位<code>s</code>，默认为<code>-1</code>, 即永不超时。</p>
+<blockquote>
+<p>注意，这里不能设置为0。设置为0的话，会取默认值。</p>
+</blockquote>
+<h2 id="socket_write_timeout">socket_write_timeout</h2>
+<p>只设置<code>socket</code>写的操作超时时间，单位<code>s</code>，默认为<code>-1</code>, 即永不超时。</p>
+<blockquote>
+<p>注意，这里不能设置为0。设置为0的话，会取默认值。</p>
+</blockquote>
 <h2 id="log_level">log_level</h2>
 <p>日志等级。</p>
 <h2 id="trace_flags">trace_flags</h2>
 <p>跟踪标签。</p>
-<h2 id="socket_connect_timeout">socket_connect_timeout</h2>
-<p>建立<code>socket</code>连接超时时间, 默认为<code>1s</code>。</p>
-<h2 id="socket_timeout">socket_timeout</h2>
-<p><code>socket</code>读写操作超时时间, 默认为<code>-1</code>, 即永不超时。</p>
 <h2 id="dns_cache_expire">dns_cache_expire</h2>
 <p>设置<code>swoole</code> <code>dns</code>缓存失效时间，单位<code>s</code>，默认<code>60s</code>。</p>
 <h2 id="dns_cache_capacity">dns_cache_capacity</h2>
 <p>设置<code>swoole</code> <code>dns</code>缓存容量，默认<code>1000</code>。</p>
-<h2 id="enable_preemptive_scheduler">enable_preemptive_scheduler</h2>
-<p>设置打开写成抢占式调度，协程最大执行时间为<code>10ms</code>。</p>
+<h2 id="dns_server">dns_server</h2>
+<h2 id="display_errors">display_errors</h2>
+<h2 id="aio_core_worker_num">aio_core_worker_num</h2>
+<h2 id="aio_worker_num">aio_worker_num</h2>
+<h2 id="aio_max_wait_time">aio_max_wait_time</h2>
+<h2 id="aio_max_idle_time">aio_max_idle_time</h2>
                 
                   
                 
