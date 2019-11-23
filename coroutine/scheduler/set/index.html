@@ -722,28 +722,6 @@ PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/sw
 <p>可以<code>hook</code>的<code>flag</code>有：</p>
 <h3 id="swoole_hook_tcp">SWOOLE_HOOK_TCP</h3>
 <p>例子：</p>
-<p>没有<code>hook</code>的<code>tcp</code>：</p>
-<pre><code class="php">&lt;?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
-        $socket = stream_socket_server(
-            'tcp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
-
-<p>此时不会打印出<code>here</code>字符串。</p>
 <p><code>hook</code>的<code>tcp</code>：</p>
 <pre><code class="php">&lt;?php
 
@@ -773,6 +751,28 @@ Swoole\Coroutine\run(function () {
 
 </code></pre>
 
+<p>没有<code>hook</code>的<code>tcp</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_udp">SWOOLE_HOOK_UDP</h3>
 <h3 id="swoole_hook_unix">SWOOLE_HOOK_UNIX</h3>
 <h3 id="swoole_hook_udg">SWOOLE_HOOK_UDG</h3>
@@ -782,24 +782,6 @@ Swoole\Coroutine\run(function () {
 <h3 id="swoole_hook_file">SWOOLE_HOOK_FILE</h3>
 <h3 id="swoole_hook_sleep">SWOOLE_HOOK_SLEEP</h3>
 <p>例子：</p>
-<p>没有<code>hook</code>的<code>sleep</code>：</p>
-<pre><code class="php">&lt;?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        sleep(1);
-        echo '1' . PHP_EOL;
-    });
-    go(function () {
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
-
-<pre><code class="shell">1
-2
-</code></pre>
-
 <p><code>hook</code>的<code>sleep</code>：</p>
 <pre><code class="php">&lt;?php
 
@@ -820,6 +802,24 @@ Swoole\Coroutine\run(function () {
 
 <pre><code class="shell">2
 1
+</code></pre>
+
+<p>没有<code>hook</code>的<code>sleep</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+</code></pre>
+
+<pre><code class="shell">1
+2
 </code></pre>
 
 <h3 id="swoole_hook_proc">SWOOLE_HOOK_PROC</h3>
