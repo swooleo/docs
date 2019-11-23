@@ -153,6 +153,61 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_UDP
 
+`hook`的`udp`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_UDP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+没有`hook`的`udp`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
+
 ### SWOOLE_HOOK_UNIX
 
 ### SWOOLE_HOOK_UDG
