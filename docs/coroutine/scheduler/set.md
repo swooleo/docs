@@ -320,15 +320,60 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_SSL
 
-暂略。
+TODO
 
 ### SWOOLE_HOOK_TLS
 
-暂略。
+TODO
 
 ### SWOOLE_HOOK_STREAM_FUNCTION
 
+TODO
+
 ### SWOOLE_HOOK_FILE
+
+`hook`的`file`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_FILE,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $fp = fopen(__FILE__, 'r');
+        while (true) {
+            fread($fp, 1024);
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+没有`hook`的`file`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $fp = fopen(__FILE__, 'r');
+        while (true) {
+            fread($fp, 1024);
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
 
 ### SWOOLE_HOOK_SLEEP
 
