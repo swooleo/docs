@@ -265,6 +265,59 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_UDG
 
+`hook`的`udg`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_UDG,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udg://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+没有`hook`的`udg`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udg://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
+
 ### SWOOLE_HOOK_SSL
 
 ### SWOOLE_HOOK_TLS
