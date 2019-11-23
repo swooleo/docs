@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/create/">
       
       
       
@@ -33,21 +33,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>swoole document</title>
+        <title>Coroutine::create - swoole document</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
       
     
     
-      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -56,7 +56,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#coroutinecreate" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                介绍
+                Coroutine::create
               
             </span>
           
@@ -170,49 +170,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        介绍
-      </label>
-    
-    <a href="." title="介绍" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../.." title="介绍" class="md-nav__link">
       介绍
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    注意
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -222,7 +184,7 @@
 
 
   <li class="md-nav__item">
-    <a href="快速开始/" title="快速开始" class="md-nav__link">
+    <a href="../../../快速开始/" title="快速开始" class="md-nav__link">
       快速开始
     </a>
   </li>
@@ -232,10 +194,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Coroutine
@@ -251,10 +215,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
     
     <label class="md-nav__link" for="nav-3-1">
       Coroutine
@@ -272,7 +238,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/set/" title="Coroutine::set" class="md-nav__link">
+    <a href="../set/" title="Coroutine::set" class="md-nav__link">
       Coroutine::set
     </a>
   </li>
@@ -282,11 +248,117 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="coroutine/coroutine/create/" title="Coroutine::create" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Coroutine::create
+      </label>
+    
+    <a href="./" title="Coroutine::create" class="md-nav__link md-nav__link--active">
       Coroutine::create
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callable-func" class="md-nav__link">
+    callable $func
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    普通函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    匿名函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    非静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    在类的内部调用非静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    在类的内部调用静态方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -321,9 +393,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    注意
+  <a href="#_1" class="md-nav__link">
+    方法原型
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callable-func" class="md-nav__link">
+    callable $func
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    普通函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    匿名函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    非静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    在类的内部调用非静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    在类的内部调用静态方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -344,10 +484,141 @@
               
                 
                 
-                <h1 id="_1">介绍</h1>
-<p><code>Swoole</code>是一个面向生产环境的<code>PHP</code>协程框架。</p>
-<h2 id="_2">注意</h2>
-<p>本文档始终以最新的<code>Swoole</code>为准。</p>
+                <h1 id="coroutinecreate">Coroutine::create</h1>
+<p><code>Coroutine::create</code>用来创建一个协程，并且立马执行这个协程。</p>
+<h2 id="_1">方法原型</h2>
+<pre><code class="php">&lt;?php
+public static function create(
+    callable $func,
+    ...$params
+) { }
+@param callable $func
+
+@param mixed ...$params
+
+@return mixed
+</code></pre>
+
+<p>这个方法有一个别名，<code>go</code>：</p>
+<pre><code class="php">&lt;?php
+function go(
+    $func,
+    $params = null
+) { }
+@param callable $func
+
+@param mixed ...$params
+
+@return mixed
+</code></pre>
+
+<h2 id="_2">参数</h2>
+<h3 id="callable-func">callable $func</h3>
+<p>代表一个<code>PHP</code>函数或者方法。</p>
+<h4 id="_3">普通函数</h4>
+<pre><code class="php">&lt;?php
+
+function task() {
+    echo 'swoole' . PHP_EOL;
+}
+
+go('task');
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
+
+<h4 id="_4">匿名函数</h4>
+<pre><code class="php">&lt;?php
+
+go(function () {
+    echo 'swoole' . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
+
+<h4 id="_5">非静态方法</h4>
+<pre><code class="php">&lt;?php
+
+class Codinghuang
+{
+    public function task()
+    {
+        echo 'swoole' . PHP_EOL;
+    }
+}
+
+$obj = new Codinghuang;
+go([$obj, 'task']);
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
+
+<h4 id="_6">静态方法</h4>
+<pre><code class="php">&lt;?php
+
+class Codinghuang
+{
+    public static function task()
+    {
+        echo 'swoole' . PHP_EOL;
+    }
+}
+
+go([Codinghuang::class, 'task']);
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
+
+<h4 id="_7">在类的内部调用非静态方法</h4>
+<pre><code class="php">&lt;?php
+
+class Codinghuang
+{
+    public function test()
+    {
+        go([$this, 'task']);
+    }
+
+    public function task()
+    {
+        echo 'swoole' . PHP_EOL;
+    }
+}
+
+$obj = new Codinghuang;
+$obj-&gt;test();
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
+
+<h4 id="_8">在类的内部调用静态方法</h4>
+<pre><code class="php">&lt;?php
+
+class Codinghuang
+{
+    public function test()
+    {
+        go([self::class, 'task']);
+    }
+
+    public static function task()
+    {
+        echo 'swoole' . PHP_EOL;
+    }
+}
+
+$obj = new Codinghuang;
+$obj-&gt;test();
+</code></pre>
+
+<pre><code class="shell">swoole
+</code></pre>
                 
                   
                 
@@ -368,20 +639,20 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-        
-          <a href="快速开始/" title="快速开始" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../set/" title="Coroutine::set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Previous
                 </span>
-                快速开始
+                Coroutine::set
               </span>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           </a>
+        
         
       </nav>
     </div>
@@ -403,9 +674,9 @@
       
     </div>
     
-      <script src="assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
