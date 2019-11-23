@@ -1246,9 +1246,17 @@ Swoole\Coroutine\run(function () {
 <blockquote>
 <p>注意，这里配置的不是PHP层的日志级别，而是C层的日志级别，后面会有一个例子进行说明。</p>
 </blockquote>
-<p>可配置的日志等级从低到高为：<code>SWOOLE_LOG_DEBUG</code>、<code>SWOOLE_LOG_TRACE</code>、<code>SWOOLE_LOG_INFO</code>、<code>SWOOLE_LOG_NOTICE</code>、<code>SWOOLE_LOG_WARNING</code>、<code>SWOOLE_LOG_ERROR</code>。</p>
+<p>可配置的日志等级从低到高为：</p>
+<pre><code class="shell">SWOOLE_LOG_DEBUG
+SWOOLE_LOG_TRACE
+SWOOLE_LOG_INFO
+SWOOLE_LOG_NOTICE
+SWOOLE_LOG_WARNING
+SWOOLE_LOG_ERROR
+</code></pre>
+
 <blockquote>
-<p>如果在编译<code>Swoole</code>的时候开启了<code>debug</code>，那么<code>log_level</code>默认是<code>SWOOLE_LOG_DEBUG</code>；否则<code>log_level</code>默认是<code>SWOOLE_LOG_INFO</code>。</p>
+<p>注意，如果在编译<code>Swoole</code>的时候开启了<code>debug</code>，那么<code>log_level</code>默认是<code>SWOOLE_LOG_DEBUG</code>；否则<code>log_level</code>默认是<code>SWOOLE_LOG_INFO</code>。</p>
 </blockquote>
 <p>没有设置<code>log_level</code>的例子：</p>
 <pre><code class="php">&lt;?php
