@@ -920,9 +920,49 @@ Swoole\Coroutine\run(function () {
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_ssl">SWOOLE_HOOK_SSL</h3>
+<p>TODO</p>
 <h3 id="swoole_hook_tls">SWOOLE_HOOK_TLS</h3>
+<p>TODO</p>
 <h3 id="swoole_hook_stream_function">SWOOLE_HOOK_STREAM_FUNCTION</h3>
+<p>TODO</p>
 <h3 id="swoole_hook_file">SWOOLE_HOOK_FILE</h3>
+<p><code>hook</code>的<code>file</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_FILE,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $fp = fopen(__FILE__, 'r');
+        while (true) {
+            fread($fp, 1024);
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">here
+
+</code></pre>
+
+<p>没有<code>hook</code>的<code>file</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $fp = fopen(__FILE__, 'r');
+        while (true) {
+            fread($fp, 1024);
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_sleep">SWOOLE_HOOK_SLEEP</h3>
 <p>例子：</p>
 <p><code>hook</code>的<code>sleep</code>：</p>
