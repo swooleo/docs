@@ -320,7 +320,11 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_SSL
 
+暂略。
+
 ### SWOOLE_HOOK_TLS
+
+暂略。
 
 ### SWOOLE_HOOK_STREAM_FUNCTION
 
