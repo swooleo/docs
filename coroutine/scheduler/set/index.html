@@ -774,7 +774,103 @@ Swoole\Coroutine\run(function () {
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_udp">SWOOLE_HOOK_UDP</h3>
+<p><code>hook</code>的<code>udp</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_UDP,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">here
+
+</code></pre>
+
+<p>没有<code>hook</code>的<code>udp</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'udp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_recvfrom($socket, 1, 0)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_unix">SWOOLE_HOOK_UNIX</h3>
+<p><code>hook</code>的<code>unix</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_UNIX,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'unix://swoole.sock', $errno, $errstr
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">here
+
+</code></pre>
+
+<p>没有<code>hook</code>的<code>unix</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'unix://swoole.sock', $errno, $errstr
+        );
+        if (!$socket) {
+            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_udg">SWOOLE_HOOK_UDG</h3>
 <h3 id="swoole_hook_ssl">SWOOLE_HOOK_SSL</h3>
 <h3 id="swoole_hook_tls">SWOOLE_HOOK_TLS</h3>
