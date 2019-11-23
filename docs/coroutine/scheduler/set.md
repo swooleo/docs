@@ -589,7 +589,55 @@ TODO
 
 ## log_level
 
-日志等级。
+设置日志等级。大于等于这个日志等级的日志**才**会被打印出来。
+
+> 注意，这里配置的不是PHP层的日志级别，而是C层的日志级别，后面会有一个例子进行说明。
+
+可配置的日志等级从低到高为：`SWOOLE_LOG_DEBUG`、`SWOOLE_LOG_TRACE`、`SWOOLE_LOG_INFO`、`SWOOLE_LOG_NOTICE`、`SWOOLE_LOG_WARNING`、`SWOOLE_LOG_ERROR`。
+
+> 如果在编译`Swoole`的时候开启了`debug`，那么`log_level`默认是`SWOOLE_LOG_DEBUG`；否则`log_level`默认是`SWOOLE_LOG_INFO`。
+
+没有设置`log_level`的例子：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $client = new Swoole\Coroutine\Client(SWOOLE_TCP);
+        $client->connect('127.0.0.1');
+    });
+});
+```
+
+此时会打印`PHP`层`Warning`级别的警告：
+
+```shell
+PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 6
+```
+
+设置`log_level`的例子：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'log_level' => SWOOLE_LOG_ERROR,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $client = new Swoole\Coroutine\Client(SWOOLE_TCP);
+        $client->connect('127.0.0.1');
+    });
+});
+```
+
+此时依然会打印出`PHP`层`Warning`级别的警告：
+
+```shell
+PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 10
+```
 
 ## trace_flags
 
