@@ -1077,6 +1077,44 @@ Swoole\Coroutine\run(function () {
 </code></pre>
 
 <h3 id="swoole_hook_blocking_function">SWOOLE_HOOK_BLOCKING_FUNCTION</h3>
+<p>这里的<code>blocking function</code>包括了：<code>gethostbyname</code>、<code>exec</code>、<code>shell_exec</code>。</p>
+<p><code>hook</code>的<code>blocking function</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine::set([
+    'hook_flags' =&gt; SWOOLE_HOOK_BLOCKING_FUNCTION,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        while (true) {
+            exec(&quot;cat&quot;);
+        }
+    });
+
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<pre><code class="shell">here
+
+</code></pre>
+
+<p>没有<code>hook</code>的<code>blocking function</code>：</p>
+<pre><code class="php">&lt;?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        while (true) {
+            exec(&quot;cat&quot;);
+        }
+    });
+
+    echo &quot;here&quot; . PHP_EOL;
+});
+</code></pre>
+
+<p>此时不会打印出<code>here</code>字符串。</p>
 <h3 id="swoole_hook_curl">SWOOLE_HOOK_CURL</h3>
 <h2 id="c_stack_size">c_stack_size</h2>
 <p>设置单个协程初始栈的内存尺寸，单位是<code>B</code>，默认为<code>2 * 1024 * 1024B</code>，即<code>2MB</code>。范围：<code>256 * 1024B ～ 16 * 1024 * 1024</code>。</p>
