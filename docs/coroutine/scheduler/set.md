@@ -222,7 +222,7 @@ Swoole\Coroutine::set([
 Swoole\Coroutine\run(function () {
     go(function () {
         $socket = stream_socket_server(
-            'unix://swoole.sock', $errno, $errstr
+            'unix://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN
         );
         if (!$socket) {
             echo "$errstr ($errno)" . PHP_EOL;
@@ -248,7 +248,7 @@ here
 Swoole\Coroutine\run(function () {
     go(function () {
         $socket = stream_socket_server(
-            'unix://swoole.sock', $errno, $errstr
+            'unix://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN
         );
         if (!$socket) {
             echo "$errstr ($errno)" . PHP_EOL;
