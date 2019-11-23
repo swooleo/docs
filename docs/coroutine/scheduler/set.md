@@ -650,7 +650,7 @@ PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/c
 
 ## trace_flags
 
-跟踪标签。
+TODO
 
 ## dns_cache_expire
 
@@ -662,12 +662,24 @@ PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/c
 
 ## dns_server
 
+TODO
+
 ## display_errors
+
+TODO
 
 ## aio_core_worker_num
 
+TODO
+
 ## aio_worker_num
+
+TODO
 
 ## aio_max_wait_time
 
+TODO
+
 ## aio_max_idle_time
+
+TODO
