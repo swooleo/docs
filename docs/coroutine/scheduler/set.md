@@ -210,6 +210,59 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_UNIX
 
+`hook`的`unix`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_UNIX,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'unix://swoole.sock', $errno, $errstr
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+没有`hook`的`unix`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $socket = stream_socket_server(
+            'unix://swoole.sock', $errno, $errstr
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
+
 ### SWOOLE_HOOK_UDG
 
 ### SWOOLE_HOOK_SSL
