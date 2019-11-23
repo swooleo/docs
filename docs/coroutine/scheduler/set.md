@@ -554,12 +554,38 @@ Swoole\Coroutine\run(function () {
 
 ### SWOOLE_HOOK_CURL
 
+TODO
+
 ## c_stack_size
 
 设置单个协程初始栈的内存尺寸，单位是`B`，默认为`2 * 1024 * 1024B`，即`2MB`。范围：`256 * 1024B ～ 16 * 1024 * 1024`。
 
 > 注意，这里设置的是协程初始C栈的大小，而不是协程初始PHP栈的大小。
 > 协程初始PHP栈的大小目前是固定的8 * 1024B。
+
+## socket_connect_timeout
+
+建立`socket`连接超时时间, 单位：`s`，默认为`1s`。设置为`-1`，表示永不超时。
+
+> 注意，这里不能设置为0。设置为0的话，会取默认值。
+
+## socket_timeout
+
+设置`socket`读和写的操作超时时间, 单位：`s`，默认为`-1`, 即永不超时。
+
+> 注意，这里不能设置为0。设置为0的话，会取默认值。
+
+## socket_read_timeout
+
+只设置`socket`读的操作超时时间，单位`s`，默认为`-1`, 即永不超时。
+
+> 注意，这里不能设置为0。设置为0的话，会取默认值。
+
+## socket_write_timeout
+
+只设置`socket`写的操作超时时间，单位`s`，默认为`-1`, 即永不超时。
+
+> 注意，这里不能设置为0。设置为0的话，会取默认值。
 
 ## log_level
 
@@ -569,14 +595,6 @@ Swoole\Coroutine\run(function () {
 
 跟踪标签。
 
-## socket_connect_timeout
-
-建立`socket`连接超时时间, 默认为`1s`。
-
-## socket_timeout
-
-`socket`读写操作超时时间, 默认为`-1`, 即永不超时。
-
 ## dns_cache_expire
 
 设置`swoole` `dns`缓存失效时间，单位`s`，默认`60s`。
@@ -585,6 +603,14 @@ Swoole\Coroutine\run(function () {
 
 设置`swoole` `dns`缓存容量，默认`1000`。
 
-## enable_preemptive_scheduler
+## dns_server
 
-设置打开写成抢占式调度，协程最大执行时间为`10ms`。
+## display_errors
+
+## aio_core_worker_num
+
+## aio_worker_num
+
+## aio_max_wait_time
+
+## aio_max_idle_time
