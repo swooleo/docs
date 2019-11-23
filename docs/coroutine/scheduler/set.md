@@ -507,6 +507,51 @@ I am process
 
 ### SWOOLE_HOOK_BLOCKING_FUNCTION
 
+这里的`blocking function`包括了：`gethostbyname`、`exec`、`shell_exec`。
+
+`hook`的`blocking function`：
+
+```php
+<?php
+
+Swoole\Coroutine::set([
+    'hook_flags' => SWOOLE_HOOK_BLOCKING_FUNCTION,
+]);
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        while (true) {
+            exec("cat");
+        }
+    });
+
+    echo "here" . PHP_EOL;
+});
+```
+
+```shell
+here
+
+```
+
+没有`hook`的`blocking function`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        while (true) {
+            exec("cat");
+        }
+    });
+
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
+
 ### SWOOLE_HOOK_CURL
 
 ## c_stack_size
