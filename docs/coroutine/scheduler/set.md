@@ -94,31 +94,6 @@ PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/sw
 
 例子：
 
-没有`hook`的`tcp`：
-
-```php
-<?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $ctx = stream_context_create(['socket' => ['so_reuseaddr' => true, 'backlog' => 128]]);
-        $socket = stream_socket_server(
-            'tcp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
-        );
-        if (!$socket) {
-            echo "$errstr ($errno)" . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo "here" . PHP_EOL;
-});
-```
-
-此时不会打印出`here`字符串。
-
 `hook`的`tcp`：
 
 ```php
@@ -151,6 +126,31 @@ here
 
 ```
 
+没有`hook`的`tcp`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        $ctx = stream_context_create(['socket' => ['so_reuseaddr' => true, 'backlog' => 128]]);
+        $socket = stream_socket_server(
+            'tcp://0.0.0.0:6666',
+            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
+        );
+        if (!$socket) {
+            echo "$errstr ($errno)" . PHP_EOL;
+            exit(1);
+        }
+        while (stream_socket_accept($socket)) {
+        }
+    });
+    echo "here" . PHP_EOL;
+});
+```
+
+此时不会打印出`here`字符串。
+
 ### SWOOLE_HOOK_UDP
 
 ### SWOOLE_HOOK_UNIX
@@ -168,27 +168,6 @@ here
 ### SWOOLE_HOOK_SLEEP
 
 例子：
-
-没有`hook`的`sleep`：
-
-```php
-<?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        sleep(1);
-        echo '1' . PHP_EOL;
-    });
-    go(function () {
-        echo '2' . PHP_EOL;
-    });
-});
-```
-
-```shell
-1
-2
-```
 
 `hook`的`sleep`：
 
@@ -213,6 +192,27 @@ Swoole\Coroutine\run(function () {
 ```shell
 2
 1
+```
+
+没有`hook`的`sleep`：
+
+```php
+<?php
+
+Swoole\Coroutine\run(function () {
+    go(function () {
+        sleep(1);
+        echo '1' . PHP_EOL;
+    });
+    go(function () {
+        echo '2' . PHP_EOL;
+    });
+});
+```
+
+```shell
+1
+2
 ```
 
 ### SWOOLE_HOOK_PROC
