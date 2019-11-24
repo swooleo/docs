@@ -15,6 +15,7 @@ nav:
     - Coroutine::yield: coroutine/coroutine/yield.md
     - Coroutine::resume: coroutine/coroutine/resume.md
     - Coroutine::list: coroutine/coroutine/list.md
+    - Coroutine::stats: coroutine/coroutine/stats.md
 
 theme:
   name: 'material'
