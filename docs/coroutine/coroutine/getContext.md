@@ -82,3 +82,18 @@ run(function () {
     Coroutine::resume(3);
 });
 ```
+
+```shell
+Resource#1 constructed
+Resource#2 constructed
+Resource#3 constructed
+Coroutine#2 exit
+Resource#2 destructed
+Resource#1 destructed
+Resource#4 constructed
+Resource#5 constructed
+Coroutine#3 exit
+Resource#5 destructed
+Resource#3 destructed
+Resource#4 destructed
+```
