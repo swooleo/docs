@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/create/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/enableScheduler/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Coroutine::create - swoole document</title>
+        <title>Coroutine::enableScheduler - swoole document</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#coroutinecreate" tabindex="1" class="md-skip">
+      <a href="#coroutineenablescheduler" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Coroutine::create
+                Coroutine::enableScheduler
               
             </span>
           
@@ -248,151 +248,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Coroutine::create
-      </label>
-    
-    <a href="./" title="Coroutine::create" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../create/" title="Coroutine::create" class="md-nav__link">
       Coroutine::create
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法原型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    参数
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#callable-func" class="md-nav__link">
-    callable $func
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    普通函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    匿名函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    在类的内部调用非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    在类的内部调用静态方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mixed-params" class="md-nav__link">
-    mixed ...$params
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    给普通函数传递参数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    给匿名函数传递参数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    使用闭包
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -520,11 +380,76 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../enableScheduler/" title="Coroutine::enableScheduler" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Coroutine::enableScheduler
+      </label>
+    
+    <a href="./" title="Coroutine::enableScheduler" class="md-nav__link md-nav__link--active">
       Coroutine::enableScheduler
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    无参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    开启扩展的协程CPU密集型调度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    关闭扩展的协程CPU密集型调度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -567,98 +492,23 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    参数
+    无参数
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#callable-func" class="md-nav__link">
-    callable $func
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    普通函数
+  <a href="#cpu" class="md-nav__link">
+    开启扩展的协程CPU密集型调度
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    匿名函数
+  <a href="#cpu_1" class="md-nav__link">
+    关闭扩展的协程CPU密集型调度
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    在类的内部调用非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    在类的内部调用静态方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mixed-params" class="md-nav__link">
-    mixed ...$params
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    给普通函数传递参数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    给匿名函数传递参数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    使用闭包
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -684,188 +534,87 @@
               
                 
                 
-                <h1 id="coroutinecreate">Coroutine::create</h1>
-<p><code>Coroutine::create</code>用来创建一个协程，并且立马执行这个协程。</p>
+                <h1 id="coroutineenablescheduler">Coroutine::enableScheduler</h1>
+<p>让当前协程支持<code>CPU</code>密集型调度，默认是开启的。</p>
+<blockquote>
+<p>注意，enableScheduler生效的前提是扩展本身开启协程CPU密集型调度。也就是说，当扩展开启了协程CPU密集型调度的时候，会专门起一个调度协程去对占用CPU资源过久的协程进行中断的操作。</p>
+</blockquote>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">&lt;?php
-public static function create(
-    callable $func,
-    ...$params
-) { }
-@param callable $func
+<pre><code class="php">Swoole\Coroutine::enableScheduler
 
-@param mixed ...$params
-
+&lt;?php
+public static function enableScheduler() { }
 @return mixed
 </code></pre>
 
-<p>这个方法有一个别名，<code>go</code>：</p>
-<pre><code class="php">&lt;?php
-function go(
-    $func,
-    $params = null
-) { }
-@param callable $func
-
-@param mixed ...$params
-
-@return mixed
-</code></pre>
-
-<h2 id="_2">参数</h2>
-<h3 id="callable-func">callable $func</h3>
-<p>代表一个<code>PHP</code>函数或者方法。</p>
-<h4 id="_3">普通函数</h4>
+<h2 id="_2">无参数</h2>
+<h3 id="cpu">开启扩展的协程CPU密集型调度</h3>
+<p>例子：</p>
 <pre><code class="php">&lt;?php
 
-function task() {
-    echo 'swoole' . PHP_EOL;
-}
+use Swoole\Coroutine;
 
-go('task');
-</code></pre>
+use function Swoole\Coroutine\run;
 
-<pre><code class="shell">swoole
-</code></pre>
+ini_set(&quot;swoole.enable_preemptive_scheduler&quot;, &quot;1&quot;);
 
-<h4 id="_4">匿名函数</h4>
-<pre><code class="php">&lt;?php
-
-go(function () {
-    echo 'swoole' . PHP_EOL;
+run(function () {
+    go(function () {
+        Coroutine::enableScheduler();
+        while (true) {
+        }
+    });
+    var_dump(&quot;swoole&quot;);
 });
 </code></pre>
 
-<pre><code class="shell">swoole
+<pre><code class="shell">string(6) &quot;swoole&quot;
+
 </code></pre>
 
-<h4 id="_5">非静态方法</h4>
+<p>此时，会跳出死循环。（注意，还会回到循环里面）</p>
+<p>实际上，协程默认是开启<code>CPU</code>密集型调度的。例如：</p>
 <pre><code class="php">&lt;?php
 
-class Codinghuang
-{
-    public function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
+use Swoole\Coroutine;
 
-$obj = new Codinghuang;
-go([$obj, 'task']);
-</code></pre>
+use function Swoole\Coroutine\run;
 
-<pre><code class="shell">swoole
-</code></pre>
+ini_set(&quot;swoole.enable_preemptive_scheduler&quot;, &quot;1&quot;);
 
-<h4 id="_6">静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public static function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
-
-go([Codinghuang::class, 'task']);
-</code></pre>
-
-<pre><code class="shell">swoole
-</code></pre>
-
-<h4 id="_7">在类的内部调用非静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public function test()
-    {
-        go([$this, 'task']);
-    }
-
-    public function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
-
-$obj = new Codinghuang;
-$obj-&gt;test();
-</code></pre>
-
-<pre><code class="shell">swoole
-</code></pre>
-
-<h4 id="_8">在类的内部调用静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public function test()
-    {
-        go([self::class, 'task']);
-    }
-
-    public static function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
-
-$obj = new Codinghuang;
-$obj-&gt;test();
-</code></pre>
-
-<pre><code class="shell">swoole
-</code></pre>
-
-<h3 id="mixed-params">mixed ...$params</h3>
-<p>传递给协程任务函数的参数，参数个数是可变的。</p>
-<h4 id="_9">给普通函数传递参数</h4>
-<pre><code class="php">&lt;?php
-
-function task($param1, $param2)
-{
-    var_dump($param1);
-    var_dump($param2);
-}
-
-go('task', 1, 'swoole');
-</code></pre>
-
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
-</code></pre>
-
-<h4 id="_10">给匿名函数传递参数</h4>
-<pre><code class="php">&lt;?php
-
-go(function ($param1, $param2) {
-    var_dump($param1);
-    var_dump($param2);
-}, 1, 'swoole');
-</code></pre>
-
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
-</code></pre>
-
-<h4 id="_11">使用闭包</h4>
-<pre><code class="php">&lt;?php
-
-$param1 = 1;
-$param2 = 'swoole';
-
-go(function () use ($param1, $param2) {
-    var_dump($param1);
-    var_dump($param2);
+run(function () {
+    go(function () {
+        while (true) {
+        }
+    });
+    var_dump(&quot;swoole&quot;);
 });
 </code></pre>
 
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
+<pre><code class="shell">string(6) &quot;swoole&quot;
+
 </code></pre>
+
+<p>依然会跳出死循环。</p>
+<h3 id="cpu_1">关闭扩展的协程CPU密集型调度</h3>
+<p>例子：</p>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine;
+
+use function Swoole\Coroutine\run;
+
+run(function () {
+    go(function () {
+        Coroutine::enableScheduler();
+        while (true) {
+        }
+    });
+    var_dump(&quot;swoole&quot;);
+});
+</code></pre>
+
+<p>可以发现，是不会跳出死循环的。</p>
                 
                   
                 
@@ -886,7 +635,7 @@ string(6) &quot;swoole&quot;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../set/" title="Coroutine::set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../getBackTrace/" title="Coroutine::getBackTrace" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -895,25 +644,11 @@ string(6) &quot;swoole&quot;
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Coroutine::set
+                Coroutine::getBackTrace
               </span>
             </div>
           </a>
         
-        
-          <a href="../defer/" title="Coroutine::defer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Coroutine::defer
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
