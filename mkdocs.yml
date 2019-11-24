@@ -13,6 +13,7 @@ nav:
     - Coroutine::exists: coroutine/coroutine/exists.md
     - Coroutine::getContext: coroutine/coroutine/getContext.md
     - Coroutine::yield: coroutine/coroutine/yield.md
+    - Coroutine::resume: coroutine/coroutine/resume.md
 
 theme:
   name: 'material'
