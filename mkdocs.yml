@@ -16,6 +16,7 @@ nav:
     - Coroutine::resume: coroutine/coroutine/resume.md
     - Coroutine::list: coroutine/coroutine/list.md
     - Coroutine::stats: coroutine/coroutine/stats.md
+    - Coroutine::getBackTrace: coroutine/coroutine/getBackTrace.md
 
 theme:
   name: 'material'
