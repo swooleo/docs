@@ -671,28 +671,11 @@ run(function () {
             $conn = $socket-&gt;accept();
         }
     });
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['event_num']);
 });
 </code></pre>
 
-<pre><code class="shell">array(8) {
-  [&quot;event_num&quot;]=&gt;
-  int(1)
-  [&quot;signal_listener_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_task_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_worker_num&quot;]=&gt;
-  int(0)
-  [&quot;c_stack_size&quot;]=&gt;
-  int(2097152)
-  [&quot;coroutine_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_peak_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_last_cid&quot;]=&gt;
-  int(2)
-}
+<pre><code class="shell">int(1)
 
 </code></pre>
 
@@ -720,29 +703,12 @@ Coroutine::set([
 
 run(function () {
     go(function () {
-        var_dump(Coroutine::stats());
+        var_dump(Coroutine::stats()['c_stack_size']);
     });
 });
 </code></pre>
 
-<pre><code class="shell">array(8) {
-  [&quot;event_num&quot;]=&gt;
-  int(0)
-  [&quot;signal_listener_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_task_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_worker_num&quot;]=&gt;
-  int(0)
-  [&quot;c_stack_size&quot;]=&gt;
-  int(3145728)
-  [&quot;coroutine_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_peak_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_last_cid&quot;]=&gt;
-  int(2)
-}
+<pre><code class="shell">int(3145728)
 </code></pre>
 
 <h3 id="coroutine_num">coroutine_num</h3>
@@ -754,35 +720,14 @@ use Swoole\Coroutine\Socket;
 
 use function Swoole\Coroutine\run;
 
-Coroutine::set([
-    'c_stack_size' =&gt; 3 * 1024 * 1024,
-]);
-
 run(function () {
     go(function () {
     });
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['coroutine_num']);
 });
 </code></pre>
 
-<pre><code class="shell">array(8) {
-  [&quot;event_num&quot;]=&gt;
-  int(0)
-  [&quot;signal_listener_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_task_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_worker_num&quot;]=&gt;
-  int(0)
-  [&quot;c_stack_size&quot;]=&gt;
-  int(3145728)
-  [&quot;coroutine_num&quot;]=&gt;
-  int(1)
-  [&quot;coroutine_peak_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_last_cid&quot;]=&gt;
-  int(2)
-}
+<pre><code class="shell">int(1)
 </code></pre>
 
 <p>可以发现，我们创建了两个协程（<code>run</code>函数会创建一个协程），但是<code>coroutine_num</code>是<code>1</code>。</p>
@@ -796,38 +741,17 @@ use Swoole\Coroutine\Socket;
 
 use function Swoole\Coroutine\run;
 
-Coroutine::set([
-    'c_stack_size' =&gt; 3 * 1024 * 1024,
-]);
-
 run(function () {
     for ($i=0; $i &lt; 5; $i++) {
         go(function () {
         });
     }
 
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['coroutine_peak_num']);
 });
 </code></pre>
 
-<pre><code class="shell">array(8) {
-  [&quot;event_num&quot;]=&gt;
-  int(0)
-  [&quot;signal_listener_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_task_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_worker_num&quot;]=&gt;
-  int(0)
-  [&quot;c_stack_size&quot;]=&gt;
-  int(3145728)
-  [&quot;coroutine_num&quot;]=&gt;
-  int(1)
-  [&quot;coroutine_peak_num&quot;]=&gt;
-  int(2)
-  [&quot;coroutine_last_cid&quot;]=&gt;
-  int(6)
-}
+<pre><code class="shell">int(2)
 </code></pre>
 
 <p>尽管在<code>run</code>函数里面创建了<code>5</code>个协程，但是协程每次创建完之后就立马死亡，所以峰值是<code>2</code>个。</p>
