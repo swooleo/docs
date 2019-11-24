@@ -231,6 +231,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常见问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensslsslh-file-not-found" class="md-nav__link">
+    'openssl/ssl.h' file not found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-openssl-support-require-openssl-library" class="md-nav__link">
+    Enable openssl support, require openssl library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -367,6 +394,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常见问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opensslsslh-file-not-found" class="md-nav__link">
+    'openssl/ssl.h' file not found
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-openssl-support-require-openssl-library" class="md-nav__link">
+    Enable openssl support, require openssl library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -424,6 +478,13 @@ EOF
 <h2 id="_3">验证是否安装成功</h2>
 <pre><code class="shell">php --ri swoole
 </code></pre>
+
+<h2 id="_4">常见问题</h2>
+<p>在安装扩展的时候，最常见的一个问题有两个。</p>
+<h3 id="opensslsslh-file-not-found">'openssl/ssl.h' file not found</h3>
+<p>这个是因为编译器没有找到<code>openssl/ssl.h</code>这个头文件。可能是因为没有下载<code>openssl-dev</code>库，只需要下载对应操作系统上的<code>openssl-dev</code>即可。如果下载了<code>openssl-dev</code>库之后依然报这个错误，那么说明在编译<code>Swoole</code>的时候，这个头文件不在编译器的搜索路径里面。例如，在<code>mac</code>上，下载的<code>openssl-dev</code>库默认是在<code>/usr/local/opt/openssl/</code>里面。此时，可以创建一个<code>/usr/local/opt/openssl/include/openssl/</code>的软连接到编译器默认的搜索路径<code>/usr/local/include/</code>里面即可。</p>
+<h3 id="enable-openssl-support-require-openssl-library">Enable openssl support, require openssl library</h3>
+<p>这个是因为在链接<code>openssl library</code>库的时候，编译器没有找到。这个问题和<code>'openssl/ssl.h' file not found</code>类似，要么是没有下载<code>openssl library</code>库，要么是这个库不在编译器的搜索路径里面。例如，在<code>mac</code>上，下载的<code>openssl library</code>默认是在<code>/usr/local/opt/openssl/</code>里面。此时，可以创建一个<code>/usr/local/opt/openssl/lib/</code>的软连接到编译器默认的搜索路径<code>/usr/local/lib/</code>里面即可。</p>
                 
                   
                 
