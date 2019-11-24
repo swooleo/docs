@@ -9,6 +9,7 @@ nav:
     - Coroutine::create: coroutine/coroutine/create.md
     - Coroutine::defer: coroutine/coroutine/defer.md
     - Coroutine::getCid: coroutine/coroutine/getCid.md
+    - Coroutine::getPcid: coroutine/coroutine/getPcid.md
     - Coroutine::exists: coroutine/coroutine/exists.md
 
 theme:
