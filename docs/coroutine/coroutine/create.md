@@ -160,3 +160,61 @@ $obj->test();
 ```shell
 swoole
 ```
+
+### mixed ...$params
+
+传递给协程任务函数的参数，参数个数是可变的。
+
+#### 给普通函数传递参数
+
+```php
+<?php
+
+function task($param1, $param2)
+{
+    var_dump($param1);
+    var_dump($param2);
+}
+
+go('task', 1, 'swoole');
+```
+
+```shell
+int(1)
+string(6) "swoole"
+```
+
+#### 给匿名函数传递参数
+
+```php
+<?php
+
+go(function ($param1, $param2) {
+    var_dump($param1);
+    var_dump($param2);
+}, 1, 'swoole');
+```
+
+```shell
+int(1)
+string(6) "swoole"
+```
+
+#### 使用闭包
+
+```php
+<?php
+
+$param1 = 1;
+$param2 = 'swoole';
+
+go(function () use ($param1, $param2) {
+    var_dump($param1);
+    var_dump($param2);
+});
+```
+
+```shell
+int(1)
+string(6) "swoole"
+```
