@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/defer/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/exists/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Coroutine::defer - swoole document</title>
+        <title>Coroutine::exists - swoole document</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#coroutinedefer" tabindex="1" class="md-skip">
+      <a href="#coroutineexists" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Coroutine::defer
+                Coroutine::exists
               
             </span>
           
@@ -260,6 +260,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../defer/" title="Coroutine::defer" class="md-nav__link">
+      Coroutine::defer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -271,11 +283,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Coroutine::defer
+        Coroutine::exists
       </label>
     
-    <a href="./" title="Coroutine::defer" class="md-nav__link md-nav__link--active">
-      Coroutine::defer
+    <a href="./" title="Coroutine::exists" class="md-nav__link md-nav__link--active">
+      Coroutine::exists
     </a>
     
       
@@ -304,69 +316,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#callable-func" class="md-nav__link">
-    callable $func
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    普通函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    匿名函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    在类的内部调用非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    在类的内部调用静态方法
+  <a href="#long-cid" class="md-nav__link">
+    long $cid
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    使用协程的返回值作为参数
-  </a>
   
 </li>
       
@@ -378,18 +335,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../exists/" title="Coroutine::exists" class="md-nav__link">
-      Coroutine::exists
-    </a>
   </li>
 
         
@@ -439,69 +384,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#callable-func" class="md-nav__link">
-    callable $func
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    普通函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    匿名函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    在类的内部调用非静态方法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    在类的内部调用静态方法
+  <a href="#long-cid" class="md-nav__link">
+    long $cid
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    使用协程的返回值作为参数
-  </a>
   
 </li>
       
@@ -522,246 +412,48 @@
               
                 
                 
-                <h1 id="coroutinedefer">Coroutine::defer</h1>
-<p><code>Coroutine::defer</code>用来在协程关闭之前(即协程函数执行完毕时)调用被<code>defer</code>注册的代码。</p>
-<blockquote>
-<p>注意，因为<code>defer</code>一般用于资源的释放，所以它的调用顺序是先注册defer的后执行。逆序符合资源释放的正确逻辑, 后申请的资源可能是基于先申请的资源的, 如先释放先申请的资源, 后申请的资源可能就难以释放。另外需要注意的是，在协程内抛出了异常，已注册的defer也会被执行。</p>
-</blockquote>
+                <h1 id="coroutineexists">Coroutine::exists</h1>
+<p>判断指定协程是否存在。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::defer
+<pre><code class="php">Swoole\Coroutine::exists
 
 &lt;?php
-public static function defer($callback) { }
-@param callable $func
+public static function exists($cid) { }
+@param long $cid
 
-@return mixed
-</code></pre>
-
-<p>这个方法有一个别名，<code>defer</code>：</p>
-<pre><code class="php">defer
-
-&lt;?php
-function defer($callback) { }
-@param callable $func
-
-@return mixed
+@return bool
 </code></pre>
 
 <h2 id="_2">参数</h2>
-<h3 id="callable-func">callable $func</h3>
-<p>代表一个<code>PHP</code>函数或者方法。</p>
-<h4 id="_3">普通函数</h4>
+<h3 id="long-cid">long $cid</h3>
+<p>协程<code>id</code>。</p>
+<p>例子：</p>
 <pre><code class="php">&lt;?php
 
-function task1()
-{
-    echo 'task1' . PHP_EOL;
-}
+use Swoole\Coroutine;
 
-function task2()
-{
-    echo 'task2' . PHP_EOL;
-}
+use function Swoole\Coroutine\run;
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer('task1');
-        Swoole\Coroutine::defer('task2');
-        echo '2' . PHP_EOL;
+run(function () {
+    $cid = go(function () {
+        go(function () {
+            var_dump(Coroutine::exists(Coroutine::getCid()));
+        });
     });
+
+    var_dump(Coroutine::exists($cid));
 });
 </code></pre>
 
-<pre><code class="shell">1
-2
-task2
-task1
+<pre><code class="shell">bool(true)
+bool(false)
 </code></pre>
 
-<h4 id="_4">匿名函数</h4>
-<pre><code class="php">&lt;?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer(function () {
-            echo 'task1' . PHP_EOL;
-        });
-        Swoole\Coroutine::defer(function () {
-            echo 'task2' . PHP_EOL;
-        });
-        echo '2' . PHP_EOL;
-    });
-});
+<p>因为，当执行到</p>
+<pre><code class="php">var_dump(Coroutine::exists($cid));
 </code></pre>
 
-<pre><code class="shell">1
-2
-task2
-task1
-</code></pre>
-
-<h4 id="_5">非静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
-
-    public function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        $obj = new Codinghuang;
-        Swoole\Coroutine::defer([$obj, 'task1']);
-        Swoole\Coroutine::defer([$obj, 'task2']);
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
-
-<pre><code class="shell">1
-2
-task2
-task1
-</code></pre>
-
-<h4 id="_6">静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public static function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
-
-    public static function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer([Codinghuang::class, 'task1']);
-        Swoole\Coroutine::defer([Codinghuang::class, 'task2']);
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
-
-<pre><code class="shell">1
-2
-task2
-task1
-</code></pre>
-
-<h4 id="_7">在类的内部调用非静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public function run ()
-    {
-        Swoole\Coroutine\run(function () {
-            go(function () {
-                echo '1' . PHP_EOL;
-                Swoole\Coroutine::defer([$this, 'task1']);
-                Swoole\Coroutine::defer([$this, 'task2']);
-                echo '2' . PHP_EOL;
-            });
-        });
-    }
-
-    public function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
-
-    public function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
-
-$obj = new Codinghuang;
-$obj-&gt;run();
-</code></pre>
-
-<pre><code class="shell">1
-2
-task2
-task1
-</code></pre>
-
-<h4 id="_8">在类的内部调用静态方法</h4>
-<pre><code class="php">&lt;?php
-
-class Codinghuang
-{
-    public function run ()
-    {
-        Swoole\Coroutine\run(function () {
-            go(function () {
-                echo '1' . PHP_EOL;
-                Swoole\Coroutine::defer([self::class, 'task1']);
-                Swoole\Coroutine::defer([self::class, 'task2']);
-                echo '2' . PHP_EOL;
-            });
-        });
-    }
-
-    public static function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
-
-    public static function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
-
-$obj = new Codinghuang;
-$obj-&gt;run();
-</code></pre>
-
-<pre><code class="shell">1
-2
-task2
-task1
-</code></pre>
-
-<h2 id="_9">使用协程的返回值作为参数</h2>
-<pre><code class="php">&lt;?php
-
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer(function ($param) {
-            var_dump($param);
-        });
-        echo '2' . PHP_EOL;
-        return &quot;swoole&quot;;
-    });
-});
-</code></pre>
-
-<pre><code class="shell">1
-2
-string(6) &quot;swoole&quot;
-</code></pre>
+<p>这一行的时候，<code>$cid</code>对应的那个协程已经死亡了，所以返回<code>false</code>。</p>
                 
                   
                 
@@ -782,7 +474,7 @@ string(6) &quot;swoole&quot;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../create/" title="Coroutine::create" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../defer/" title="Coroutine::defer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -791,25 +483,11 @@ string(6) &quot;swoole&quot;
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Coroutine::create
+                Coroutine::defer
               </span>
             </div>
           </a>
         
-        
-          <a href="../exists/" title="Coroutine::exists" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Coroutine::exists
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
