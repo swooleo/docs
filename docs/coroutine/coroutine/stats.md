@@ -74,29 +74,12 @@ run(function () {
             $conn = $socket->accept();
         }
     });
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['event_num']);
 });
 ```
 
 ```shell
-array(8) {
-  ["event_num"]=>
-  int(1)
-  ["signal_listener_num"]=>
-  int(0)
-  ["aio_task_num"]=>
-  int(0)
-  ["aio_worker_num"]=>
-  int(0)
-  ["c_stack_size"]=>
-  int(2097152)
-  ["coroutine_num"]=>
-  int(2)
-  ["coroutine_peak_num"]=>
-  int(2)
-  ["coroutine_last_cid"]=>
-  int(2)
-}
+int(1)
 
 ```
 
@@ -132,30 +115,13 @@ Coroutine::set([
 
 run(function () {
     go(function () {
-        var_dump(Coroutine::stats());
+        var_dump(Coroutine::stats()['c_stack_size']);
     });
 });
 ```
 
 ```shell
-array(8) {
-  ["event_num"]=>
-  int(0)
-  ["signal_listener_num"]=>
-  int(0)
-  ["aio_task_num"]=>
-  int(0)
-  ["aio_worker_num"]=>
-  int(0)
-  ["c_stack_size"]=>
-  int(3145728)
-  ["coroutine_num"]=>
-  int(2)
-  ["coroutine_peak_num"]=>
-  int(2)
-  ["coroutine_last_cid"]=>
-  int(2)
-}
+int(3145728)
 ```
 
 ### coroutine_num
@@ -170,36 +136,15 @@ use Swoole\Coroutine\Socket;
 
 use function Swoole\Coroutine\run;
 
-Coroutine::set([
-    'c_stack_size' => 3 * 1024 * 1024,
-]);
-
 run(function () {
     go(function () {
     });
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['coroutine_num']);
 });
 ```
 
 ```shell
-array(8) {
-  ["event_num"]=>
-  int(0)
-  ["signal_listener_num"]=>
-  int(0)
-  ["aio_task_num"]=>
-  int(0)
-  ["aio_worker_num"]=>
-  int(0)
-  ["c_stack_size"]=>
-  int(3145728)
-  ["coroutine_num"]=>
-  int(1)
-  ["coroutine_peak_num"]=>
-  int(2)
-  ["coroutine_last_cid"]=>
-  int(2)
-}
+int(1)
 ```
 
 可以发现，我们创建了两个协程（`run`函数会创建一个协程），但是`coroutine_num`是`1`。
@@ -218,39 +163,18 @@ use Swoole\Coroutine\Socket;
 
 use function Swoole\Coroutine\run;
 
-Coroutine::set([
-    'c_stack_size' => 3 * 1024 * 1024,
-]);
-
 run(function () {
     for ($i=0; $i < 5; $i++) {
         go(function () {
         });
     }
 
-    var_dump(Coroutine::stats());
+    var_dump(Coroutine::stats()['coroutine_peak_num']);
 });
 ```
 
 ```shell
-array(8) {
-  ["event_num"]=>
-  int(0)
-  ["signal_listener_num"]=>
-  int(0)
-  ["aio_task_num"]=>
-  int(0)
-  ["aio_worker_num"]=>
-  int(0)
-  ["c_stack_size"]=>
-  int(3145728)
-  ["coroutine_num"]=>
-  int(1)
-  ["coroutine_peak_num"]=>
-  int(2)
-  ["coroutine_last_cid"]=>
-  int(6)
-}
+int(2)
 ```
 
 尽管在`run`函数里面创建了`5`个协程，但是协程每次创建完之后就立马死亡，所以峰值是`2`个。
