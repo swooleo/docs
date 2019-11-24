@@ -11,6 +11,7 @@ nav:
     - Coroutine::getCid: coroutine/coroutine/getCid.md
     - Coroutine::getPcid: coroutine/coroutine/getPcid.md
     - Coroutine::exists: coroutine/coroutine/exists.md
+    - Coroutine::getContext: coroutine/coroutine/getContext.md
 
 theme:
   name: 'material'
