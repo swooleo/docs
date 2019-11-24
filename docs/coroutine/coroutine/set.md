@@ -2,6 +2,8 @@
 
 `Coroutine::set`用来设置协程相关选项。
 
+## 方法原型
+
 ```php
 Swoole\Coroutine::set
 
@@ -12,7 +14,13 @@ public static function set($options) { }
 @return mixed
 ```
 
-## max_coroutine
+## 参数
+
+### array $options
+
+相关的配置项。
+
+#### max_coroutine
 
 设置最大协程数，超过限制后底层将无法创建新的协程。
 
@@ -84,13 +92,13 @@ swoole
 PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 19
 ```
 
-## hook_flags
+#### hook_flags
 
 可以在运行时动态将基于`php_stream`实现的扩展、`PHP`网络客户端代码一键协程化。`Swoole`创建协程的时候，默认是不会`hook`的。
 
 可以`hook`的`flag`有：
 
-### SWOOLE_HOOK_TCP
+##### SWOOLE_HOOK_TCP
 
 例子：
 
@@ -151,7 +159,7 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_UDP
+##### SWOOLE_HOOK_UDP
 
 `hook`的`udp`：
 
@@ -208,7 +216,7 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_UNIX
+##### SWOOLE_HOOK_UNIX
 
 `hook`的`unix`：
 
@@ -263,7 +271,7 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_UDG
+##### SWOOLE_HOOK_UDG
 
 `hook`的`udg`：
 
@@ -318,19 +326,19 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_SSL
+##### SWOOLE_HOOK_SSL
 
 TODO
 
-### SWOOLE_HOOK_TLS
+##### SWOOLE_HOOK_TLS
 
 TODO
 
-### SWOOLE_HOOK_STREAM_FUNCTION
+##### SWOOLE_HOOK_STREAM_FUNCTION
 
 TODO
 
-### SWOOLE_HOOK_FILE
+##### SWOOLE_HOOK_FILE
 
 `hook`的`file`：
 
@@ -375,7 +383,7 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_SLEEP
+##### SWOOLE_HOOK_SLEEP
 
 例子：
 
@@ -425,7 +433,7 @@ Swoole\Coroutine\run(function () {
 2
 ```
 
-### SWOOLE_HOOK_PROC
+##### SWOOLE_HOOK_PROC
 
 `hook`的`proc`：
 
@@ -505,7 +513,7 @@ I am process
 
 ```
 
-### SWOOLE_HOOK_BLOCKING_FUNCTION
+##### SWOOLE_HOOK_BLOCKING_FUNCTION
 
 这里的`blocking function`包括了：`gethostbyname`、`exec`、`shell_exec`。
 
@@ -552,42 +560,42 @@ Swoole\Coroutine\run(function () {
 
 此时不会打印出`here`字符串。
 
-### SWOOLE_HOOK_CURL
+##### SWOOLE_HOOK_CURL
 
 TODO
 
-## c_stack_size
+#### c_stack_size
 
 设置单个协程初始栈的内存尺寸，单位是`B`，默认为`2 * 1024 * 1024B`，即`2MB`。范围：`256 * 1024B ～ 16 * 1024 * 1024`。
 
 > 注意，这里设置的是协程初始C栈的大小，而不是协程初始PHP栈的大小。
 > 协程初始PHP栈的大小目前是固定的8 * 1024B。
 
-## socket_connect_timeout
+#### socket_connect_timeout
 
 建立`socket`连接超时时间, 单位：`s`，默认为`1s`。设置为`-1`，表示永不超时。
 
 > 注意，这里不能设置为0。设置为0的话，会取默认值。
 
-## socket_timeout
+#### socket_timeout
 
 设置`socket`读和写的操作超时时间, 单位：`s`，默认为`-1`, 即永不超时。
 
 > 注意，这里不能设置为0。设置为0的话，会取默认值。
 
-## socket_read_timeout
+#### socket_read_timeout
 
 只设置`socket`读的操作超时时间，单位`s`，默认为`-1`, 即永不超时。
 
 > 注意，这里不能设置为0。设置为0的话，会取默认值。
 
-## socket_write_timeout
+#### socket_write_timeout
 
 只设置`socket`写的操作超时时间，单位`s`，默认为`-1`, 即永不超时。
 
 > 注意，这里不能设置为0。设置为0的话，会取默认值。
 
-## log_level
+#### log_level
 
 设置日志等级。大于等于这个日志等级的日志**才**会被打印出来。
 
@@ -648,38 +656,38 @@ Swoole\Coroutine\run(function () {
 PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 10
 ```
 
-## trace_flags
+#### trace_flags
 
 TODO
 
-## dns_cache_expire
+#### dns_cache_expire
 
 设置`swoole` `dns`缓存失效时间，单位`s`，默认`60s`。
 
-## dns_cache_capacity
+#### dns_cache_capacity
 
 设置`swoole` `dns`缓存容量，默认`1000`。
 
-## dns_server
+#### dns_server
 
 TODO
 
-## display_errors
+#### display_errors
 
 TODO
 
-## aio_core_worker_num
+#### aio_core_worker_num
 
 TODO
 
-## aio_worker_num
+#### aio_worker_num
 
 TODO
 
-## aio_max_wait_time
+#### aio_max_wait_time
 
 TODO
 
-## aio_max_idle_time
+#### aio_max_idle_time
 
 TODO
