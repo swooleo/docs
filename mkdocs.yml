@@ -18,6 +18,7 @@ nav:
     - Coroutine::stats: coroutine/coroutine/stats.md
     - Coroutine::getBackTrace: coroutine/coroutine/getBackTrace.md
     - Coroutine::enableScheduler: coroutine/coroutine/enableScheduler.md
+    - Coroutine::disableScheduler: coroutine/coroutine/disableScheduler.md
 
 theme:
   name: 'material'
