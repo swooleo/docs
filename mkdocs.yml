@@ -19,6 +19,8 @@ nav:
     - Coroutine::getBackTrace: coroutine/coroutine/getBackTrace.md
     - Coroutine::enableScheduler: coroutine/coroutine/enableScheduler.md
     - Coroutine::disableScheduler: coroutine/coroutine/disableScheduler.md
-
+  - Channel:
+    - Channel->__construct: coroutine/channel/__construct.md
+    
 theme:
   name: 'material'
