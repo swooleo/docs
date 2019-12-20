@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/channel/push/">
       
       
       
@@ -33,21 +33,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>swoole document</title>
+        <title>Channel->push - swoole document</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
       
     
     
-      <script src="assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -56,7 +56,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
     
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#channel-push" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                介绍
+                Channel->push
               
             </span>
           
@@ -170,49 +170,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        介绍
-      </label>
-    
-    <a href="." title="介绍" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../.." title="介绍" class="md-nav__link">
       介绍
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    注意
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -222,7 +184,7 @@
 
 
   <li class="md-nav__item">
-    <a href="快速开始/" title="快速开始" class="md-nav__link">
+    <a href="../../../快速开始/" title="快速开始" class="md-nav__link">
       快速开始
     </a>
   </li>
@@ -232,10 +194,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Coroutine
@@ -272,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/set/" title="Coroutine::set" class="md-nav__link">
+    <a href="../../coroutine/set/" title="Coroutine::set" class="md-nav__link">
       Coroutine::set
     </a>
   </li>
@@ -284,7 +248,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/create/" title="Coroutine::create" class="md-nav__link">
+    <a href="../../coroutine/create/" title="Coroutine::create" class="md-nav__link">
       Coroutine::create
     </a>
   </li>
@@ -296,7 +260,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/defer/" title="Coroutine::defer" class="md-nav__link">
+    <a href="../../coroutine/defer/" title="Coroutine::defer" class="md-nav__link">
       Coroutine::defer
     </a>
   </li>
@@ -308,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/getCid/" title="Coroutine::getCid" class="md-nav__link">
+    <a href="../../coroutine/getCid/" title="Coroutine::getCid" class="md-nav__link">
       Coroutine::getCid
     </a>
   </li>
@@ -320,7 +284,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/getPcid/" title="Coroutine::getPcid" class="md-nav__link">
+    <a href="../../coroutine/getPcid/" title="Coroutine::getPcid" class="md-nav__link">
       Coroutine::getPcid
     </a>
   </li>
@@ -332,7 +296,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/exists/" title="Coroutine::exists" class="md-nav__link">
+    <a href="../../coroutine/exists/" title="Coroutine::exists" class="md-nav__link">
       Coroutine::exists
     </a>
   </li>
@@ -344,7 +308,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/getContext/" title="Coroutine::getContext" class="md-nav__link">
+    <a href="../../coroutine/getContext/" title="Coroutine::getContext" class="md-nav__link">
       Coroutine::getContext
     </a>
   </li>
@@ -356,7 +320,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/yield/" title="Coroutine::yield" class="md-nav__link">
+    <a href="../../coroutine/yield/" title="Coroutine::yield" class="md-nav__link">
       Coroutine::yield
     </a>
   </li>
@@ -368,7 +332,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/resume/" title="Coroutine::resume" class="md-nav__link">
+    <a href="../../coroutine/resume/" title="Coroutine::resume" class="md-nav__link">
       Coroutine::resume
     </a>
   </li>
@@ -380,7 +344,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/list/" title="Coroutine::list" class="md-nav__link">
+    <a href="../../coroutine/list/" title="Coroutine::list" class="md-nav__link">
       Coroutine::list
     </a>
   </li>
@@ -392,7 +356,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/stats/" title="Coroutine::stats" class="md-nav__link">
+    <a href="../../coroutine/stats/" title="Coroutine::stats" class="md-nav__link">
       Coroutine::stats
     </a>
   </li>
@@ -404,7 +368,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/getBackTrace/" title="Coroutine::getBackTrace" class="md-nav__link">
+    <a href="../../coroutine/getBackTrace/" title="Coroutine::getBackTrace" class="md-nav__link">
       Coroutine::getBackTrace
     </a>
   </li>
@@ -416,7 +380,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/enableScheduler/" title="Coroutine::enableScheduler" class="md-nav__link">
+    <a href="../../coroutine/enableScheduler/" title="Coroutine::enableScheduler" class="md-nav__link">
       Coroutine::enableScheduler
     </a>
   </li>
@@ -428,7 +392,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/coroutine/disableScheduler/" title="Coroutine::disableScheduler" class="md-nav__link">
+    <a href="../../coroutine/disableScheduler/" title="Coroutine::disableScheduler" class="md-nav__link">
       Coroutine::disableScheduler
     </a>
   </li>
@@ -443,10 +407,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" checked>
     
     <label class="md-nav__link" for="nav-3-2">
       Channel
@@ -464,7 +430,7 @@
 
 
   <li class="md-nav__item">
-    <a href="coroutine/channel/__construct/" title="Channel->__construct" class="md-nav__link">
+    <a href="../__construct/" title="Channel->__construct" class="md-nav__link">
       Channel->__construct
     </a>
   </li>
@@ -474,11 +440,96 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="coroutine/channel/push/" title="Channel->push" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Channel->push
+      </label>
+    
+    <a href="./" title="Channel->push" class="md-nav__link md-nav__link--active">
       Channel->push
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixed-data" class="md-nav__link">
+    mixed $data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-timeout" class="md-nav__link">
+    mixed $timeout
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    不设置timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    返回值
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -513,8 +564,55 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    注意
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixed-data" class="md-nav__link">
+    mixed $data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-timeout" class="md-nav__link">
+    mixed $timeout
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    不设置timeout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    返回值
   </a>
   
 </li>
@@ -536,10 +634,95 @@
               
                 
                 
-                <h1 id="_1">介绍</h1>
-<p><code>Swoole</code>是一个面向生产环境的<code>PHP</code>协程框架。</p>
-<h2 id="_2">注意</h2>
-<p>本文档始终以最新的<code>Swoole</code>为准。</p>
+                <h1 id="channel-push">Channel-&gt;push</h1>
+<p>向<code>Channel</code>中写入数据。</p>
+<h2 id="_1">方法原型</h2>
+<pre><code class="php">Swoole\Coroutine\Channel::push
+
+&lt;?php
+public function push($data, $timeout = null) { }
+@param mixed $data
+
+@param mixed|null $timeout
+
+@return bool
+</code></pre>
+
+<blockquote>
+<p>注意：</p>
+<p>$data可以是任意类型的PHP变量，包括匿名函数和资源。</p>
+<p>为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。</p>
+</blockquote>
+<h2 id="_2">参数</h2>
+<h3 id="mixed-data">mixed $data</h3>
+<p>往<code>Channel</code>中存放的数据（可以是任意类型的数据）。例如：</p>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(2);
+
+    go(function () use ($chan) {
+        $chan-&gt;push(&quot;swoole&quot;);
+        $chan-&gt;push(1024);
+        $chan-&gt;push((object)[
+            'object',
+        ]);
+    });
+
+    go(function () use ($chan) {
+        $data = $chan-&gt;pop();
+        var_dump($data);
+        $data = $chan-&gt;pop();
+        var_dump($data);
+        $data = $chan-&gt;pop();
+        var_dump($data);
+    });
+});
+</code></pre>
+
+<pre><code class="shell">string(6) &quot;swoole&quot;
+int(1024)
+object(stdClass)#5 (1) {
+  [&quot;0&quot;]=&gt;
+  string(6) &quot;object&quot;
+}
+</code></pre>
+
+<h3 id="mixed-timeout">mixed $timeout</h3>
+<p>等待的超时时间，单位秒（<code>s</code>）</p>
+<p>在通道已满的情况下，push会挂起当前协程，在约定的时间内，如果没有任何消费者消费数据，将发生超时，底层会恢复当前协程，push调用立即返回false，写入失败。</p>
+<h4 id="timeout">不设置timeout</h4>
+<p>例如：</p>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;push(&quot;swoole&quot;);
+        var_dump($ret);
+        $ret = $chan-&gt;push(1024);
+        var_dump($ret);
+    });
+
+    var_dump(&quot;here&quot;);
+});
+</code></pre>
+
+<pre><code class="shell">bool(true)
+string(4) &quot;here&quot;
+</code></pre>
+
+<p>此时<code>1024</code>没有被<code>push</code>进<code>Channel</code>里面，并且协程被<code>yield</code>出来了。</p>
+<h2 id="_3">返回值</h2>
                 
                   
                 
@@ -560,20 +743,20 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-        
-          <a href="快速开始/" title="快速开始" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../__construct/" title="Channel->__construct" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  Previous
                 </span>
-                快速开始
+                Channel->__construct
               </span>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           </a>
+        
         
       </nav>
     </div>
@@ -595,9 +778,9 @@
       
     </div>
     
-      <script src="assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
   </body>
