@@ -648,11 +648,6 @@ public function push($data, $timeout = null) { }
 @return bool
 </code></pre>
 
-<blockquote>
-<p>注意：</p>
-<p>$data可以是任意类型的PHP变量，包括匿名函数和资源。</p>
-<p>为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。</p>
-</blockquote>
 <h2 id="_2">参数</h2>
 <h3 id="mixed-data">mixed $data</h3>
 <p>往<code>Channel</code>中存放的数据（可以是任意类型的数据）。例如：</p>
@@ -723,6 +718,7 @@ string(4) &quot;here&quot;
 
 <p>此时<code>1024</code>没有被<code>push</code>进<code>Channel</code>里面，并且协程被<code>yield</code>出来了。</p>
 <h2 id="_3">返回值</h2>
+<p>为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。</p>
                 
                   
                 
