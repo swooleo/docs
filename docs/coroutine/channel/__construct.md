@@ -1,6 +1,6 @@
 # Channel->__construct
 
-通道构造方法。
+`Channel`构造方法。
 
 ## 方法原型
 
