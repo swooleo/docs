@@ -21,6 +21,7 @@ nav:
     - Coroutine::disableScheduler: coroutine/coroutine/disableScheduler.md
   - Channel:
     - Channel->__construct: coroutine/channel/__construct.md
+    - Channel->push: coroutine/channel/push.md
     
 theme:
   name: 'material'
