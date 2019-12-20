@@ -16,12 +16,6 @@ public function push($data, $timeout = null) { }
 @return bool
 ```
 
-> 注意：
->
-> $data可以是任意类型的PHP变量，包括匿名函数和资源。
->
-> 为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。
-
 ## 参数
 
 ### mixed $data
@@ -105,3 +99,5 @@ string(4) "here"
 此时`1024`没有被`push`进`Channel`里面，并且协程被`yield`出来了。
 
 ## 返回值
+
+为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。
