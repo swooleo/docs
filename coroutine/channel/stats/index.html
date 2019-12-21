@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/channel/__construct/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/channel/stats/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Channel->__construct - swoole document</title>
+        <title>Channel->stats - swoole document</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#channel-__construct" tabindex="1" class="md-skip">
+      <a href="#channel-stats" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Channel->__construct
+                Channel->stats
               
             </span>
           
@@ -428,96 +428,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Channel->__construct
-      </label>
-    
-    <a href="./" title="Channel->__construct" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../__construct/" title="Channel->__construct" class="md-nav__link">
       Channel->__construct
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法原型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    参数
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#longnull-capacity" class="md-nav__link">
-    long|null $capacity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    小于1
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#null" class="md-nav__link">
-    null
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    大于1
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -549,11 +464,83 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../stats/" title="Channel->stats" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Channel->stats
+      </label>
+    
+    <a href="./" title="Channel->stats" class="md-nav__link md-nav__link--active">
       Channel->stats
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    无参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consumer_num" class="md-nav__link">
+    consumer_num
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#producer_num" class="md-nav__link">
+    producer_num
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue_num" class="md-nav__link">
+    queue_num
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -596,43 +583,30 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    参数
+    无参数
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#longnull-capacity" class="md-nav__link">
-    long|null $capacity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    小于1
+  <a href="#consumer_num" class="md-nav__link">
+    consumer_num
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#null" class="md-nav__link">
-    null
+  <a href="#producer_num" class="md-nav__link">
+    producer_num
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    大于1
+  <a href="#queue_num" class="md-nav__link">
+    queue_num
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -658,102 +632,139 @@
               
                 
                 
-                <h1 id="channel-__construct">Channel-&gt;__construct</h1>
-<p><code>Channel</code>构造方法。</p>
+                <h1 id="channel-stats">Channel-&gt;stats</h1>
+<p>获取通道的状态。</p>
 <h2 id="_1">方法原型</h2>
-<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Channel::__construct</span>
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Channel::stats</span>
 
 <span class="cp">&lt;?php</span>
-<span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$capacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$capacity</span>
-
-<span class="o">@</span><span class="k">return</span> <span class="nx">void</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">stats</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="k">return</span> <span class="k">array</span>
+<span class="p">[</span>
+  <span class="p">[</span><span class="s2">&quot;consumer_num&quot;</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">int</span>
+  <span class="p">[</span><span class="s2">&quot;producer_num&quot;</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">int</span>
+  <span class="p">[</span><span class="s2">&quot;queue_num&quot;</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">int</span>
+<span class="p">]</span>
 </pre></div>
 
 
-<blockquote>
-<p>注意：</p>
-<p>此Channel可以混合存储任意类型的数据。</p>
-<p>底层使用PHP引用计数来保存变量，缓存区只需要占用 $capacity * sizeof(zval) 字节的内存。</p>
-<p>传递的容量必须为大于或等于1的整数，否则使用默认的1。</p>
-</blockquote>
-<h2 id="_2">参数</h2>
-<h3 id="longnull-capacity">long|null $capacity</h3>
-<p>指定<code>channel</code>可以容纳的最大数据个数。默认是<code>1</code>。</p>
-<h4 id="1">小于1</h4>
-<p>例子：</p>
+<h2 id="_2">无参数</h2>
+<h3 id="consumer_num">consumer_num</h3>
+<p>代表调用<code>pop</code>后被<code>yield</code>的协程数量（也就意味着，这些协程在等其他协程生产数据）。</p>
+<p>例如：</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
 <span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$chan1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan1</span><span class="p">);</span>
-    <span class="nv">$chan2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan2</span><span class="p">);</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">stats</span><span class="p">());</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
-  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
-  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
-  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="s2">&quot;consumer_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;producer_num&quot;</span><span class="o">]=</span>&gt;
   int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
-<span class="o">}</span>
-object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#4 (2) {</span>
-  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
-  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
-  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
-  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
-<span class="o">}</span>
-</pre></div>
-
-
-<h4 id="null">null</h4>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">();</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
-  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
-  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
-  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  <span class="o">[</span><span class="s2">&quot;queue_num&quot;</span><span class="o">]=</span>&gt;
   int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 
 
-<h4 id="1_1">大于1</h4>
+<h3 id="producer_num">producer_num</h3>
+<p>代表调用<code>push</code>后被<code>yield</code>的协程数量（也就意味着，这些协程在等其他协程消费数据）。</p>
+<p>例如：</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
 <span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="p">);</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">stats</span><span class="p">());</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
-  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="s2">&quot;consumer_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;producer_num&quot;</span><span class="o">]=</span>&gt;
   int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
-  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  <span class="o">[</span><span class="s2">&quot;queue_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>此时，<code>producer_num</code>的个数为<code>2</code>。因为这个<code>Channel</code>的容量是<code>1</code>，所以，第一个生产者协程可以往这个<code>Channel</code>里面<code>push</code>数据。后面的两个生产者协程则需要等待。</p>
+<h3 id="queue_num">queue_num</h3>
+<p>代表<code>Channel</code>中数据的数量。</p>
+<p>例如：</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">stats</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="s2">&quot;consumer_num&quot;</span><span class="o">]=</span>&gt;
   int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;producer_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;queue_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
                 
@@ -776,7 +787,7 @@ object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span clas
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../coroutine/disableScheduler/" title="Coroutine::disableScheduler" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../pop/" title="Channel->pop" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -785,25 +796,11 @@ object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span clas
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Coroutine::disableScheduler
+                Channel->pop
               </span>
             </div>
           </a>
         
-        
-          <a href="../push/" title="Channel->push" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Channel->push
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
