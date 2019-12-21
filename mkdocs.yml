@@ -27,6 +27,7 @@ nav:
     - Channel->close: coroutine/channel/close.md
     - Channel->length: coroutine/channel/length.md
     - Channel->isEmpty: coroutine/channel/isEmpty.md
+    - Channel->isFull: coroutine/channel/isFull.md
     
 theme:
   name: 'material'
