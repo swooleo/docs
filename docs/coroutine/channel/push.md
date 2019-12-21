@@ -126,7 +126,7 @@ string(4) "here"
 bool(false)
 ```
 
-此时，因为`timeout`的时间到了，但是既然没有消费者协程去从这个`Channel`里面`pop`出数据，所以第二个`push`返回`false`。
+此时，因为`timeout`的时间到了，但是依然没有消费者协程去从这个`Channel`里面`pop`出数据，所以第二个`push`返回`false`。
 
 ## 返回值
 
