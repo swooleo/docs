@@ -111,8 +111,23 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://swooleo.github.io/docs/coroutine/channel/isEmpty/</loc>
+     <lastmod>2019-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/channel/isFull/</loc>
+     <lastmod>2019-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/channel/capacity/</loc>
+     <lastmod>2019-12-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/channel/errCode/</loc>
+     <lastmod>2019-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
