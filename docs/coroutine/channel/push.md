@@ -11,7 +11,8 @@ Swoole\Coroutine\Channel::push
 public function push($data, $timeout = null) { }
 @param mixed $data
 
-@param mixed|null $timeout
+@param double $timeout
+[optional]
 
 @return bool
 ```
