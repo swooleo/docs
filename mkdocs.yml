@@ -24,6 +24,7 @@ nav:
     - Channel->push: coroutine/channel/push.md
     - Channel->pop: coroutine/channel/pop.md
     - Channel->stats: coroutine/channel/stats.md
+    - Channel->close: coroutine/channel/close.md
     
 theme:
   name: 'material'
