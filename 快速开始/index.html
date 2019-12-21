@@ -622,42 +622,47 @@
 <p><code>Swoole</code>可以通过<code>Pecl</code>或者源码来进行安装。</p>
 <h2 id="pecl">Pecl（推荐）</h2>
 <p>首先通过<code>pecl</code>工具下载和编译<code>Swoole</code>扩展：</p>
-<pre><code class="shell"># 安装最新版本
+<div class="codehilite"><pre><span></span><span class="c1"># 安装最新版本</span>
 pecl install swoole
-# 安装指定版本
+<span class="c1"># 安装指定版本</span>
 pecl install swoole-4.4.8
-</code></pre>
+</pre></div>
+
 
 <p>编译成功之后，把<code>Swoole</code>添加到<code>php.ini</code>配置文件里面。配置文件的路径可以通过如下命令进行查找，例如：</p>
-<pre><code class="shell">php --ini
-Configuration File (php.ini) Path: /etc
+<div class="codehilite"><pre><span></span>php --ini
+Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path: /etc
 Loaded Configuration File:         /etc/php.ini
-Scan for additional .ini files in: /etc/php.d
-</code></pre>
+Scan <span class="k">for</span> additional .ini files in: /etc/php.d
+</pre></div>
+
 
 <p>推荐在<code>additional .ini</code>目录里面单独为<code>Swoole</code>创建一个配置文件，例如：</p>
-<pre><code class="shell">touch /etc/php.d/swoole.ini
-cat &gt; /etc/php.d/swoole.ini &lt;&lt;EOF
-; Enable swoole extension module
-extension=swoole.so
-EOF
-</code></pre>
+<div class="codehilite"><pre><span></span>touch /etc/php.d/swoole.ini
+cat &gt; /etc/php.d/swoole.ini <span class="s">&lt;&lt;EOF</span>
+<span class="s">; Enable swoole extension module</span>
+<span class="s">extension=swoole.so</span>
+<span class="s">EOF</span>
+</pre></div>
+
 
 <h2 id="_2">源码安装</h2>
 <p>下载一份已经<code>release</code>的<code>Swoole</code>源码：</p>
-<pre><code class="shell">curl -L https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz -o swoole-src-4.4.12.tar.gz \
-&amp;&amp; tar -xvf swoole-src-4.4.12.tar.gz \
-&amp;&amp; cd swoole-src-4.4.12 \
-&amp;&amp; phpize \
-&amp;&amp; ./configure \
-&amp;&amp; make -j4 \
-&amp;&amp; make install
-</code></pre>
+<div class="codehilite"><pre><span></span>curl -L https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz -o swoole-src-4.4.12.tar.gz <span class="se">\</span>
+<span class="o">&amp;&amp;</span> tar -xvf swoole-src-4.4.12.tar.gz <span class="se">\</span>
+<span class="o">&amp;&amp;</span> <span class="nb">cd</span> swoole-src-4.4.12 <span class="se">\</span>
+<span class="o">&amp;&amp;</span> phpize <span class="se">\</span>
+<span class="o">&amp;&amp;</span> ./configure <span class="se">\</span>
+<span class="o">&amp;&amp;</span> make -j4 <span class="se">\</span>
+<span class="o">&amp;&amp;</span> make install
+</pre></div>
+
 
 <p>然后按照上面的方式把<code>Swoole</code>添加到配置文件<code>php.ini</code>里面即可。</p>
 <h2 id="_3">验证是否安装成功</h2>
-<pre><code class="shell">php --ri swoole
-</code></pre>
+<div class="codehilite"><pre><span></span>php --ri swoole
+</pre></div>
+
 
 <h2 id="_4">常见问题</h2>
 <p>在安装扩展的时候，最常见的一个问题有两个。</p>

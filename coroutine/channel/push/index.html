@@ -651,214 +651,228 @@
                 <h1 id="channel-push">Channel-&gt;push</h1>
 <p>向<code>Channel</code>中写入数据。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine\Channel::push
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Channel::push</span>
 
-&lt;?php
-public function push($data, $timeout = null) { }
-@param mixed $data
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">push</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$timeout</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">mixed</span> <span class="nv">$data</span>
 
-@param double $timeout
-[optional]
+<span class="o">@</span><span class="nx">param</span> <span class="nx">double</span> <span class="nv">$timeout</span>
+<span class="p">[</span><span class="nx">optional</span><span class="p">]</span>
 
-@return bool
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">bool</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="mixed-data">mixed $data</h3>
 <p>往<code>Channel</code>中存放的数据（可以是任意类型的数据）。例如：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Co\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(2);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
-    go(function () use ($chan) {
-        $chan-&gt;push(&quot;swoole&quot;);
-        $chan-&gt;push(1024);
-        $chan-&gt;push((object)[
-            'object',
-        ]);
-    });
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;swoole&quot;</span><span class="p">);</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+        <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">((</span><span class="nx">object</span><span class="p">)[</span>
+            <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+        <span class="p">]);</span>
+    <span class="p">});</span>
 
-    go(function () use ($chan) {
-        $data = $chan-&gt;pop();
-        var_dump($data);
-        $data = $chan-&gt;pop();
-        var_dump($data);
-        $data = $chan-&gt;pop();
-        var_dump($data);
-    });
-});
-</code></pre>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">string(6) &quot;swoole&quot;
-int(1024)
-object(stdClass)#5 (1) {
-  [&quot;0&quot;]=&gt;
-  string(6) &quot;object&quot;
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;swoole&quot;</span>
+int<span class="o">(</span><span class="m">1024</span><span class="o">)</span>
+object<span class="o">(</span>stdClass<span class="o">)</span><span class="c1">#5 (1) {</span>
+  <span class="o">[</span><span class="s2">&quot;0&quot;</span><span class="o">]=</span>&gt;
+  string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;object&quot;</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <h3 id="mixed-timeout">mixed $timeout</h3>
 <p>等待的超时时间，单位秒（<code>s</code>）</p>
 <p>在通道已满的情况下，push会挂起当前协程，在约定的时间内，如果没有任何消费者消费数据，将发生超时，底层会恢复当前协程，push调用立即返回false，写入失败。</p>
 <h4 id="timeout">不设置timeout</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Co\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(1);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;push(&quot;swoole&quot;);
-        var_dump($ret);
-        $ret = $chan-&gt;push(1024);
-        var_dump($ret);
-    });
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;swoole&quot;</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+    <span class="p">});</span>
 
-    var_dump(&quot;here&quot;);
-});
-</code></pre>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;here&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">bool(true)
-string(4) &quot;here&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span>bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">4</span><span class="o">)</span> <span class="s2">&quot;here&quot;</span>
+</pre></div>
+
 
 <p>此时<code>1024</code>没有被<code>push</code>进<code>Channel</code>里面，并且协程被<code>yield</code>出来了。</p>
 <h4 id="timeout_1">设置timeout</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Co\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(1);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;push(&quot;swoole&quot;);
-        var_dump($ret);
-        $ret = $chan-&gt;push(1024, 1);
-        var_dump($ret);
-    });
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s2">&quot;swoole&quot;</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+    <span class="p">});</span>
 
-    var_dump(&quot;here&quot;);
-});
-</code></pre>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;here&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">bool(true)
-string(4) &quot;here&quot;
-bool(false)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">4</span><span class="o">)</span> <span class="s2">&quot;here&quot;</span>
+bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span>
+</pre></div>
+
 
 <p>此时，因为<code>timeout</code>的时间到了，但是依然没有消费者协程去从这个<code>Channel</code>里面<code>pop</code>出数据，所以第二个<code>push</code>返回<code>false</code>。</p>
 <h2 id="_3">返回值</h2>
 <p>因为<code>Channel</code>调用<code>pop</code>的时候，如果失败会返回<code>false</code>，所以为避免产生歧义，请勿向通道中写入<code>false</code>。</p>
 <p>取出<code>Channel</code>里面的<code>false</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Co\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(1);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;push(false);
-        var_dump($ret);
-    });
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+    <span class="p">});</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;pop();
-        var_dump($ret);
-    });
-});
-</code></pre>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">bool(true)
-bool(false)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
+bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span>
+</pre></div>
+
 
 <p>因为失败，导致返回<code>false</code>：</p>
-<pre><code class="shell">&lt;?php
+<div class="codehilite"><pre><span></span>&lt;?php
 
-use Swoole\Coroutine\Channel;
+use Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="p">;</span>
 
-use function Co\run;
+use <span class="k">function</span> Co<span class="se">\r</span>un<span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(1);
+run<span class="o">(</span><span class="k">function</span> <span class="o">()</span> <span class="o">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> new Channel<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;pop(1);
-        var_dump($ret);
-    });
-});
-</code></pre>
+    go<span class="o">(</span><span class="k">function</span> <span class="o">()</span> use <span class="o">(</span><span class="nv">$chan</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span>-&gt;pop<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+        var_dump<span class="o">(</span><span class="nv">$ret</span><span class="o">)</span><span class="p">;</span>
+    <span class="o">})</span><span class="p">;</span>
+<span class="o">})</span><span class="p">;</span>
+</pre></div>
 
-<pre><code class="shell">bool(false)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span>
+</pre></div>
+
 
 <p>如果必须要往<code>Channel</code>里面<code>push</code>一个<code>false</code>，那么必须通过<code>Channel</code>的<code>errCode</code>错误码来判断是否发生了错误：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Co\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(1);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;push(false);
-        var_dump($ret);
-    });
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>
+    <span class="p">});</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;pop();
-        if (($ret === false) &amp;&amp; ($chan-&gt;errCode &lt; 0)) {
-            var_dump(&quot;error&quot;);
-        } else {
-            var_dump(&quot;success&quot;);
-        }
-    });
-});
-</code></pre>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nv">$ret</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">errCode</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;success&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">bool(true)
-string(7) &quot;success&quot;
-</code></pre>
 
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span>bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">7</span><span class="o">)</span> <span class="s2">&quot;success&quot;</span>
+</pre></div>
 
-use Swoole\Coroutine\Channel;
 
-use function Co\run;
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-run(function () {
-    $chan = new Channel(1);
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-    go(function () use ($chan) {
-        $ret = $chan-&gt;pop(1);
-        if (($ret === false) &amp;&amp; ($chan-&gt;errCode &lt; 0)) {
-            var_dump(&quot;error&quot;);
-        } else {
-            var_dump(&quot;success&quot;);
-        }
-    });
-});
-</code></pre>
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
-<pre><code class="shell">string(5) &quot;error&quot;
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$chan</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$ret</span> <span class="o">=</span> <span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nv">$ret</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nv">$chan</span><span class="o">-&gt;</span><span class="na">errCode</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;success&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;error&quot;</span>
+</pre></div>
                 
                   
                 

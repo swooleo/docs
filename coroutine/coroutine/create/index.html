@@ -747,185 +747,204 @@
                 <h1 id="coroutinecreate">Coroutine::create</h1>
 <p><code>Coroutine::create</code>用来创建一个协程，并且立马执行这个协程。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">&lt;?php
-public static function create(
-    callable $func,
-    ...$params
-) { }
-@param callable $func
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span>
+    <span class="nx">callable</span> <span class="nv">$func</span><span class="p">,</span>
+    <span class="o">...</span><span class="nv">$params</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">callable</span> <span class="nv">$func</span>
 
-@param mixed ...$params
+<span class="o">@</span><span class="nx">param</span> <span class="nx">mixed</span> <span class="o">...</span><span class="nv">$params</span>
 
-@return mixed
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <p>这个方法有一个别名，<code>go</code>：</p>
-<pre><code class="php">&lt;?php
-function go(
-    $func,
-    $params = null
-) { }
-@param callable $func
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">go</span><span class="p">(</span>
+    <span class="nv">$func</span><span class="p">,</span>
+    <span class="nv">$params</span> <span class="o">=</span> <span class="k">null</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">callable</span> <span class="nv">$func</span>
 
-@param mixed ...$params
+<span class="o">@</span><span class="nx">param</span> <span class="nx">mixed</span> <span class="o">...</span><span class="nv">$params</span>
 
-@return mixed
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="callable-func">callable $func</h3>
 <p>代表一个<code>PHP</code>函数或者方法。</p>
 <h4 id="_3">普通函数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-function task() {
-    echo 'swoole' . PHP_EOL;
-}
+<span class="k">function</span> <span class="nf">task</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 
-go('task');
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">);</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h4 id="_4">匿名函数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-go(function () {
-    echo 'swoole' . PHP_EOL;
-});
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h4 id="_5">非静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$obj = new Codinghuang;
-go([$obj, 'task']);
-</code></pre>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+<span class="nx">go</span><span class="p">([</span><span class="nv">$obj</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">]);</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h4 id="_6">静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public static function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-go([Codinghuang::class, 'task']);
-</code></pre>
+<span class="nx">go</span><span class="p">([</span><span class="nx">Codinghuang</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">]);</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h4 id="_7">在类的内部调用非静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function test()
-    {
-        go([$this, 'task']);
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">test</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">go</span><span class="p">([</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
 
-    public function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$obj = new Codinghuang;
-$obj-&gt;test();
-</code></pre>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">();</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h4 id="_8">在类的内部调用静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function test()
-    {
-        go([self::class, 'task']);
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">test</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">go</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">]);</span>
+    <span class="p">}</span>
 
-    public static function task()
-    {
-        echo 'swoole' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$obj = new Codinghuang;
-$obj-&gt;test();
-</code></pre>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">test</span><span class="p">();</span>
+</pre></div>
 
-<pre><code class="shell">swoole
-</code></pre>
+
+<div class="codehilite"><pre><span></span>swoole
+</pre></div>
+
 
 <h3 id="mixed-params">mixed ...$params</h3>
 <p>传递给协程任务函数的参数，参数个数是可变的。</p>
 <h4 id="_9">给普通函数传递参数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-function task($param1, $param2)
-{
-    var_dump($param1);
-    var_dump($param2);
-}
+<span class="k">function</span> <span class="nf">task</span><span class="p">(</span><span class="nv">$param1</span><span class="p">,</span> <span class="nv">$param2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param1</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param2</span><span class="p">);</span>
+<span class="p">}</span>
 
-go('task', 1, 'swoole');
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;swoole&#39;</span><span class="p">);</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;swoole&quot;</span>
+</pre></div>
+
 
 <h4 id="_10">给匿名函数传递参数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-go(function ($param1, $param2) {
-    var_dump($param1);
-    var_dump($param2);
-}, 1, 'swoole');
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$param1</span><span class="p">,</span> <span class="nv">$param2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param1</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param2</span><span class="p">);</span>
+<span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;swoole&#39;</span><span class="p">);</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;swoole&quot;</span>
+</pre></div>
+
 
 <h4 id="_11">使用闭包</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-$param1 = 1;
-$param2 = 'swoole';
+<span class="nv">$param1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$param2</span> <span class="o">=</span> <span class="s1">&#39;swoole&#39;</span><span class="p">;</span>
 
-go(function () use ($param1, $param2) {
-    var_dump($param1);
-    var_dump($param2);
-});
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$param1</span><span class="p">,</span> <span class="nv">$param2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param1</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param2</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-string(6) &quot;swoole&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;swoole&quot;</span>
+</pre></div>
                 
                   
                 

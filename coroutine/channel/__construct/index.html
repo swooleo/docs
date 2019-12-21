@@ -637,14 +637,15 @@
                 <h1 id="channel-__construct">Channel-&gt;__construct</h1>
 <p><code>Channel</code>构造方法。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine\Channel::__construct
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Channel::__construct</span>
 
-&lt;?php
-public function __construct($capacity = 1) { }
-@param long|null $capacity
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$capacity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$capacity</span>
 
-@return void
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">void</span>
+</pre></div>
+
 
 <blockquote>
 <p>注意：</p>
@@ -657,75 +658,80 @@ public function __construct($capacity = 1) { }
 <p>指定<code>channel</code>可以容纳的最大数据个数。默认是<code>1</code>。</p>
 <h4 id="1">小于1</h4>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    $chan1 = new Channel(0);
-    var_dump($chan1);
-    $chan2 = new Channel(-1);
-    var_dump($chan2);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan1</span><span class="p">);</span>
+    <span class="nv">$chan2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan2</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">object(Swoole\Coroutine\Channel)#3 (2) {
-  [&quot;capacity&quot;]=&gt;
-  int(1)
-  [&quot;errCode&quot;]=&gt;
-  int(0)
-}
-object(Swoole\Coroutine\Channel)#4 (2) {
-  [&quot;capacity&quot;]=&gt;
-  int(1)
-  [&quot;errCode&quot;]=&gt;
-  int(0)
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
+  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<span class="o">}</span>
+object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#4 (2) {</span>
+  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <h4 id="null">null</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel();
-    var_dump($chan);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">();</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">object(Swoole\Coroutine\Channel)#3 (2) {
-  [&quot;capacity&quot;]=&gt;
-  int(1)
-  [&quot;errCode&quot;]=&gt;
-  int(0)
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
+  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <h4 id="1_1">大于1</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine\Channel;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Channel</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    $chan = new Channel(2);
-    var_dump($chan);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$chan</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Channel</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$chan</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">object(Swoole\Coroutine\Channel)#3 (2) {
-  [&quot;capacity&quot;]=&gt;
-  int(2)
-  [&quot;errCode&quot;]=&gt;
-  int(0)
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>object<span class="o">(</span>Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>hannel<span class="o">)</span><span class="c1">#3 (2) {</span>
+  <span class="o">[</span><span class="s2">&quot;capacity&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;errCode&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
                 
                   
                 

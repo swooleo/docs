@@ -696,240 +696,255 @@
 <p>注意，因为<code>defer</code>一般用于资源的释放，所以它的调用顺序是先注册defer的后执行。逆序符合资源释放的正确逻辑, 后申请的资源可能是基于先申请的资源的, 如先释放先申请的资源, 后申请的资源可能就难以释放。另外需要注意的是，在协程内抛出了异常，已注册的defer也会被执行。</p>
 </blockquote>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::defer
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::defer</span>
 
-&lt;?php
-public static function defer($callback) { }
-@param callable $func
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">defer</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">callable</span> <span class="nv">$func</span>
 
-@return mixed
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <p>这个方法有一个别名，<code>defer</code>：</p>
-<pre><code class="php">defer
+<div class="codehilite"><pre><span></span><span class="x">defer</span>
 
-&lt;?php
-function defer($callback) { }
-@param callable $func
+<span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="nf">defer</span><span class="p">(</span><span class="nv">$callback</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">callable</span> <span class="nv">$func</span>
 
-@return mixed
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="callable-func">callable $func</h3>
 <p>代表一个<code>PHP</code>函数或者方法。</p>
 <h4 id="_3">普通函数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-function task1()
-{
-    echo 'task1' . PHP_EOL;
-}
+<span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 
-function task2()
-{
-    echo 'task2' . PHP_EOL;
-}
+<span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer('task1');
-        Swoole\Coroutine::defer('task2');
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="s1">&#39;task1&#39;</span><span class="p">);</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="s1">&#39;task2&#39;</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h4 id="_4">匿名函数</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer(function () {
-            echo 'task1' . PHP_EOL;
-        });
-        Swoole\Coroutine::defer(function () {
-            echo 'task2' . PHP_EOL;
-        });
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h4 id="_5">非静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        $obj = new Codinghuang;
-        Swoole\Coroutine::defer([$obj, 'task1']);
-        Swoole\Coroutine::defer([$obj, 'task2']);
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nv">$obj</span><span class="p">,</span> <span class="s1">&#39;task1&#39;</span><span class="p">]);</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nv">$obj</span><span class="p">,</span> <span class="s1">&#39;task2&#39;</span><span class="p">]);</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h4 id="_6">静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public static function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public static function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer([Codinghuang::class, 'task1']);
-        Swoole\Coroutine::defer([Codinghuang::class, 'task2']);
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nx">Codinghuang</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task1&#39;</span><span class="p">]);</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nx">Codinghuang</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task2&#39;</span><span class="p">]);</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h4 id="_7">在类的内部调用非静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function run ()
-    {
-        Swoole\Coroutine\run(function () {
-            go(function () {
-                echo '1' . PHP_EOL;
-                Swoole\Coroutine::defer([$this, 'task1']);
-                Swoole\Coroutine::defer([$this, 'task2']);
-                echo '2' . PHP_EOL;
-            });
-        });
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;task1&#39;</span><span class="p">]);</span>
+                <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nv">$this</span><span class="p">,</span> <span class="s1">&#39;task2&#39;</span><span class="p">]);</span>
+                <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
 
-    public function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$obj = new Codinghuang;
-$obj-&gt;run();
-</code></pre>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h4 id="_8">在类的内部调用静态方法</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-class Codinghuang
-{
-    public function run ()
-    {
-        Swoole\Coroutine\run(function () {
-            go(function () {
-                echo '1' . PHP_EOL;
-                Swoole\Coroutine::defer([self::class, 'task1']);
-                Swoole\Coroutine::defer([self::class, 'task2']);
-                echo '2' . PHP_EOL;
-            });
-        });
-    }
+<span class="k">class</span> <span class="nc">Codinghuang</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task1&#39;</span><span class="p">]);</span>
+                <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;task2&#39;</span><span class="p">]);</span>
+                <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
 
-    public static function task1()
-    {
-        echo 'task1' . PHP_EOL;
-    }
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public static function task2()
-    {
-        echo 'task2' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;task2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$obj = new Codinghuang;
-$obj-&gt;run();
-</code></pre>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Codinghuang</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
 task2
 task1
-</code></pre>
+</pre></div>
+
 
 <h2 id="_9">使用协程的返回值作为参数</h2>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        echo '1' . PHP_EOL;
-        Swoole\Coroutine::defer(function ($param) {
-            var_dump($param);
-        });
-        echo '2' . PHP_EOL;
-        return &quot;swoole&quot;;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$param</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s2">&quot;swoole&quot;</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
-string(6) &quot;swoole&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
+string<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="s2">&quot;swoole&quot;</span>
+</pre></div>
                 
                   
                 

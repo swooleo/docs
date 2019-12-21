@@ -695,73 +695,77 @@
                 <h1 id="coroutinestats">Coroutine::stats</h1>
 <p>获取当前协程的状态。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::stats
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::stats</span>
 
-&lt;?php
-public static function stats() { }
-@return array
-</code></pre>
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">stats</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="k">return</span> <span class="k">array</span>
+</pre></div>
+
 
 <h2 id="_2">无参数</h2>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    var_dump(Coroutine::stats());
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">stats</span><span class="p">());</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(8) {
-  [&quot;event_num&quot;]=&gt;
-  int(0)
-  [&quot;signal_listener_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_task_num&quot;]=&gt;
-  int(0)
-  [&quot;aio_worker_num&quot;]=&gt;
-  int(0)
-  [&quot;c_stack_size&quot;]=&gt;
-  int(2097152)
-  [&quot;coroutine_num&quot;]=&gt;
-  int(1)
-  [&quot;coroutine_peak_num&quot;]=&gt;
-  int(1)
-  [&quot;coroutine_last_cid&quot;]=&gt;
-  int(1)
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">8</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="s2">&quot;event_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;signal_listener_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;aio_task_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;aio_worker_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;c_stack_size&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">2097152</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;coroutine_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;coroutine_peak_num&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+  <span class="o">[</span><span class="s2">&quot;coroutine_last_cid&quot;</span><span class="o">]=</span>&gt;
+  int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <h2 id="_3">返回值</h2>
 <p><code>array</code>类型。</p>
 <h3 id="event_num">event_num</h3>
 <p>当前进程所注册的事件个数。例如，在网络服务器中，<code>accept</code>会产生一个<code>event</code>。例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
-use Swoole\Coroutine\Socket;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Socket</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        $socket = new Socket(AF_INET, SWOOLE_TCP);
-        $socket-&gt;bind(&quot;127.0.0.1&quot;, 9501);
-        $socket-&gt;listen();
-        while (true) {
-            $conn = $socket-&gt;accept();
-        }
-    });
-    var_dump(Coroutine::stats()['event_num']);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Socket</span><span class="p">(</span><span class="nx">AF_INET</span><span class="p">,</span> <span class="nx">SWOOLE_TCP</span><span class="p">);</span>
+        <span class="nv">$socket</span><span class="o">-&gt;</span><span class="na">bind</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+        <span class="nv">$socket</span><span class="o">-&gt;</span><span class="na">listen</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$conn</span> <span class="o">=</span> <span class="nv">$socket</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">stats</span><span class="p">()[</span><span class="s1">&#39;event_num&#39;</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
 
-</code></pre>
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</pre></div>
+
 
 <h3 id="signal_listener_num">signal_listener_num</h3>
 <p>TODO</p>
@@ -774,69 +778,75 @@ run(function () {
 <p>注意，这里不是指所有协程加起来的C栈大小，而是当前配置好的每个协程初始<code>C</code>栈大小</p>
 </blockquote>
 <p>可以在创建协程之前，配置好协程<code>C</code>栈的大小。例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
-use Swoole\Coroutine\Socket;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Socket</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-Coroutine::set([
-    'c_stack_size' =&gt; 3 * 1024 * 1024,
-]);
+<span class="nx">Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;c_stack_size&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span>
+<span class="p">]);</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::stats()['c_stack_size']);
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">stats</span><span class="p">()[</span><span class="s1">&#39;c_stack_size&#39;</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(3145728)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">3145728</span><span class="o">)</span>
+</pre></div>
+
 
 <h3 id="coroutine_num">coroutine_num</h3>
 <p>当前进程中存活的协程个数，例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
-use Swoole\Coroutine\Socket;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Socket</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-    });
-    var_dump(Coroutine::stats()['coroutine_num']);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="p">});</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">stats</span><span class="p">()[</span><span class="s1">&#39;coroutine_num&#39;</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</pre></div>
+
 
 <p>可以发现，我们创建了两个协程（<code>run</code>函数会创建一个协程），但是<code>coroutine_num</code>是<code>1</code>。</p>
 <h3 id="coroutine_peak_num">coroutine_peak_num</h3>
 <p>当前进程中<strong>存活</strong>的协程最大个数。</p>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
-use Swoole\Coroutine\Socket;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Socket</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    for ($i=0; $i &lt; 5; $i++) {
-        go(function () {
-        });
-    }
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
 
-    var_dump(Coroutine::stats()['coroutine_peak_num']);
-});
-</code></pre>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">stats</span><span class="p">()[</span><span class="s1">&#39;coroutine_peak_num&#39;</span><span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(2)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+
 
 <p>尽管在<code>run</code>函数里面创建了<code>5</code>个协程，但是协程每次创建完之后就立马死亡，所以峰值是<code>2</code>个。</p>
 <h3 id="coroutine_last_cid">coroutine_last_cid</h3>

@@ -557,32 +557,34 @@
                 <h1 id="coroutinedisablescheduler">Coroutine::disableScheduler</h1>
 <p>关闭<strong>当前协程</strong>的<code>CPU</code>密集型调度。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::disableScheduler
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::disableScheduler</span>
 
-&lt;?php
-public static function disableScheduler() { }
-@return mixed
-</code></pre>
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">disableScheduler</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <h2 id="_2">无参数</h2>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-ini_set(&quot;swoole.enable_preemptive_scheduler&quot;, &quot;1&quot;);
+<span class="nb">ini_set</span><span class="p">(</span><span class="s2">&quot;swoole.enable_preemptive_scheduler&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">);</span>
 
-run(function () {
-    go(function () {
-        Coroutine::disableScheduler();
-        while (true) {
-        }
-    });
-    var_dump('swoole');
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">Coroutine</span><span class="o">::</span><span class="na">disableScheduler</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="s1">&#39;swoole&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>可以发现，是不会跳出死循环的。</p>
                 

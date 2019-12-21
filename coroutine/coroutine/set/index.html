@@ -1013,14 +1013,15 @@
                 <h1 id="coroutineset">Coroutine::set</h1>
 <p><code>Coroutine::set</code>用来设置协程相关选项。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::set
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::set</span>
 
-&lt;?php
-public static function set($options) { }
-@param array $options
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nv">$options</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="k">array</span> <span class="nv">$options</span>
 
-@return mixed
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="array-options">array $options</h3>
@@ -1031,63 +1032,67 @@ public static function set($options) { }
 <p>注意，这个最大协程数指的是这个线程目前存活的协程数，而不是创建的协程个数。因为死亡的协程是不记录在协程个数里面的。</p>
 </blockquote>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'max_coroutine' =&gt; 5,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;max_coroutine&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+<span class="p">]);</span>
 
-for ($i=0; $i &lt; 6; $i++) {
-    go(function() {
-        echo 'swoole' . PHP_EOL;
-    });
-}
-</code></pre>
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
 
-<pre><code class="shell">swoole
+
+<div class="codehilite"><pre><span></span>swoole
 swoole
 swoole
 swoole
 swoole
 swoole
-</code></pre>
+</pre></div>
+
 
 <p>依然可以创建出<code>6</code>个协程。因为协程创建完之后，执行<code>echo</code>就会立马死亡，接着创建下一个协程。</p>
 <p>但是，下面这个例子是会失败的：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'max_coroutine' =&gt; 5,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;max_coroutine&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+<span class="p">]);</span>
 
-go(function() {
-    echo 'swoole' . PHP_EOL;
-    go(function() {
-        echo 'swoole' . PHP_EOL;
-        go(function() {
-            echo 'swoole' . PHP_EOL;
-            go(function() {
-                echo 'swoole' . PHP_EOL;
-                go(function() {
-                    echo 'swoole' . PHP_EOL;
-                    go(function() {
-                        echo 'swoole' . PHP_EOL;
-                    });
-                });
-            });
-        });
-    });
-});
-</code></pre>
+<span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                    <span class="nx">go</span><span class="p">(</span><span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="k">echo</span> <span class="s1">&#39;swoole&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+                    <span class="p">});</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">php set.php
+
+<div class="codehilite"><pre><span></span>php set.php
 swoole
 swoole
 swoole
 swoole
 swoole
-PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 19
-</code></pre>
+PHP Warning:  go<span class="o">()</span>: exceed max number of coroutine <span class="m">5</span> in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line <span class="m">19</span>
+</pre></div>
+
 
 <h4 id="hook_flags">hook_flags</h4>
 <p>可以在运行时动态将基于<code>php_stream</code>实现的扩展、<code>PHP</code>网络客户端代码一键协程化。<code>Swoole</code>创建协程的时候，默认是不会<code>hook</code>的。</p>
@@ -1095,200 +1100,208 @@ PHP Warning:  go(): exceed max number of coroutine 5 in /root/codeDir/phpCode/sw
 <h5 id="swoole_hook_tcp">SWOOLE_HOOK_TCP</h5>
 <p>例子：</p>
 <p><code>hook</code>的<code>tcp</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_TCP,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_TCP</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
-        $socket = stream_socket_server(
-            'tcp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$ctx</span> <span class="o">=</span> <span class="nb">stream_context_create</span><span class="p">([</span><span class="s1">&#39;socket&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;so_reuseaddr&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;backlog&#39;</span> <span class="o">=&gt;</span> <span class="mi">128</span><span class="p">]]);</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;tcp://0.0.0.0:6666&#39;</span><span class="p">,</span>
+            <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span> <span class="o">|</span> <span class="nx">STREAM_SERVER_LISTEN</span><span class="p">,</span> <span class="nv">$ctx</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_accept</span><span class="p">(</span><span class="nv">$socket</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>tcp</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $ctx = stream_context_create(['socket' =&gt; ['so_reuseaddr' =&gt; true, 'backlog' =&gt; 128]]);
-        $socket = stream_socket_server(
-            'tcp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN, $ctx
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$ctx</span> <span class="o">=</span> <span class="nb">stream_context_create</span><span class="p">([</span><span class="s1">&#39;socket&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;so_reuseaddr&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;backlog&#39;</span> <span class="o">=&gt;</span> <span class="mi">128</span><span class="p">]]);</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;tcp://0.0.0.0:6666&#39;</span><span class="p">,</span>
+            <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span> <span class="o">|</span> <span class="nx">STREAM_SERVER_LISTEN</span><span class="p">,</span> <span class="nv">$ctx</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_accept</span><span class="p">(</span><span class="nv">$socket</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_udp">SWOOLE_HOOK_UDP</h5>
 <p><code>hook</code>的<code>udp</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_UDP,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_UDP</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'udp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_recvfrom($socket, 1, 0)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;udp://0.0.0.0:6666&#39;</span><span class="p">,</span>
+            <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_recvfrom</span><span class="p">(</span><span class="nv">$socket</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>udp</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'udp://0.0.0.0:6666',
-            $errno, $errstr, STREAM_SERVER_BIND
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_recvfrom($socket, 1, 0)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;udp://0.0.0.0:6666&#39;</span><span class="p">,</span>
+            <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_recvfrom</span><span class="p">(</span><span class="nv">$socket</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_unix">SWOOLE_HOOK_UNIX</h5>
 <p><code>hook</code>的<code>unix</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_UNIX,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_UNIX</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'unix://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;unix://swoole.sock&#39;</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span> <span class="o">|</span> <span class="nx">STREAM_SERVER_LISTEN</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_accept</span><span class="p">(</span><span class="nv">$socket</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>unix</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'unix://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND | STREAM_SERVER_LISTEN
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_accept($socket)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;unix://swoole.sock&#39;</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span> <span class="o">|</span> <span class="nx">STREAM_SERVER_LISTEN</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_accept</span><span class="p">(</span><span class="nv">$socket</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_udg">SWOOLE_HOOK_UDG</h5>
 <p><code>hook</code>的<code>udg</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_UDG,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_UDG</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'udg://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_recvfrom($socket, 1, 0)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;udg://swoole.sock&#39;</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_recvfrom</span><span class="p">(</span><span class="nv">$socket</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>udg</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $socket = stream_socket_server(
-            'udg://swoole.sock', $errno, $errstr, STREAM_SERVER_BIND
-        );
-        if (!$socket) {
-            echo &quot;$errstr ($errno)&quot; . PHP_EOL;
-            exit(1);
-        }
-        while (stream_socket_recvfrom($socket, 1, 0)) {
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$socket</span> <span class="o">=</span> <span class="nb">stream_socket_server</span><span class="p">(</span>
+            <span class="s1">&#39;udg://swoole.sock&#39;</span><span class="p">,</span> <span class="nv">$errno</span><span class="p">,</span> <span class="nv">$errstr</span><span class="p">,</span> <span class="nx">STREAM_SERVER_BIND</span>
+        <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$socket</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$errstr</span><span class="s2"> (</span><span class="si">$errno</span><span class="s2">)&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+            <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nb">stream_socket_recvfrom</span><span class="p">(</span><span class="nv">$socket</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_ssl">SWOOLE_HOOK_SSL</h5>
@@ -1299,192 +1312,203 @@ Swoole\Coroutine\run(function () {
 <p>TODO</p>
 <h5 id="swoole_hook_file">SWOOLE_HOOK_FILE</h5>
 <p><code>hook</code>的<code>file</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_FILE,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_FILE</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $fp = fopen(__FILE__, 'r');
-        while (true) {
-            fread($fp, 1024);
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">fread</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="mi">1024</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>file</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $fp = fopen(__FILE__, 'r');
-        while (true) {
-            fread($fp, 1024);
-        }
-    });
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">fread</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="mi">1024</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_sleep">SWOOLE_HOOK_SLEEP</h5>
 <p>例子：</p>
 <p><code>hook</code>的<code>sleep</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_SLEEP,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_SLEEP</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        sleep(1);
-        echo '1' . PHP_EOL;
-    });
-    go(function () {
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">2
-1
-</code></pre>
+
+<div class="codehilite"><pre><span></span><span class="m">2</span>
+<span class="m">1</span>
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>sleep</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        sleep(1);
-        echo '1' . PHP_EOL;
-    });
-    go(function () {
-        echo '2' . PHP_EOL;
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s1">&#39;1&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;2&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">1
-2
-</code></pre>
+
+<div class="codehilite"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
+</pre></div>
+
 
 <h5 id="swoole_hook_proc">SWOOLE_HOOK_PROC</h5>
 <p><code>hook</code>的<code>proc</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_PROC,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_PROC</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $descriptorspec = array(
-            0 =&gt; array(&quot;pipe&quot;, &quot;r&quot;),  // stdin, child process read from it
-            1 =&gt; array(&quot;pipe&quot;, &quot;w&quot;),  // stdout, child process write to it
-        );
-        $process = proc_open('php', $descriptorspec, $pipes);
-        if (is_resource($process)) {
-            fwrite($pipes[0], '&lt;?php echo &quot;I am process\n&quot; ?&gt;');
-            fclose($pipes[0]);
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$descriptorspec</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">),</span>  <span class="c1">// stdin, child process read from it</span>
+            <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>  <span class="c1">// stdout, child process write to it</span>
+        <span class="p">);</span>
+        <span class="nv">$process</span> <span class="o">=</span> <span class="nb">proc_open</span><span class="p">(</span><span class="s1">&#39;php&#39;</span><span class="p">,</span> <span class="nv">$descriptorspec</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_resource</span><span class="p">(</span><span class="nv">$process</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;&lt;?php echo &quot;I am process\n&quot; ?&gt;&#39;</span><span class="p">);</span>
+            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 
-            while (true) {
-                echo fread($pipes[1], 1024);
-            }
+            <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1024</span><span class="p">);</span>
+            <span class="p">}</span>
 
-            fclose($pipes[1]);
-            $return_value = proc_close($process);
-            echo &quot;command returned $return_value&quot; . PHP_EOL;
-        }
-    });
+            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="nv">$return_value</span> <span class="o">=</span> <span class="nb">proc_close</span><span class="p">(</span><span class="nv">$process</span><span class="p">);</span>
+            <span class="k">echo</span> <span class="s2">&quot;command returned </span><span class="si">$return_value</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
 
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>打印出<code>here</code>字符串：</p>
-<pre><code class="shell">here
+<div class="codehilite"><pre><span></span>here
 I am process
-</code></pre>
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>proc</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $descriptorspec = array(
-            0 =&gt; array(&quot;pipe&quot;, &quot;r&quot;),  // stdin, child process read from it
-            1 =&gt; array(&quot;pipe&quot;, &quot;w&quot;),  // stdout, child process write to it
-        );
-        $process = proc_open('php', $descriptorspec, $pipes);
-        if (is_resource($process)) {
-            fwrite($pipes[0], '&lt;?php echo &quot;I am process\n&quot; ?&gt;');
-            fclose($pipes[0]);
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$descriptorspec</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">),</span>  <span class="c1">// stdin, child process read from it</span>
+            <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s2">&quot;pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span>  <span class="c1">// stdout, child process write to it</span>
+        <span class="p">);</span>
+        <span class="nv">$process</span> <span class="o">=</span> <span class="nb">proc_open</span><span class="p">(</span><span class="s1">&#39;php&#39;</span><span class="p">,</span> <span class="nv">$descriptorspec</span><span class="p">,</span> <span class="nv">$pipes</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">is_resource</span><span class="p">(</span><span class="nv">$process</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;&lt;?php echo &quot;I am process\n&quot; ?&gt;&#39;</span><span class="p">);</span>
+            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 
-            while (true) {
-                echo fread($pipes[1], 1024);
-            }
+            <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="nb">fread</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1024</span><span class="p">);</span>
+            <span class="p">}</span>
 
-            fclose($pipes[1]);
-            $return_value = proc_close($process);
-            echo &quot;command returned $return_value&quot; . PHP_EOL;
-        }
-    });
+            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$pipes</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+            <span class="nv">$return_value</span> <span class="o">=</span> <span class="nb">proc_close</span><span class="p">(</span><span class="nv">$process</span><span class="p">);</span>
+            <span class="k">echo</span> <span class="s2">&quot;command returned </span><span class="si">$return_value</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
 
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串：</p>
-<pre><code class="shell">I am process
+<div class="codehilite"><pre><span></span>I am process
+</pre></div>
 
-</code></pre>
 
 <h5 id="swoole_hook_blocking_function">SWOOLE_HOOK_BLOCKING_FUNCTION</h5>
 <p>这里的<code>blocking function</code>包括了：<code>gethostbyname</code>、<code>exec</code>、<code>shell_exec</code>。</p>
 <p><code>hook</code>的<code>blocking function</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'hook_flags' =&gt; SWOOLE_HOOK_BLOCKING_FUNCTION,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;hook_flags&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_HOOK_BLOCKING_FUNCTION</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        while (true) {
-            exec(&quot;cat&quot;);
-        }
-    });
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">exec</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
 
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">here
 
-</code></pre>
+<div class="codehilite"><pre><span></span>here
+</pre></div>
+
 
 <p>没有<code>hook</code>的<code>blocking function</code>：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        while (true) {
-            exec(&quot;cat&quot;);
-        }
-    });
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">exec</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
 
-    echo &quot;here&quot; . PHP_EOL;
-});
-</code></pre>
+    <span class="k">echo</span> <span class="s2">&quot;here&quot;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时不会打印出<code>here</code>字符串。</p>
 <h5 id="swoole_hook_curl">SWOOLE_HOOK_CURL</h5>
@@ -1521,50 +1545,55 @@ Swoole\Coroutine\run(function () {
 <p>注意，这里配置的不是PHP层的日志级别，而是C层的日志级别，后面会有一个例子进行说明。</p>
 </blockquote>
 <p>可配置的日志等级从低到高为：</p>
-<pre><code class="shell">SWOOLE_LOG_DEBUG
+<div class="codehilite"><pre><span></span>SWOOLE_LOG_DEBUG
 SWOOLE_LOG_TRACE
 SWOOLE_LOG_INFO
 SWOOLE_LOG_NOTICE
 SWOOLE_LOG_WARNING
 SWOOLE_LOG_ERROR
-</code></pre>
+</pre></div>
+
 
 <blockquote>
 <p>注意，如果在编译<code>Swoole</code>的时候开启了<code>debug</code>，那么<code>log_level</code>默认是<code>SWOOLE_LOG_DEBUG</code>；否则<code>log_level</code>默认是<code>SWOOLE_LOG_INFO</code>。</p>
 </blockquote>
 <p>没有设置<code>log_level</code>的例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $client = new Swoole\Coroutine\Client(SWOOLE_TCP);
-        $client-&gt;connect('127.0.0.1');
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swoole\Coroutine\Client</span><span class="p">(</span><span class="nx">SWOOLE_TCP</span><span class="p">);</span>
+        <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时会打印<code>PHP</code>层<code>Warning</code>级别的警告：</p>
-<pre><code class="shell">PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 6
-</code></pre>
+<div class="codehilite"><pre><span></span>PHP Warning:  Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>lient::connect<span class="o">()</span>: The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line <span class="m">6</span>
+</pre></div>
+
 
 <p>设置<code>log_level</code>的例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-Swoole\Coroutine::set([
-    'log_level' =&gt; SWOOLE_LOG_ERROR,
-]);
+<span class="nx">Swoole\Coroutine</span><span class="o">::</span><span class="na">set</span><span class="p">([</span>
+    <span class="s1">&#39;log_level&#39;</span> <span class="o">=&gt;</span> <span class="nx">SWOOLE_LOG_ERROR</span><span class="p">,</span>
+<span class="p">]);</span>
 
-Swoole\Coroutine\run(function () {
-    go(function () {
-        $client = new Swoole\Coroutine\Client(SWOOLE_TCP);
-        $client-&gt;connect('127.0.0.1');
-    });
-});
-</code></pre>
+<span class="nx">Swoole\Coroutine\run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swoole\Coroutine\Client</span><span class="p">(</span><span class="nx">SWOOLE_TCP</span><span class="p">);</span>
+        <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
 
 <p>此时依然会打印出<code>PHP</code>层<code>Warning</code>级别的警告：</p>
-<pre><code class="shell">PHP Warning:  Swoole\Coroutine\Client::connect(): The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line 10
-</code></pre>
+<div class="codehilite"><pre><span></span>PHP Warning:  Swoole<span class="se">\C</span>oroutine<span class="se">\C</span>lient::connect<span class="o">()</span>: The port is invalid in /root/codeDir/phpCode/swoole/coroutine/coroutine/set.php on line <span class="m">10</span>
+</pre></div>
+
 
 <h4 id="trace_flags">trace_flags</h4>
 <p>TODO</p>

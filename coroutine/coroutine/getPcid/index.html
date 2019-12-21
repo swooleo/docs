@@ -637,84 +637,91 @@
                 <h1 id="coroutinegetpcid">Coroutine::getPcid</h1>
 <p>获取当前协程的父<code>cid</code>。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::getPcid
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::getPcid</span>
 
-&lt;?php
-public static function getPcid($cid = null) { }
-@param long|null $cid
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getPcid</span><span class="p">(</span><span class="nv">$cid</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$cid</span>
 
-@return long
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">long</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="longnull-cid">long|null $cid</h3>
 <p>某个协程的<code>cid</code>或者<code>null</code>。</p>
 <p>如果为<code>null</code>，代表获取当前协程的<code>pcid</code>。</p>
 <h4 id="cidnull">cid不为null</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getPcid(2));
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getPcid</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</pre></div>
+
 
 <h4 id="cidnull_1">cid为null</h4>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getPcid());
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getPcid</span><span class="p">());</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">int(1)
-</code></pre>
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</pre></div>
+
 
 <h2 id="_3">注意</h2>
 <p>协程之间并没有实质上的父子关系，协程之间是相互隔离、独立运作的。此<code>Pcid</code>可理解为是哪个协程创建了当前协程。</p>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(&quot;parent coroutine start&quot;);
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;parent coroutine start&quot;</span><span class="p">);</span>
 
-        Coroutine::defer(function () {
-            var_dump(&quot;parent coroutine dead&quot;);
-        });
+        <span class="nx">Coroutine</span><span class="o">::</span><span class="na">defer</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;parent coroutine dead&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
 
-        go(function () {
-            var_dump(&quot;child coroutine start&quot;);
-            Coroutine::sleep(0.01);
-            var_dump(&quot;child coroutine still running&quot;);
-        });
-    });
-});
-</code></pre>
+        <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;child coroutine start&quot;</span><span class="p">);</span>
+            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span>
+            <span class="nb">var_dump</span><span class="p">(</span><span class="s2">&quot;child coroutine still running&quot;</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">string(22) &quot;parent coroutine start&quot;
-string(21) &quot;child coroutine start&quot;
-string(21) &quot;parent coroutine dead&quot;
-string(29) &quot;child coroutine still running&quot;
-</code></pre>
+
+<div class="codehilite"><pre><span></span>string<span class="o">(</span><span class="m">22</span><span class="o">)</span> <span class="s2">&quot;parent coroutine start&quot;</span>
+string<span class="o">(</span><span class="m">21</span><span class="o">)</span> <span class="s2">&quot;child coroutine start&quot;</span>
+string<span class="o">(</span><span class="m">21</span><span class="o">)</span> <span class="s2">&quot;parent coroutine dead&quot;</span>
+string<span class="o">(</span><span class="m">29</span><span class="o">)</span> <span class="s2">&quot;child coroutine still running&quot;</span>
+</pre></div>
+
 
 <p>父协程死亡之后，子协程依然还在运行。</p>
                 

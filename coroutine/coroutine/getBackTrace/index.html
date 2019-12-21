@@ -771,99 +771,104 @@
                 <h1 id="coroutinegetbacktrace">Coroutine::getBackTrace</h1>
 <p>获取协程函数调用栈。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::getBackTrace
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::getBackTrace</span>
 
-&lt;?php
-public static function getBackTrace(
-    $cid = 0,
-    $options = DEBUG_BACKTRACE_PROVIDE_OBJECT,
-    $limit = 0
-) { }
-@param long|null $cid
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getBackTrace</span><span class="p">(</span>
+    <span class="nv">$cid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nv">$options</span> <span class="o">=</span> <span class="nx">DEBUG_BACKTRACE_PROVIDE_OBJECT</span><span class="p">,</span>
+    <span class="nv">$limit</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$cid</span>
 
-@param long|null $options
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$options</span>
 
-@param long|null $limit
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$limit</span>
 
-@return array|false
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="k">array</span><span class="o">|</span><span class="k">false</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="cid">cid</h3>
 <h4 id="cidnull">cid不为null</h4>
 <p>获取<code>cid</code>这个协程的函数调用栈。</p>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    $cid = go(function () {
-        Coroutine::yield();
-    });
-    var_dump(Coroutine::getBackTrace($cid));
-    Coroutine::resume($cid);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$cid</span> <span class="o">=</span> <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">Coroutine</span><span class="o">::</span><span class="na">yield</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nv">$cid</span><span class="p">));</span>
+    <span class="nx">Coroutine</span><span class="o">::</span><span class="na">resume</span><span class="p">(</span><span class="nv">$cid</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(1) {
-  [0]=&gt;
-  array(6) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(5) &quot;yield&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-    [&quot;args&quot;]=&gt;
-    array(0) {
-    }
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;yield&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;args&quot;</span><span class="o">]=</span>&gt;
+    array<span class="o">(</span><span class="m">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>可以看到<code>$cid</code>这个协程的函数调用栈信息。可以发现，<code>$cid</code>这个协程当前执行的函数是<code>yield</code>。</p>
 <h4 id="cidnull_1">cid为null</h4>
 <p>获取当前协程的函数调用栈。</p>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getBackTrace());
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">());</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(1) {
-  [0]=&gt;
-  array(6) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-    [&quot;args&quot;]=&gt;
-    array(0) {
-    }
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;args&quot;</span><span class="o">]=</span>&gt;
+    array<span class="o">(</span><span class="m">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>可以发现，当前协程执行的函数是<code>getBackTrace</code>。</p>
 <h3 id="options">options</h3>
@@ -871,247 +876,257 @@ run(function () {
 <h4 id="optionsnull">options不为null</h4>
 <h5 id="debug_backtrace_provide_object">DEBUG_BACKTRACE_PROVIDE_OBJECT</h5>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getBackTrace(Coroutine::getCid(), DEBUG_BACKTRACE_PROVIDE_OBJECT));
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">(),</span> <span class="nx">DEBUG_BACKTRACE_PROVIDE_OBJECT</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(1) {
-  [0]=&gt;
-  array(6) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-    [&quot;args&quot;]=&gt;
-    array(2) {
-      [0]=&gt;
-      int(2)
-      [1]=&gt;
-      int(1)
-    }
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;args&quot;</span><span class="o">]=</span>&gt;
+    array<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+      int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+      <span class="o">[</span><span class="m">1</span><span class="o">]=</span>&gt;
+      int<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>可以得到传递给<code>getBackTrace</code>函数的参数。</p>
 <h5 id="debug_backtrace_ignore_args">DEBUG_BACKTRACE_IGNORE_ARGS</h5>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getBackTrace(Coroutine::getCid(), DEBUG_BACKTRACE_IGNORE_ARGS));
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">(),</span> <span class="nx">DEBUG_BACKTRACE_IGNORE_ARGS</span><span class="p">));</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(1) {
-  [0]=&gt;
-  array(5) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>会省略传递给<code>getBackTrace</code>的参数。</p>
 <h4 id="optionsnull_1">options为null</h4>
 <p>实际上就是<code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code>。例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-run(function () {
-    go(function () {
-        var_dump(Coroutine::getBackTrace(Coroutine::getCid()));
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">()));</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(1) {
-  [0]=&gt;
-  array(6) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-    [&quot;args&quot;]=&gt;
-    array(1) {
-      [0]=&gt;
-      int(2)
-    }
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">6</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;args&quot;</span><span class="o">]=</span>&gt;
+    array<span class="o">(</span><span class="m">1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+      int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>可以得到传递给<code>getBackTrace</code>的参数。</p>
 <h3 id="limit">limit</h3>
 <p>此参数可用于限制返回的函数调用栈数目。默认情况下(<code>limit=0</code>)返回所有函数调用栈。</p>
 <h4 id="limitnull">limit不为null</h4>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-function task1()
-{
-    task2();
-}
+<span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">task2</span><span class="p">();</span>
+<span class="p">}</span>
 
-function task2()
-{
-    task3();
-}
+<span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">task3</span><span class="p">();</span>
+<span class="p">}</span>
 
-function task3()
-{
-    var_dump(Coroutine::getBackTrace(Coroutine::getCid(), DEBUG_BACKTRACE_IGNORE_ARGS, 2));
-}
+<span class="k">function</span> <span class="nf">task3</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">(),</span> <span class="nx">DEBUG_BACKTRACE_IGNORE_ARGS</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
 
-run(function () {
-    go(function () {
-        task1();
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">task1</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(2) {
-  [0]=&gt;
-  array(5) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(19)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-  }
-  [1]=&gt;
-  array(3) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(14)
-    [&quot;function&quot;]=&gt;
-    string(5) &quot;task3&quot;
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">19</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+  <span class="o">}</span>
+  <span class="o">[</span><span class="m">1</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">14</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;task3&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>返回了两层函数调用栈。</p>
 <h4 id="limitnull_1">limit为null</h4>
 <p>例子：</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-function task1()
-{
-    task2();
-}
+<span class="k">function</span> <span class="nf">task1</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">task2</span><span class="p">();</span>
+<span class="p">}</span>
 
-function task2()
-{
-    task3();
-}
+<span class="k">function</span> <span class="nf">task2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">task3</span><span class="p">();</span>
+<span class="p">}</span>
 
-function task3()
-{
-    var_dump(Coroutine::getBackTrace(Coroutine::getCid(), DEBUG_BACKTRACE_IGNORE_ARGS));
-}
+<span class="k">function</span> <span class="nf">task3</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getBackTrace</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">(),</span> <span class="nx">DEBUG_BACKTRACE_IGNORE_ARGS</span><span class="p">));</span>
+<span class="p">}</span>
 
-run(function () {
-    go(function () {
-        task1();
-    });
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">task1</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">array(4) {
-  [0]=&gt;
-  array(5) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(19)
-    [&quot;function&quot;]=&gt;
-    string(12) &quot;getBackTrace&quot;
-    [&quot;class&quot;]=&gt;
-    string(16) &quot;Swoole\Coroutine&quot;
-    [&quot;type&quot;]=&gt;
-    string(2) &quot;::&quot;
-  }
-  [1]=&gt;
-  array(3) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(14)
-    [&quot;function&quot;]=&gt;
-    string(5) &quot;task3&quot;
-  }
-  [2]=&gt;
-  array(3) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(9)
-    [&quot;function&quot;]=&gt;
-    string(5) &quot;task2&quot;
-  }
-  [3]=&gt;
-  array(3) {
-    [&quot;file&quot;]=&gt;
-    string(78) &quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;
-    [&quot;line&quot;]=&gt;
-    int(24)
-    [&quot;function&quot;]=&gt;
-    string(5) &quot;task1&quot;
-  }
-}
-</code></pre>
+
+<div class="codehilite"><pre><span></span>array<span class="o">(</span><span class="m">4</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span><span class="m">0</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">19</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">12</span><span class="o">)</span> <span class="s2">&quot;getBackTrace&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;class&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">16</span><span class="o">)</span> <span class="s2">&quot;Swoole\Coroutine&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;type&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">2</span><span class="o">)</span> <span class="s2">&quot;::&quot;</span>
+  <span class="o">}</span>
+  <span class="o">[</span><span class="m">1</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">14</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;task3&quot;</span>
+  <span class="o">}</span>
+  <span class="o">[</span><span class="m">2</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">9</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;task2&quot;</span>
+  <span class="o">}</span>
+  <span class="o">[</span><span class="m">3</span><span class="o">]=</span>&gt;
+  array<span class="o">(</span><span class="m">3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">[</span><span class="s2">&quot;file&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">78</span><span class="o">)</span> <span class="s2">&quot;/Users/codinghuang/codeDir/phpCode/swoole/coroutine/coroutine/getBackTrace.php&quot;</span>
+    <span class="o">[</span><span class="s2">&quot;line&quot;</span><span class="o">]=</span>&gt;
+    int<span class="o">(</span><span class="m">24</span><span class="o">)</span>
+    <span class="o">[</span><span class="s2">&quot;function&quot;</span><span class="o">]=</span>&gt;
+    string<span class="o">(</span><span class="m">5</span><span class="o">)</span> <span class="s2">&quot;task1&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 
 <p>返回了所有的函数调用栈。</p>
                 

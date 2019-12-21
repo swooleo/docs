@@ -583,92 +583,94 @@
                 <h1 id="coroutinegetcontext">Coroutine::getContext</h1>
 <p>获取当前协程的上下文对象。</p>
 <h2 id="_1">方法原型</h2>
-<pre><code class="php">Swoole\Coroutine::getContext
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::getContext</span>
 
-&lt;?php
-public static function getContext($cid = null) { }
-@param long|null $cid
+<span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getContext</span><span class="p">(</span><span class="nv">$cid</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$cid</span>
 
-@return long
-</code></pre>
+<span class="o">@</span><span class="k">return</span> <span class="nx">long</span>
+</pre></div>
+
 
 <h2 id="_2">参数</h2>
 <h3 id="longnull-cid">long|null $cid</h3>
 <p>某个协程的<code>cid</code>或者<code>null</code>。</p>
 <p>如果为<code>null</code>，代表获取当前协程的<code>pcid</code>。</p>
-<pre><code class="php">&lt;?php
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-use Swoole\Coroutine;
+<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
 
-use function Swoole\Coroutine\run;
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
 
-function func(callable $fn, ...$args)
-{
-    go(function () use ($fn, $args) {
-        $fn(...$args);
-        echo 'Coroutine#' . Coroutine::getCid() . ' exit' . PHP_EOL;
-    });
-}
+<span class="k">function</span> <span class="nf">func</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fn</span><span class="p">,</span> <span class="o">...</span><span class="nv">$args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fn</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$fn</span><span class="p">(</span><span class="o">...</span><span class="nv">$args</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s1">&#39;Coroutine#&#39;</span> <span class="o">.</span> <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39; exit&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
 
-/**
- * Compatibility for lower version
- * @param object|Resource $object
- * @return int
- */
-function php_object_id($object)
-{
-    static $id = 0;
-    static $map = [];
-    $hash = spl_object_hash($object);
-    return $map[$hash] ?? ($map[$hash] = ++$id);
-}
+<span class="sd">/**</span>
+<span class="sd"> * Compatibility for lower version</span>
+<span class="sd"> * @param object|Resource $object</span>
+<span class="sd"> * @return int</span>
+<span class="sd"> */</span>
+<span class="k">function</span> <span class="nf">php_object_id</span><span class="p">(</span><span class="nv">$object</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="nv">$id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="nv">$map</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$object</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nv">$map</span><span class="p">[</span><span class="nv">$hash</span><span class="p">]</span> <span class="o">??</span> <span class="p">(</span><span class="nv">$map</span><span class="p">[</span><span class="nv">$hash</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="nv">$id</span><span class="p">);</span>
+<span class="p">}</span>
 
-class Resource
-{
-    public function __construct()
-    {
-        echo __CLASS__ . '#' . php_object_id((object)$this) . ' constructed' . PHP_EOL;
-    }
+<span class="k">class</span> <span class="nc">Resource</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="no">__CLASS__</span> <span class="o">.</span> <span class="s1">&#39;#&#39;</span> <span class="o">.</span> <span class="nx">php_object_id</span><span class="p">((</span><span class="nx">object</span><span class="p">)</span><span class="nv">$this</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; constructed&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    public function __destruct()
-    {
-        echo __CLASS__ . '#' . php_object_id((object)$this) . ' destructed' . PHP_EOL;
-    }
-}
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__destruct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="no">__CLASS__</span> <span class="o">.</span> <span class="s1">&#39;#&#39;</span> <span class="o">.</span> <span class="nx">php_object_id</span><span class="p">((</span><span class="nx">object</span><span class="p">)</span><span class="nv">$this</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; destructed&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-run(function () {
-    $context = new Coroutine\Context();
-    assert($context instanceof ArrayObject);
-    assert(Coroutine::getContext() === null);
-    func(function () {
-        $context = Coroutine::getContext();
-        assert($context instanceof Co\Context);
-        $context['resource1'] = new Resource;
-        $context-&gt;resource2 = new Resource;
-        func(function () {
-            Coroutine::getContext()['resource3'] = new Resource;
-            Coroutine::yield();
-            Coroutine::getContext()['resource3']-&gt;resource4 = new Resource;
-            Coroutine::getContext()-&gt;resource5 = new Resource;
-        });
-    });
-    Coroutine::resume(3);
-});
-</code></pre>
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Coroutine\Context</span><span class="p">();</span>
+    <span class="nb">assert</span><span class="p">(</span><span class="nv">$context</span> <span class="nx">instanceof</span> <span class="nx">ArrayObject</span><span class="p">);</span>
+    <span class="nb">assert</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()</span> <span class="o">===</span> <span class="k">null</span><span class="p">);</span>
+    <span class="nx">func</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$context</span> <span class="o">=</span> <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">();</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="nv">$context</span> <span class="nx">instanceof</span> <span class="nx">Co\Context</span><span class="p">);</span>
+        <span class="nv">$context</span><span class="p">[</span><span class="s1">&#39;resource1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
+        <span class="nv">$context</span><span class="o">-&gt;</span><span class="na">resource2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
+        <span class="nx">func</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()[</span><span class="s1">&#39;resource3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
+            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">yield</span><span class="p">();</span>
+            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()[</span><span class="s1">&#39;resource3&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">resource4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
+            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">resource5</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="nx">Coroutine</span><span class="o">::</span><span class="na">resume</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
 
-<pre><code class="shell">Resource#1 constructed
+
+<div class="codehilite"><pre><span></span>Resource#1 constructed
 Resource#2 constructed
 Resource#3 constructed
-Coroutine#2 exit
+Coroutine#2 <span class="nb">exit</span>
 Resource#2 destructed
 Resource#1 destructed
 Resource#4 constructed
 Resource#5 constructed
-Coroutine#3 exit
+Coroutine#3 <span class="nb">exit</span>
 Resource#5 destructed
 Resource#3 destructed
 Resource#4 destructed
-</code></pre>
+</pre></div>
                 
                   
                 
