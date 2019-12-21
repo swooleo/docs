@@ -757,7 +757,7 @@ string(4) &quot;here&quot;
 bool(false)
 </code></pre>
 
-<p>此时，因为<code>timeout</code>的时间到了，但是既然没有消费者协程去从这个<code>Channel</code>里面<code>pop</code>出数据，所以第二个<code>push</code>返回<code>false</code>。</p>
+<p>此时，因为<code>timeout</code>的时间到了，但是依然没有消费者协程去从这个<code>Channel</code>里面<code>pop</code>出数据，所以第二个<code>push</code>返回<code>false</code>。</p>
 <h2 id="_3">返回值</h2>
 <p>因为<code>Channel</code>调用<code>pop</code>的时候，如果失败会返回<code>false</code>，所以为避免产生歧义，请勿向通道中写入<code>false</code>。</p>
 <p>取出<code>Channel</code>里面的<code>false</code>：</p>
