@@ -23,6 +23,7 @@ nav:
     - Channel->__construct: coroutine/channel/__construct.md
     - Channel->push: coroutine/channel/push.md
     - Channel->pop: coroutine/channel/pop.md
+    - Channel->stats: coroutine/channel/stats.md
     
 theme:
   name: 'material'
