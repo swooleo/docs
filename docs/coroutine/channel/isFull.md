@@ -1,4 +1,4 @@
-# Channel->isEmpty
+# Channel->isFull
 
 判断`Channel`是否为空。
 
