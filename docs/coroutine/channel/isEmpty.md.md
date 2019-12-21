@@ -1,4 +1,4 @@
-# Channel->isEmpty.md
+# Channel->isEmpty
 
 判断`Channel`是否为空。
 
