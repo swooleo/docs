@@ -505,6 +505,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#timeout_1" class="md-nav__link">
+    设置timeout
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -600,6 +607,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#timeout_1" class="md-nav__link">
+    设置timeout
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -691,7 +705,6 @@ object(stdClass)#5 (1) {
 <p>等待的超时时间，单位秒（<code>s</code>）</p>
 <p>在通道已满的情况下，push会挂起当前协程，在约定的时间内，如果没有任何消费者消费数据，将发生超时，底层会恢复当前协程，push调用立即返回false，写入失败。</p>
 <h4 id="timeout">不设置timeout</h4>
-<p>例如：</p>
 <pre><code class="php">&lt;?php
 
 use Swoole\Coroutine\Channel;
@@ -717,8 +730,134 @@ string(4) &quot;here&quot;
 </code></pre>
 
 <p>此时<code>1024</code>没有被<code>push</code>进<code>Channel</code>里面，并且协程被<code>yield</code>出来了。</p>
+<h4 id="timeout_1">设置timeout</h4>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine;
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;push(&quot;swoole&quot;);
+        var_dump($ret);
+        $ret = $chan-&gt;push(1024, 1);
+        var_dump($ret);
+    });
+
+    var_dump(&quot;here&quot;);
+});
+</code></pre>
+
+<pre><code class="shell">bool(true)
+string(4) &quot;here&quot;
+bool(false)
+</code></pre>
+
+<p>此时，因为<code>timeout</code>的时间到了，但是既然没有消费者协程去从这个<code>Channel</code>里面<code>pop</code>出数据，所以第二个<code>push</code>返回<code>false</code>。</p>
 <h2 id="_3">返回值</h2>
-<p>为避免产生歧义，请勿向通道中写入空数据，如0、false、空字符串、null。</p>
+<p>因为<code>Channel</code>调用<code>pop</code>的时候，如果失败会返回<code>false</code>，所以为避免产生歧义，请勿向通道中写入<code>false</code>。</p>
+<p>取出<code>Channel</code>里面的<code>false</code>：</p>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;push(false);
+        var_dump($ret);
+    });
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;pop();
+        var_dump($ret);
+    });
+});
+</code></pre>
+
+<pre><code class="shell">bool(true)
+bool(false)
+</code></pre>
+
+<p>因为失败，导致返回<code>false</code>：</p>
+<pre><code class="shell">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;pop(1);
+        var_dump($ret);
+    });
+});
+</code></pre>
+
+<pre><code class="shell">bool(false)
+</code></pre>
+
+<p>如果必须要往<code>Channel</code>里面<code>push</code>一个<code>false</code>，那么必须通过<code>Channel</code>的<code>errCode</code>错误码来判断是否发生了错误：</p>
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;push(false);
+        var_dump($ret);
+    });
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;pop();
+        if (($ret === false) &amp;&amp; ($chan-&gt;errCode &lt; 0)) {
+            var_dump(&quot;error&quot;);
+        } else {
+            var_dump(&quot;success&quot;);
+        }
+    });
+});
+</code></pre>
+
+<pre><code class="shell">bool(true)
+string(7) &quot;success&quot;
+</code></pre>
+
+<pre><code class="php">&lt;?php
+
+use Swoole\Coroutine\Channel;
+
+use function Co\run;
+
+run(function () {
+    $chan = new Channel(1);
+
+    go(function () use ($chan) {
+        $ret = $chan-&gt;pop(1);
+        if (($ret === false) &amp;&amp; ($chan-&gt;errCode &lt; 0)) {
+            var_dump(&quot;error&quot;);
+        } else {
+            var_dump(&quot;success&quot;);
+        }
+    });
+});
+</code></pre>
+
+<pre><code class="shell">string(5) &quot;error&quot;
+</code></pre>
                 
                   
                 
