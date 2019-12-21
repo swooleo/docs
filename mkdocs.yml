@@ -28,7 +28,8 @@ nav:
     - Channel->length: coroutine/channel/length.md
     - Channel->isEmpty: coroutine/channel/isEmpty.md
     - Channel->isFull: coroutine/channel/isFull.md
-    - Channel->$capacity: coroutine/channel/$capacity.md
+    - Channel->capacity: coroutine/channel/capacity.md
+    - Channel->errCode: coroutine/channel/errCode.md
     
 theme:
   name: 'material'
