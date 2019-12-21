@@ -26,6 +26,7 @@ nav:
     - Channel->stats: coroutine/channel/stats.md
     - Channel->close: coroutine/channel/close.md
     - Channel->length: coroutine/channel/length.md
+    - Channel->isEmpty: coroutine/channel/isEmpty.md
     
 theme:
   name: 'material'
