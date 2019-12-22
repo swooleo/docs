@@ -32,6 +32,7 @@ nav:
     - Channel->errCode: coroutine/channel/errCode.md
   - Server:
     - Server->__construct: coroutine/server/__construct.md
+    - Server->set: coroutine/server/set.md
     
 theme:
   name: 'material'
