@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/server/__construct/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/server/set/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Server->__construct - swoole document</title>
+        <title>Server->set - swoole document</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#server-__construct" tabindex="1" class="md-skip">
+      <a href="#server-set" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Server->__construct
+                Server->set
               
             </span>
           
@@ -572,6 +572,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../__construct/" title="Server->__construct" class="md-nav__link">
+      Server->__construct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -583,11 +595,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Server->__construct
+        Server->set
       </label>
     
-    <a href="./" title="Server->__construct" class="md-nav__link md-nav__link--active">
-      Server->__construct
+    <a href="./" title="Server->set" class="md-nav__link md-nav__link--active">
+      Server->set
     </a>
     
       
@@ -616,77 +628,92 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#string-host" class="md-nav__link">
-    string $host
+  <a href="#array-setting" class="md-nav__link">
+    array $setting
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ipv4" class="md-nav__link">
-    IPv4地址
+  <a href="#open_ssl" class="md-nav__link">
+    open_ssl
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ipv6" class="md-nav__link">
-    IPv6地址
+  <a href="#open_eof_check" class="md-nav__link">
+    open_eof_check
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#unixsocket" class="md-nav__link">
-    UnixSocket地址
+  <a href="#open_eof_split" class="md-nav__link">
+    open_eof_split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_eof" class="md-nav__link">
+    package_eof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_mqtt_protocol" class="md-nav__link">
+    open_mqtt_protocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_length_check" class="md-nav__link">
+    open_length_check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_type" class="md-nav__link">
+    package_length_type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_offset" class="md-nav__link">
+    package_length_offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_body_offset" class="md-nav__link">
+    package_body_offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_func" class="md-nav__link">
+    package_length_func
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_max_length" class="md-nav__link">
+    package_max_length
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-port" class="md-nav__link">
-    string $port
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    指定端口
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    随机分配端口
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-ssl" class="md-nav__link">
-    string $ssl
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-reuse_port" class="md-nav__link">
-    string $reuse_port
-  </a>
   
 </li>
         
@@ -703,18 +730,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../set/" title="Server->set" class="md-nav__link">
-      Server->set
-    </a>
   </li>
 
         
@@ -764,77 +779,92 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#string-host" class="md-nav__link">
-    string $host
+  <a href="#array-setting" class="md-nav__link">
+    array $setting
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ipv4" class="md-nav__link">
-    IPv4地址
+  <a href="#open_ssl" class="md-nav__link">
+    open_ssl
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ipv6" class="md-nav__link">
-    IPv6地址
+  <a href="#open_eof_check" class="md-nav__link">
+    open_eof_check
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#unixsocket" class="md-nav__link">
-    UnixSocket地址
+  <a href="#open_eof_split" class="md-nav__link">
+    open_eof_split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_eof" class="md-nav__link">
+    package_eof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_mqtt_protocol" class="md-nav__link">
+    open_mqtt_protocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_length_check" class="md-nav__link">
+    open_length_check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_type" class="md-nav__link">
+    package_length_type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_offset" class="md-nav__link">
+    package_length_offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_body_offset" class="md-nav__link">
+    package_body_offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_length_func" class="md-nav__link">
+    package_length_func
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package_max_length" class="md-nav__link">
+    package_max_length
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-port" class="md-nav__link">
-    string $port
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    指定端口
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    随机分配端口
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-ssl" class="md-nav__link">
-    string $ssl
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-reuse_port" class="md-nav__link">
-    string $reuse_port
-  </a>
   
 </li>
         
@@ -860,43 +890,26 @@
               
                 
                 
-                <h1 id="server-__construct">Server-&gt;__construct</h1>
-<p><code>Server</code>构造方法。</p>
+                <h1 id="server-set">Server-&gt;set</h1>
+<p>设置协议处理参数。</p>
+<blockquote>
+<p>注意，可以多次调用<code>set</code>方法，底层会对调用的<code>set</code>方法进行<code>array_merge</code>的操作</p>
+</blockquote>
 <h2 id="_1">方法原型</h2>
-<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Server</span>
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine\Server::set</span>
 
 <span class="cp">&lt;?php</span>
-<span class="k">class</span> <span class="nc">Server</span> <span class="p">{</span> <span class="p">}</span>
-<span class="nx">Swoole\Coroutine\Server</span><span class="o">::</span><span class="na">__construct</span>
-
-<span class="nx">Server</span> <span class="nx">constructor</span><span class="o">.</span>
-
-<span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span>
-    <span class="nx">string</span> <span class="nv">$host</span><span class="p">,</span>
-    <span class="nx">int</span> <span class="nv">$port</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="nx">bool</span> <span class="nv">$ssl</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span>
-    <span class="nx">bool</span> <span class="nv">$reuse_port</span> <span class="o">=</span> <span class="k">false</span>
-<span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="o">@</span><span class="nx">param</span> <span class="nx">string</span> <span class="nv">$host</span>
-
-<span class="o">@</span><span class="nx">param</span> <span class="nx">int</span> <span class="nv">$port</span>
-<span class="p">[</span><span class="nx">optional</span><span class="p">]</span>
-
-<span class="o">@</span><span class="nx">param</span> <span class="nx">bool</span> <span class="nv">$ssl</span>
-<span class="p">[</span><span class="nx">optional</span><span class="p">]</span>
-
-<span class="o">@</span><span class="nx">param</span> <span class="nx">bool</span> <span class="nv">$reuse_port</span>
-<span class="p">[</span><span class="nx">optional</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="k">array</span> <span class="nv">$setting</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="nx">param</span> <span class="k">array</span> <span class="nv">$setting</span>
 
 <span class="o">@</span><span class="k">return</span> <span class="nx">void</span>
 </pre></div>
 
 
 <h2 id="_2">参数</h2>
-<h3 id="string-host">string $host</h3>
-<p>监听的地址，支持<code>3</code>种格式。</p>
-<h4 id="ipv4">IPv4地址</h4>
+<h3 id="array-setting">array $setting</h3>
+<h4 id="open_ssl">open_ssl</h4>
+<p><code>bool</code>类型。表示是否开启<code>ssl</code>加密：</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
@@ -904,134 +917,229 @@
 <span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
 
 <span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<h4 id="ipv6">IPv6地址</h4>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<h4 id="unixsocket">UnixSocket地址</h4>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;unix:/test.sock&quot;</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<h3 id="string-port">string $port</h3>
-<p>端口范围：<code>port &gt;= 0 &amp;&amp; port &lt;= 65535</code></p>
-<h4 id="_3">指定端口</h4>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$server</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">9501</span><span class="o">)</span>
-</pre></div>
-
-
-<h4 id="_4">随机分配端口</h4>
-<p>监听的端口，默认（即<code>port</code>为<code>0</code>）将由操作系统随机分配一个端口。</p>
-<p>例子一：</p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$server</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">39415</span><span class="o">)</span>
-</pre></div>
-
-
-<p>例子二：</p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$server</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">49382</span><span class="o">)</span>
-</pre></div>
-
-
-<h3 id="string-ssl">string $ssl</h3>
-<p>是否开启<code>SSL</code>加密。</p>
-<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
     <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
-        <span class="s1">&#39;ssl_cert_file&#39;</span> <span class="o">=&gt;</span> <span class="nb">dirname</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/server.crt&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;ssl_key_file&#39;</span> <span class="o">=&gt;</span> <span class="nb">dirname</span><span class="p">(</span><span class="no">__DIR__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/server.key&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;open_ssl&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
     <span class="p">]);</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<h3 id="string-reuse_port">string $reuse_port</h3>
-<p>是否开启端口重用，仅在<code>Linux-3.10</code>或更高版本内核可用。开启后可以在多个进程中绑定监听同一个端口，配合<code>Process\Pool</code>可以实现多进程并行处理同一个端口的网络请求，实现更高的吞吐能力。</p>
+<h4 id="open_eof_check">open_eof_check</h4>
+<p><code>bool</code>类型。打开<code>EOF</code>检测，此选项将检测客户端连接发来的数据，当数据包结尾是指定的字符串时才会结束读取数据，否则会一直读取数据包，直到超过缓存区或者超时才会中止：</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Swoole\Constant</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server\Connection</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Swoole\Process\Pool</span><span class="p">;</span>
 
-<span class="nv">$pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span><span class="s1">&#39;enable_coroutine&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
-<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">on</span><span class="p">(</span><span class="nx">Constant</span><span class="o">::</span><span class="na">EVENT_WORKER_START</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$pool</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">handle</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nx">Connection</span> <span class="nv">$conn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">recv</span><span class="p">();</span>
-        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
-        <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
-    <span class="p">});</span>
-    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_eof_check&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">]);</span>
 <span class="p">});</span>
-<span class="nv">$pool</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+</pre></div>
+
+
+<h4 id="open_eof_split">open_eof_split</h4>
+<p><code>bool</code>类型。启用<code>EOF</code>自动分包。当设置<code>open_eof_check</code>后，底层检测数据是否以特定的字符串结尾来进行数据缓冲。但默认只截取收到数据的末尾部分做对比。这时候可能会产生多条数据合并在一个包内。</p>
+<p><code>EOF</code>切割需要遍历整个数据包的内容，查找<code>EOF</code>，因此会消耗大量<code>CPU</code>资源。假设每个数据包为<code>2M</code>，每秒<code>10000</code>个请求，这可能会产生<code>20G</code>条<code>CPU</code>字符匹配指令。</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_eof_split&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="package_eof">package_eof</h4>
+<p><code>string</code>类型。与<code>open_eof_check</code>或者<code>open_eof_split</code>配合使用，设置<code>EOF</code>字符串。</p>
+<blockquote>
+<p>注意，不可以为空字符串，并且EOF字符串的最大长度是8</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_eof_check&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;package_eof&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p>这里需要特别注意的是，那些会被转义的<code>EOF</code>字符串例如<code>\r\n</code>，在单引号和双引号的含义下是不一样的。至少来说，长度就是不一样的。</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="s1">&#39;\r\n&#39;</span><span class="p">));</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">));</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>int<span class="o">(</span><span class="m">4</span><span class="o">)</span>
+int<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+
+
+<h4 id="open_mqtt_protocol">open_mqtt_protocol</h4>
+<p><code>bool</code>类型。启用<code>mqtt</code>协议处理，启用后会解析<code>mqtt</code>包头。</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_mqtt_protocol&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="open_length_check">open_length_check</h4>
+<p><code>bool</code>类型。打开包长检测特性。包长检测提供了固定包头+包体这种格式协议的解析。</p>
+<blockquote>
+<p>长度检测协议，只需要计算一次长度，数据处理仅进行指针偏移，性能非常高，推荐使用。</p>
+</blockquote>
+<h4 id="package_length_type">package_length_type</h4>
+<p>长度值的类型，接受一个字符参数，与<code>php</code>的<code>pack</code>函数一致。目前<code>Swoole</code>支持<code>10</code>种类型：</p>
+<ul>
+<li>c：有符号、1字节</li>
+<li>C：无符号、1字节</li>
+<li>s ：有符号、主机字节序、2字节</li>
+<li>S：无符号、主机字节序、2字节</li>
+<li>n：无符号、网络字节序、2字节</li>
+<li>N：无符号、网络字节序、4字节</li>
+<li>l：有符号、主机字节序、4字节（小写L）</li>
+<li>L：无符号、主机字节序、4字节（大写L）</li>
+<li>v：无符号、小端字节序、2字节</li>
+<li>V：无符号、小端字节序、4字节</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s2">&quot;open_length_check&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s2">&quot;package_length_type&quot;</span> <span class="o">=&gt;</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="package_length_offset">package_length_offset</h4>
+<p><code>length</code>长度值在包头的第几个字节。</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s2">&quot;open_length_check&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s2">&quot;package_length_type&quot;</span> <span class="o">=&gt;</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;package_length_offset&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="package_body_offset">package_body_offset</h4>
+<p>从第几个字节开始计算长度，一般有<code>2</code>种情况：</p>
+<p><code>length</code>的值包含了整个包（包头<code>+</code>包体），<code>package_body_offset</code>为<code>0</code>
+包头长度为<code>N</code>字节，<code>length</code>的值不包含包头，仅包含包体，<code>package_body_offset</code>设置为<code>N</code></p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s2">&quot;open_length_check&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s2">&quot;package_length_type&quot;</span> <span class="o">=&gt;</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;package_body_offset&quot;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="package_length_func">package_length_func</h4>
+<p>设置长度解析函数，支持C++或PHP的2种类型的函数。长度函数必须返回一个整数。</p>
+<ul>
+<li>返回<code>0</code>，长度数据不足，需要接收更多数据</li>
+<li>返回<code>-1</code>，数据错误，底层会自动关闭连接</li>
+<li>返回包长度值（包括包头和包体的总长度），底层会自动将包拼好后返回给回调函数</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_length_check&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;package_length_func&#39;</span> <span class="o">=&gt;</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nv">$length</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nv">$length</span> <span class="o">+</span> <span class="mi">8</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<h4 id="package_max_length">package_max_length</h4>
+<blockquote>
+<p>默认值为<code>2M</code>, 即<code>2 * 1024 * 1024</code></p>
+</blockquote>
+<p>设置最大数据包尺寸，单位为字节。开启<code>open_length_check</code>/<code>open_eof_check</code>等协议解析后。<code>swoole</code>底层会进行数据包拼接。这时在数据包未收取完整时，所有数据都是保存在内存中的。</p>
+<p>所以需要通过<code>package_max_length</code>来设置一个数据包最大允许占用的内存尺寸。如果同时有<code>1</code>万个TCP连接在发送数据，每个数据包<code>2M</code>，那么最极限的情况下，就会占用<code>20G</code>的内存空间。</p>
+<p><code>open_length_check</code>，当发现包长度超过<code>package_max_length</code>，将直接丢弃此数据，并关闭连接，不会占用任何内存。包括<code>websocket</code>、<code>mqtt</code>、<code>http2</code>协议。
+<code>open_eof_check</code>，因为无法事先得知数据包长度，所以收到的数据还是会保存到内存中，持续增长。当发现内存占用已超过<code>package_max_length</code>时，将直接丢弃此数据，并关闭连接。</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Swoole\Coroutine\Server</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="k">function</span> <span class="nf">Co\run</span><span class="p">;</span>
+
+<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Server</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9501</span><span class="p">);</span>
+    <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span>
+        <span class="s1">&#39;open_eof_check&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;package_eof&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;package_max_length&#39;</span> <span class="o">=&gt;</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="c1">//2M</span>
+    <span class="p">]);</span>
+<span class="p">});</span>
 </pre></div>
                 
                   
@@ -1053,7 +1161,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../channel/errCode/" title="Channel->errCode" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../__construct/" title="Server->__construct" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1062,25 +1170,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Channel->errCode
+                Server->__construct
               </span>
             </div>
           </a>
         
-        
-          <a href="../set/" title="Server->set" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Server->set
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
