@@ -30,6 +30,8 @@ nav:
     - Channel->isFull: coroutine/channel/isFull.md
     - Channel->capacity: coroutine/channel/capacity.md
     - Channel->errCode: coroutine/channel/errCode.md
+  - Server:
+    - Server->__construct: coroutine/server/__construct.md
     
 theme:
   name: 'material'
