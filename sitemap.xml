@@ -155,4 +155,24 @@
      <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/scheduler/set/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/scheduler/add/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/scheduler/parallel/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/scheduler/start/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>
