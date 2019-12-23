@@ -46,12 +46,13 @@ run(function () {
 
 use Swoole\Coroutine\Scheduler;
 
-use function Co\run;
+$sch = new Scheduler;
+$sch->add(function ($param) {
+    var_dump($param);
+}, "swoole");
+$sch->start();
+```
 
-run(function () {
-    $sch = new Scheduler;
-    $sch->add(function ($param) {
-        var_dump($param);
-    }, "swoole");
-});
+```shell
+string(6) "swoole"
 ```
