@@ -2,147 +2,157 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://swooleo.github.io/docs/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/快速开始/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/set/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/create/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/defer/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/getCid/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/getPcid/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/exists/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/getContext/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/yield/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/resume/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/list/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/stats/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/getBackTrace/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/enableScheduler/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/coroutine/disableScheduler/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/__construct/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/push/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/pop/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/stats/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/close/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/length/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/isEmpty/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/isFull/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/capacity/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/channel/errCode/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/server/__construct/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/server/set/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://swooleo.github.io/docs/coroutine/server/handle/</loc>
-     <lastmod>2019-12-22</lastmod>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/server/start/</loc>
+     <lastmod>2019-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/coroutine/server/shutdown/</loc>
+     <lastmod>2019-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

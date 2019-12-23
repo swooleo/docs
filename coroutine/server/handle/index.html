@@ -675,6 +675,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../start/" title="Server->start" class="md-nav__link">
+      Server->start
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shutdown/" title="Server->shutdown" class="md-nav__link">
+      Server->shutdown
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -777,6 +801,7 @@
 
 <h2 id="_2">参数</h2>
 <h3 id="callable-fn">callable $fn</h3>
+<p>每次服务器接收一个<strong>新的连接</strong>，都会调用一次回调函数。</p>
 <p>其中，这个回调函数可以接收一个参数，类型为<code>Swoole\Coroutine\Server\Connection</code>。<code>Swoole</code>底层自动会去传递这个参数，开发者只需要对这个参数进行接收和发送等常规操作即可。</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
@@ -833,6 +858,20 @@
             </div>
           </a>
         
+        
+          <a href="../start/" title="Server->start" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Server->start
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
