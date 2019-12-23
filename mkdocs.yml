@@ -34,6 +34,7 @@ nav:
     - Server->__construct: coroutine/server/__construct.md
     - Server->set: coroutine/server/set.md
     - Server->handle: coroutine/server/handle.md
+    - Server->start: coroutine/server/start.md
     
 theme:
   name: 'material'
