@@ -39,6 +39,7 @@ nav:
   - Scheduler:
     - Scheduler->set: coroutine/scheduler/set.md
     - Scheduler->add: coroutine/scheduler/add.md
+    - Scheduler->parallel: coroutine/scheduler/parallel.md
     
 theme:
   name: 'material'
