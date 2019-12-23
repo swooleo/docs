@@ -27,14 +27,15 @@ public function add(callable $func, ...$params) { }
 
 use Swoole\Coroutine\Scheduler;
 
-use function Co\run;
-
-run(function () {
-    $sch = new Scheduler;
-    $sch->add(function () {
-        var_dump("swoole");
-    });
+$sch = new Scheduler;
+$sch->add(function () {
+    var_dump("swoole");
 });
+$sch->start();
+```
+
+```shell
+string(6) "swoole"
 ```
 
 ### mixed ...$params
