@@ -36,6 +36,9 @@ nav:
     - Server->handle: coroutine/server/handle.md
     - Server->start: coroutine/server/start.md
     - Server->shutdown: coroutine/server/shutdown.md
+  - Scheduler:
+    - Scheduler->set: coroutine/scheduler/set.md
+    - Scheduler->add: coroutine/scheduler/add.md
     
 theme:
   name: 'material'
