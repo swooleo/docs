@@ -18,6 +18,8 @@ public function handle(callable $fn): void { }
 
 ### callable $fn
 
+每次服务器接收一个**新的连接**，都会调用一次回调函数。
+
 其中，这个回调函数可以接收一个参数，类型为`Swoole\Coroutine\Server\Connection`。`Swoole`底层自动会去传递这个参数，开发者只需要对这个参数进行接收和发送等常规操作即可。
 
 ```php
