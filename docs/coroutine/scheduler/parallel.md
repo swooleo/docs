@@ -1,4 +1,4 @@
-# Scheduler->add
+# Scheduler->parallel
 
 批量添加多个协程任务函数。
 
