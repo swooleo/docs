@@ -35,6 +35,7 @@ nav:
     - Server->set: coroutine/server/set.md
     - Server->handle: coroutine/server/handle.md
     - Server->start: coroutine/server/start.md
+    - Server->shutdown: coroutine/server/shutdown.md
     
 theme:
   name: 'material'
