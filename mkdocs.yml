@@ -44,6 +44,7 @@ nav:
 - Table:
   - Introduction: table/introduction.md
   - Table->__construct: table/__construct.md
+  - Table->column: table/column.md
   - Table->del: table/del.md
     
 theme:
