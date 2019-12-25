@@ -41,6 +41,9 @@ nav:
     - Scheduler->add: coroutine/scheduler/add.md
     - Scheduler->parallel: coroutine/scheduler/parallel.md
     - Scheduler->start: coroutine/scheduler/start.md
+- Table:
+  - Introduction: table/introduction.md
+  - Table->__construct: table/__construct.md
     
 theme:
   name: 'material'
