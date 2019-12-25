@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://swooleo.github.io/docs/coroutine/coroutine/getContext/">
+        <link rel="canonical" href="https://swooleo.github.io/docs/table/create/">
       
       
       
@@ -33,21 +33,21 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>Coroutine::getContext - swoole document</title>
+        <title>Table->create - swoole document</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
       
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -56,7 +56,7 @@
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#coroutinegetcontext" tabindex="1" class="md-skip">
+      <a href="#table-create" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Coroutine::getContext
+                Table->create
               
             </span>
           
@@ -172,7 +172,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../.." title="介绍" class="md-nav__link">
+    <a href="../.." title="介绍" class="md-nav__link">
       介绍
     </a>
   </li>
@@ -184,7 +184,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../快速开始/" title="快速开始" class="md-nav__link">
+    <a href="../../快速开始/" title="快速开始" class="md-nav__link">
       快速开始
     </a>
   </li>
@@ -194,12 +194,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Coroutine
@@ -215,12 +213,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
     <label class="md-nav__link" for="nav-3-1">
       Coroutine
@@ -238,7 +234,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../set/" title="Coroutine::set" class="md-nav__link">
+    <a href="../../coroutine/coroutine/set/" title="Coroutine::set" class="md-nav__link">
       Coroutine::set
     </a>
   </li>
@@ -250,7 +246,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../create/" title="Coroutine::create" class="md-nav__link">
+    <a href="../../coroutine/coroutine/create/" title="Coroutine::create" class="md-nav__link">
       Coroutine::create
     </a>
   </li>
@@ -262,7 +258,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../defer/" title="Coroutine::defer" class="md-nav__link">
+    <a href="../../coroutine/coroutine/defer/" title="Coroutine::defer" class="md-nav__link">
       Coroutine::defer
     </a>
   </li>
@@ -274,7 +270,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../getCid/" title="Coroutine::getCid" class="md-nav__link">
+    <a href="../../coroutine/coroutine/getCid/" title="Coroutine::getCid" class="md-nav__link">
       Coroutine::getCid
     </a>
   </li>
@@ -286,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../getPcid/" title="Coroutine::getPcid" class="md-nav__link">
+    <a href="../../coroutine/coroutine/getPcid/" title="Coroutine::getPcid" class="md-nav__link">
       Coroutine::getPcid
     </a>
   </li>
@@ -298,7 +294,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../exists/" title="Coroutine::exists" class="md-nav__link">
+    <a href="../../coroutine/coroutine/exists/" title="Coroutine::exists" class="md-nav__link">
       Coroutine::exists
     </a>
   </li>
@@ -308,69 +304,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Coroutine::getContext
-      </label>
-    
-    <a href="./" title="Coroutine::getContext" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../coroutine/coroutine/getContext/" title="Coroutine::getContext" class="md-nav__link">
       Coroutine::getContext
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    方法原型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    参数
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#longnull-cid" class="md-nav__link">
-    long|null $cid
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -380,7 +318,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../yield/" title="Coroutine::yield" class="md-nav__link">
+    <a href="../../coroutine/coroutine/yield/" title="Coroutine::yield" class="md-nav__link">
       Coroutine::yield
     </a>
   </li>
@@ -392,7 +330,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../resume/" title="Coroutine::resume" class="md-nav__link">
+    <a href="../../coroutine/coroutine/resume/" title="Coroutine::resume" class="md-nav__link">
       Coroutine::resume
     </a>
   </li>
@@ -404,7 +342,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../list/" title="Coroutine::list" class="md-nav__link">
+    <a href="../../coroutine/coroutine/list/" title="Coroutine::list" class="md-nav__link">
       Coroutine::list
     </a>
   </li>
@@ -416,7 +354,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../stats/" title="Coroutine::stats" class="md-nav__link">
+    <a href="../../coroutine/coroutine/stats/" title="Coroutine::stats" class="md-nav__link">
       Coroutine::stats
     </a>
   </li>
@@ -428,7 +366,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../getBackTrace/" title="Coroutine::getBackTrace" class="md-nav__link">
+    <a href="../../coroutine/coroutine/getBackTrace/" title="Coroutine::getBackTrace" class="md-nav__link">
       Coroutine::getBackTrace
     </a>
   </li>
@@ -440,7 +378,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../enableScheduler/" title="Coroutine::enableScheduler" class="md-nav__link">
+    <a href="../../coroutine/coroutine/enableScheduler/" title="Coroutine::enableScheduler" class="md-nav__link">
       Coroutine::enableScheduler
     </a>
   </li>
@@ -452,7 +390,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../disableScheduler/" title="Coroutine::disableScheduler" class="md-nav__link">
+    <a href="../../coroutine/coroutine/disableScheduler/" title="Coroutine::disableScheduler" class="md-nav__link">
       Coroutine::disableScheduler
     </a>
   </li>
@@ -488,7 +426,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/__construct/" title="Channel->__construct" class="md-nav__link">
+    <a href="../../coroutine/channel/__construct/" title="Channel->__construct" class="md-nav__link">
       Channel->__construct
     </a>
   </li>
@@ -500,7 +438,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/push/" title="Channel->push" class="md-nav__link">
+    <a href="../../coroutine/channel/push/" title="Channel->push" class="md-nav__link">
       Channel->push
     </a>
   </li>
@@ -512,7 +450,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/pop/" title="Channel->pop" class="md-nav__link">
+    <a href="../../coroutine/channel/pop/" title="Channel->pop" class="md-nav__link">
       Channel->pop
     </a>
   </li>
@@ -524,7 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/stats/" title="Channel->stats" class="md-nav__link">
+    <a href="../../coroutine/channel/stats/" title="Channel->stats" class="md-nav__link">
       Channel->stats
     </a>
   </li>
@@ -536,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/close/" title="Channel->close" class="md-nav__link">
+    <a href="../../coroutine/channel/close/" title="Channel->close" class="md-nav__link">
       Channel->close
     </a>
   </li>
@@ -548,7 +486,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/length/" title="Channel->length" class="md-nav__link">
+    <a href="../../coroutine/channel/length/" title="Channel->length" class="md-nav__link">
       Channel->length
     </a>
   </li>
@@ -560,7 +498,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/isEmpty/" title="Channel->isEmpty" class="md-nav__link">
+    <a href="../../coroutine/channel/isEmpty/" title="Channel->isEmpty" class="md-nav__link">
       Channel->isEmpty
     </a>
   </li>
@@ -572,7 +510,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/isFull/" title="Channel->isFull" class="md-nav__link">
+    <a href="../../coroutine/channel/isFull/" title="Channel->isFull" class="md-nav__link">
       Channel->isFull
     </a>
   </li>
@@ -584,7 +522,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/capacity/" title="Channel->capacity" class="md-nav__link">
+    <a href="../../coroutine/channel/capacity/" title="Channel->capacity" class="md-nav__link">
       Channel->capacity
     </a>
   </li>
@@ -596,7 +534,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../channel/errCode/" title="Channel->errCode" class="md-nav__link">
+    <a href="../../coroutine/channel/errCode/" title="Channel->errCode" class="md-nav__link">
       Channel->errCode
     </a>
   </li>
@@ -632,7 +570,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../server/__construct/" title="Server->__construct" class="md-nav__link">
+    <a href="../../coroutine/server/__construct/" title="Server->__construct" class="md-nav__link">
       Server->__construct
     </a>
   </li>
@@ -644,7 +582,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../server/set/" title="Server->set" class="md-nav__link">
+    <a href="../../coroutine/server/set/" title="Server->set" class="md-nav__link">
       Server->set
     </a>
   </li>
@@ -656,7 +594,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../server/handle/" title="Server->handle" class="md-nav__link">
+    <a href="../../coroutine/server/handle/" title="Server->handle" class="md-nav__link">
       Server->handle
     </a>
   </li>
@@ -668,7 +606,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../server/start/" title="Server->start" class="md-nav__link">
+    <a href="../../coroutine/server/start/" title="Server->start" class="md-nav__link">
       Server->start
     </a>
   </li>
@@ -680,7 +618,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../server/shutdown/" title="Server->shutdown" class="md-nav__link">
+    <a href="../../coroutine/server/shutdown/" title="Server->shutdown" class="md-nav__link">
       Server->shutdown
     </a>
   </li>
@@ -716,7 +654,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../scheduler/set/" title="Scheduler->set" class="md-nav__link">
+    <a href="../../coroutine/scheduler/set/" title="Scheduler->set" class="md-nav__link">
       Scheduler->set
     </a>
   </li>
@@ -728,7 +666,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../scheduler/add/" title="Scheduler->add" class="md-nav__link">
+    <a href="../../coroutine/scheduler/add/" title="Scheduler->add" class="md-nav__link">
       Scheduler->add
     </a>
   </li>
@@ -740,7 +678,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../scheduler/parallel/" title="Scheduler->parallel" class="md-nav__link">
+    <a href="../../coroutine/scheduler/parallel/" title="Scheduler->parallel" class="md-nav__link">
       Scheduler->parallel
     </a>
   </li>
@@ -752,7 +690,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../scheduler/start/" title="Scheduler->start" class="md-nav__link">
+    <a href="../../coroutine/scheduler/start/" title="Scheduler->start" class="md-nav__link">
       Scheduler->start
     </a>
   </li>
@@ -772,10 +710,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Table
@@ -793,7 +733,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../table/introduction/" title="Introduction" class="md-nav__link">
+    <a href="../introduction/" title="Introduction" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -805,7 +745,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../table/__construct/" title="Table->__construct" class="md-nav__link">
+    <a href="../__construct/" title="Table->__construct" class="md-nav__link">
       Table->__construct
     </a>
   </li>
@@ -817,7 +757,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../table/column/" title="Table->column" class="md-nav__link">
+    <a href="../column/" title="Table->column" class="md-nav__link">
       Table->column
     </a>
   </li>
@@ -827,11 +767,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../../table/create/" title="Table->create" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Table->create
+      </label>
+    
+    <a href="./" title="Table->create" class="md-nav__link md-nav__link--active">
       Table->create
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    方法原型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    无参数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -841,7 +826,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../table/del/" title="Table->del" class="md-nav__link">
+    <a href="../del/" title="Table->del" class="md-nav__link">
       Table->del
     </a>
   </li>
@@ -853,7 +838,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../table/memorySize/" title="Table->memorySize" class="md-nav__link">
+    <a href="../memorySize/" title="Table->memorySize" class="md-nav__link">
       Table->memorySize
     </a>
   </li>
@@ -893,21 +878,8 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    参数
+    无参数
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#longnull-cid" class="md-nav__link">
-    long|null $cid
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -928,96 +900,32 @@
               
                 
                 
-                <h1 id="coroutinegetcontext">Coroutine::getContext</h1>
-<p>获取当前协程的上下文对象。</p>
+                <h1 id="table-create">Table-&gt;create</h1>
+<p>创建内存表。</p>
+<blockquote>
+<p>1、调用create之前不能使用set、get等数据读写操作方法。</p>
+<p>2、调用create之后不能使用column方法添加新字段。</p>
+<p>3、Table使用共享内存来保存数据，在创建子进程前，务必要执行Table-&gt;create()。</p>
+<p>4、Server中使用Table，Table-&gt;create() 必须在Server-&gt;start()前执行。</p>
+</blockquote>
 <h2 id="_1">方法原型</h2>
-<div class="codehilite"><pre><span></span><span class="x">Swoole\Coroutine::getContext</span>
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Table::create</span>
 
 <span class="cp">&lt;?php</span>
-<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getContext</span><span class="p">(</span><span class="nv">$cid</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="o">@</span><span class="nx">param</span> <span class="nx">long</span><span class="o">|</span><span class="k">null</span> <span class="nv">$cid</span>
-
-<span class="o">@</span><span class="k">return</span> <span class="nx">long</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="o">@</span><span class="k">return</span> <span class="nx">bool</span>
 </pre></div>
 
 
-<h2 id="_2">参数</h2>
-<h3 id="longnull-cid">long|null $cid</h3>
-<p>某个协程的<code>cid</code>或者<code>null</code>。</p>
-<p>如果为<code>null</code>，代表获取当前协程的<code>pcid</code>。</p>
+<h2 id="_2">无参数</h2>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
-<span class="k">use</span> <span class="nx">Swoole\Coroutine</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Swoole\Table</span><span class="p">;</span>
 
-<span class="k">use</span> <span class="k">function</span> <span class="nf">Swoole\Coroutine\run</span><span class="p">;</span>
+<span class="nv">$table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Table</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">func</span><span class="p">(</span><span class="nx">callable</span> <span class="nv">$fn</span><span class="p">,</span> <span class="o">...</span><span class="nv">$args</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nx">go</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$fn</span><span class="p">,</span> <span class="nv">$args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$fn</span><span class="p">(</span><span class="o">...</span><span class="nv">$args</span><span class="p">);</span>
-        <span class="k">echo</span> <span class="s1">&#39;Coroutine#&#39;</span> <span class="o">.</span> <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getCid</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39; exit&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-
-<span class="sd">/**</span>
-<span class="sd"> * Compatibility for lower version</span>
-<span class="sd"> * @param object|Resource $object</span>
-<span class="sd"> * @return int</span>
-<span class="sd"> */</span>
-<span class="k">function</span> <span class="nf">php_object_id</span><span class="p">(</span><span class="nv">$object</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="nv">$id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">static</span> <span class="nv">$map</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="nv">$hash</span> <span class="o">=</span> <span class="nb">spl_object_hash</span><span class="p">(</span><span class="nv">$object</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nv">$map</span><span class="p">[</span><span class="nv">$hash</span><span class="p">]</span> <span class="o">??</span> <span class="p">(</span><span class="nv">$map</span><span class="p">[</span><span class="nv">$hash</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="nv">$id</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">class</span> <span class="nc">Resource</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="no">__CLASS__</span> <span class="o">.</span> <span class="s1">&#39;#&#39;</span> <span class="o">.</span> <span class="nx">php_object_id</span><span class="p">((</span><span class="nx">object</span><span class="p">)</span><span class="nv">$this</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; constructed&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__destruct</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="no">__CLASS__</span> <span class="o">.</span> <span class="s1">&#39;#&#39;</span> <span class="o">.</span> <span class="nx">php_object_id</span><span class="p">((</span><span class="nx">object</span><span class="p">)</span><span class="nv">$this</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; destructed&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">run</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Coroutine\Context</span><span class="p">();</span>
-    <span class="nb">assert</span><span class="p">(</span><span class="nv">$context</span> <span class="nx">instanceof</span> <span class="nx">ArrayObject</span><span class="p">);</span>
-    <span class="nb">assert</span><span class="p">(</span><span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()</span> <span class="o">===</span> <span class="k">null</span><span class="p">);</span>
-    <span class="nx">func</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nv">$context</span> <span class="o">=</span> <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">();</span>
-        <span class="nb">assert</span><span class="p">(</span><span class="nv">$context</span> <span class="nx">instanceof</span> <span class="nx">Co\Context</span><span class="p">);</span>
-        <span class="nv">$context</span><span class="p">[</span><span class="s1">&#39;resource1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
-        <span class="nv">$context</span><span class="o">-&gt;</span><span class="na">resource2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
-        <span class="nx">func</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()[</span><span class="s1">&#39;resource3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
-            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">yield</span><span class="p">();</span>
-            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()[</span><span class="s1">&#39;resource3&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">resource4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
-            <span class="nx">Coroutine</span><span class="o">::</span><span class="na">getContext</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">resource5</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Resource</span><span class="p">;</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
-    <span class="nx">Coroutine</span><span class="o">::</span><span class="na">resume</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="p">});</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>Resource#1 constructed
-Resource#2 constructed
-Resource#3 constructed
-Coroutine#2 <span class="nb">exit</span>
-Resource#2 destructed
-Resource#1 destructed
-Resource#4 constructed
-Resource#5 constructed
-Coroutine#3 <span class="nb">exit</span>
-Resource#5 destructed
-Resource#3 destructed
-Resource#4 destructed
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">column</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="nx">Table</span><span class="o">::</span><span class="na">TYPE_INT</span><span class="p">);</span>
+<span class="nv">$table</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
 </pre></div>
                 
                   
@@ -1039,7 +947,7 @@ Resource#4 destructed
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../exists/" title="Coroutine::exists" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../column/" title="Table->column" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1048,19 +956,19 @@ Resource#4 destructed
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Coroutine::exists
+                Table->column
               </span>
             </div>
           </a>
         
         
-          <a href="../yield/" title="Coroutine::yield" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../del/" title="Table->del" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Coroutine::yield
+                Table->del
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1088,9 +996,9 @@ Resource#4 destructed
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../assets/javascripts/application.a8b5e56f.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
   </body>

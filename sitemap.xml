@@ -191,7 +191,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://swooleo.github.io/docs/table/create/</loc>
+     <lastmod>2019-12-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://swooleo.github.io/docs/table/del/</loc>
+     <lastmod>2019-12-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://swooleo.github.io/docs/table/memorySize/</loc>
      <lastmod>2019-12-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
