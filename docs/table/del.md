@@ -5,16 +5,13 @@
 ## 方法原型
 
 ```php
-Swoole\Table
-
-<?php
 Swoole\Table::del
 
 <?php
 public function del($key) { }
-@param string $key
+@param mixed $key
 
-@return bool
+@return mixed
 ```
 
 ## 参数
