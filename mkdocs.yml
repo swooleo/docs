@@ -50,6 +50,7 @@ nav:
   - Table->incr: table/incr.md
   - Table->decr: table/decr.md
   - Table->exist: table/exist.md
+  - Table->count: table/count.md
   - Table->del: table/del.md
   - Table->size: table/size.md
   - Table->memorySize: table/memorySize.md
