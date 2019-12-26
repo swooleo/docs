@@ -54,6 +54,8 @@ nav:
   - Table->del: table/del.md
   - Table->size: table/size.md
   - Table->memorySize: table/memorySize.md
+- Process:
+  - Introduction: process/introduction.md
     
 theme:
   name: 'material'
