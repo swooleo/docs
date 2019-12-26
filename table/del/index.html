@@ -791,6 +791,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../incr/" title="Table->incr" class="md-nav__link">
+      Table->incr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../decr/" title="Table->decr" class="md-nav__link">
+      Table->decr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -953,16 +977,13 @@
                 <h1 id="table-del">Table-&gt;del</h1>
 <p>删除数据。</p>
 <h2 id="_1">方法原型</h2>
-<div class="codehilite"><pre><span></span><span class="x">Swoole\Table</span>
+<div class="codehilite"><pre><span></span><span class="x">Swoole\Table::del</span>
 
 <span class="cp">&lt;?php</span>
-<span class="nx">Swoole\Table</span><span class="o">::</span><span class="na">del</span>
-
-<span class="o">&lt;?</span><span class="nx">php</span>
 <span class="k">public</span> <span class="k">function</span> <span class="nf">del</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="o">@</span><span class="nx">param</span> <span class="nx">string</span> <span class="nv">$key</span>
+<span class="o">@</span><span class="nx">param</span> <span class="nx">mixed</span> <span class="nv">$key</span>
 
-<span class="o">@</span><span class="k">return</span> <span class="nx">bool</span>
+<span class="o">@</span><span class="k">return</span> <span class="nx">mixed</span>
 </pre></div>
 
 
@@ -1040,7 +1061,7 @@ int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../set/" title="Table->set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../decr/" title="Table->decr" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1049,7 +1070,7 @@ int<span class="o">(</span><span class="m">0</span><span class="o">)</span>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Table->set
+                Table->decr
               </span>
             </div>
           </a>
